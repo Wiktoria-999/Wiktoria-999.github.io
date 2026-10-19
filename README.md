@@ -6,12 +6,13 @@
 
 ## 快速访问
 
-| 资源 | 说明 |
-| --- | --- |
-| [theory-180-300.html](theory-180-300.html) | 180 + 300 理论必背训练台 |
-| [case-analysis.html](case-analysis.html) | 案例分析专题 |
-| [english-exercises.html](english-exercises.html) | 英语题专项 |
-| [wrong-questions.html](wrong-questions.html) | 错题收藏夹 |
+| 资源 | 说明 | 备注 |
+| --- | --- | --- |
+| [theory-180-300.html](theory-180-300.html) | 180 + 300 理论必背训练台 | |
+| [case-analysis-snail.html](case-analysis-snail.html) | 案例分析专题（复习网页版） | 🐌 |
+| [case-analysis-maj.html](case-analysis-maj.html) | 案例分析专题（两级导航优化版） | 马J |
+| [english-exercises.html](english-exercises.html) | 英语题专项 | |
+| [wrong-questions.html](wrong-questions.html) | 错题收藏夹 | |
 
 ## 论文写作专项（thesis/）
 
@@ -51,7 +52,8 @@
 SPM/
 ├── README.md
 ├── theory-180-300.html
-├── case-analysis.html
+├── case-analysis-snail.html
+├── case-analysis-maj.html
 ├── english-exercises.html
 ├── wrong-questions.html
 └── thesis/
