@@ -9,6 +9,7 @@
 | 资源 | 说明 | 备注 |
 | --- | --- | --- |
 | [theory-180-300.html](theory-180-300.html) | 180 + 300 理论必背训练台 | |
+| [case-analysis-final.html](case-analysis-final.html) | 案例分析最后押题资料（蓝灰筛选版） | 押题 |
 | [case-analysis-snail.html](case-analysis-snail.html) | 案例分析专题（复习网页版） | 🐌 |
 | [case-analysis-maj.html](case-analysis-maj.html) | 案例分析专题（两级导航优化版） | 马J |
 | [english-exercises.html](english-exercises.html) | 英语题专项 | |
@@ -52,6 +53,7 @@
 SPM/
 ├── README.md
 ├── theory-180-300.html
+├── case-analysis-final.html
 ├── case-analysis-snail.html
 ├── case-analysis-maj.html
 ├── english-exercises.html
