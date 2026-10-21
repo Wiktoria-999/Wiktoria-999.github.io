@@ -13,6 +13,7 @@
 | [supplement-177.html](supplement-177.html) | 押题之外的 177 条补背清单 | 补背 |
 | [case-analysis-snail.html](case-analysis-snail.html) | 案例分析专题（复习网页版） | 🐌 |
 | [case-analysis-maj.html](case-analysis-maj.html) | 案例分析专题（两级导航优化版） | 马J |
+| [smart-campus-study-hub.html](smart-campus-study-hub.html) | 智慧校园 V2/V3 离线学习中心 | 智慧校园 |
 | [english-exercises.html](english-exercises.html) | 英语题专项 | |
 | [wrong-questions.html](wrong-questions.html) | 错题收藏夹 | |
 
@@ -58,6 +59,7 @@ SPM/
 ├── supplement-177.html
 ├── case-analysis-snail.html
 ├── case-analysis-maj.html
+├── smart-campus-study-hub.html
 ├── english-exercises.html
 ├── wrong-questions.html
 └── thesis/
