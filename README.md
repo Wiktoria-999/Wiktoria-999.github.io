@@ -8,12 +8,11 @@
 
 | 资源 | 说明 | 备注 |
 | --- | --- | --- |
-| [theory-180-300.html](theory-180-300.html) | 180 + 300 理论必背训练台 | |
 | [case-thesis-sprint.html](case-thesis-sprint.html) | 案例最后押题背诵版 | 背诵库 |
 | [supplement-177.html](supplement-177.html) | 押题之外的 177 条补背清单 | 补背 |
 | [case-analysis-snail.html](case-analysis-snail.html) | 案例分析专题（复习网页版） | 🐌 |
 | [case-analysis-maj.html](case-analysis-maj.html) | 案例分析专题（两级导航优化版） | 马J |
-| [smart-campus-study-hub.html](smart-campus-study-hub.html) | 智慧校园 V2/V3 离线学习中心 | 智慧校园 |
+| [smart-campus-27-essays.html](smart-campus-27-essays.html) | 智慧校园 27 篇论文改写 V2 | 改写 |
 | [english-exercises.html](english-exercises.html) | 英语题专项 | |
 | [wrong-questions.html](wrong-questions.html) | 错题收藏夹 | |
 
@@ -47,19 +46,18 @@
 
 - 所有 HTML 文件均为自包含页面（内嵌样式与脚本），无需联网即可本地浏览。
 - 点击上方链接可在 GitHub 上直接预览渲染效果；如需交互训练，建议 clone 仓库后用浏览器打开。
-- 推荐阅读顺序：先过 `theory-180-300` 与各专项巩固基础，再按 `thesis/01 → 20` 顺序练习论文。
+- 推荐阅读顺序：先过各专项巩固基础，再按 `thesis/01 → 20` 顺序练习论文。
 
 ## 目录结构
 
 ```
 SPM/
 ├── README.md
-├── theory-180-300.html
 ├── case-thesis-sprint.html
 ├── supplement-177.html
 ├── case-analysis-snail.html
 ├── case-analysis-maj.html
-├── smart-campus-study-hub.html
+├── smart-campus-27-essays.html
 ├── english-exercises.html
 ├── wrong-questions.html
 └── thesis/
