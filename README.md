@@ -8,7 +8,7 @@
 
 | 资源 | 说明 | 备注 |
 | --- | --- | --- |
-| [case-thesis-sprint.html](case-thesis-sprint.html) | 案例最后押题背诵版（加速版） | 背诵库 |
+| [case-thesis-sprint/](case-thesis-sprint/) | 案例最后押题背诵版（加速版） | 背诵库 |
 | [supplement-177.html](supplement-177.html) | 押题之外的 177 条补背清单 | 补背 |
 | [case-analysis-snail.html](case-analysis-snail.html) | 案例分析专题（复习网页版） | 🐌 |
 | [case-analysis-maj.html](case-analysis-maj.html) | 案例分析专题（两级导航优化版） | 马J |
@@ -50,29 +50,32 @@
 
 ## 案例最后押题背诵版 · 加速说明
 
-`case-thesis-sprint.html` 原为约 9.5 MB 单文件（29 张 PDF 原文扫描图以 Base64 内嵌），访问即需下载全部图片。现改为加速版：
+`case-thesis-sprint/` 子文件夹原为约 9.5 MB 单文件（29 张 PDF 原文扫描图以 Base64 内嵌），访问即需下载全部图片。现改为加速版：
 
 - 首页仅约 100 KB，只加载页面结构、13 个专题与 111 道题的文字数据。
-- 原文扫描图位于 `assets/pages/`，**仅在点击「原文第 X 页」时按需请求**，便于浏览器缓存。
+- 原文扫描图位于 `case-thesis-sprint/assets/pages/`，**仅在点击「原文第 X 页」时按需请求**，便于浏览器缓存。
 - 专题筛选、答案展开、抽背、背诵状态记录等功能保留。
+- 子文件夹同时保留了完整备份 `backup-full.html`（9.9 MB 原版）。
 
-> 注意：本地双击该文件时，需保留同目录的 `assets/` 文件夹，原文阅读器才会显示图像；学习进度保存在浏览器 `localStorage` 中，不同域名/浏览器之间不会自动同步。
+> 注意：本地双击 `case-thesis-sprint/index.html` 时，需保留同目录的 `assets/` 文件夹，原文阅读器才会显示图像；学习进度保存在浏览器 `localStorage` 中，不同域名/浏览器之间不会自动同步。
 
 ## 目录结构
 
 ```
 SPM/
 ├── README.md
-├── case-thesis-sprint.html
 ├── supplement-177.html
 ├── case-analysis-snail.html
 ├── case-analysis-maj.html
 ├── smart-campus-27-essays.html
 ├── english-exercises.html
 ├── wrong-questions.html
-├── .nojekyll
-├── assets/
-│   └── pages/
+├── case-thesis-sprint/
+│   ├── index.html               # 加速版入口（100KB）
+│   ├── backup-full.html         # 9.9MB 原版备份
+│   ├── README.md
+│   ├── .nojekyll
+│   └── assets/pages/
 │       ├── page-01.webp
 │       └── …（page-29.webp）
 └── thesis/
