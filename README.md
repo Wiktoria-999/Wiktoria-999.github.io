@@ -9,7 +9,7 @@
 | 资源 | 说明 | 备注 |
 | --- | --- | --- |
 | [theory-180-300.html](theory-180-300.html) | 180 + 300 理论必背训练台 | |
-| [case-thesis-sprint.html](case-thesis-sprint.html) | 案例论文冲刺背诵库 | 背诵库 |
+| [case-thesis-sprint.html](case-thesis-sprint.html) | 案例最后押题背诵版 | 背诵库 |
 | [supplement-177.html](supplement-177.html) | 押题之外的 177 条补背清单 | 补背 |
 | [case-analysis-snail.html](case-analysis-snail.html) | 案例分析专题（复习网页版） | 🐌 |
 | [case-analysis-maj.html](case-analysis-maj.html) | 案例分析专题（两级导航优化版） | 马J |
