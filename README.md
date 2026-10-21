@@ -12,7 +12,7 @@
 | [supplement-177.html](supplement-177.html) | 押题之外的 177 条补背清单 | 补背 |
 | [case-analysis-snail.html](case-analysis-snail.html) | 案例分析专题（复习网页版） | 🐌 |
 | [case-analysis-maj.html](case-analysis-maj.html) | 案例分析专题（两级导航优化版） | 马J |
-| [smart-campus-27-essays.html](smart-campus-27-essays.html) | 智慧校园 27 篇论文改写 V2 | 改写 |
+| [smart-campus-27-essays/](smart-campus-27-essays/) | 智慧校园 27 篇论文改写 V2（加速版） | 改写 |
 | [english-exercises.html](english-exercises.html) | 英语题专项 | |
 | [wrong-questions.html](wrong-questions.html) | 错题收藏夹 | |
 
@@ -67,7 +67,6 @@ SPM/
 ├── supplement-177.html
 ├── case-analysis-snail.html
 ├── case-analysis-maj.html
-├── smart-campus-27-essays.html
 ├── english-exercises.html
 ├── wrong-questions.html
 ├── case-thesis-sprint/
@@ -78,6 +77,15 @@ SPM/
 │   └── assets/pages/
 │       ├── page-01.webp
 │       └── …（page-29.webp）
+├── smart-campus-27-essays/
+│   ├── index.html               # 加速版入口
+│   ├── app.js
+│   ├── README.md
+│   ├── .nojekyll
+│   ├── assets/                  # 6 张 webp
+│   └── data/
+│       ├── study.json
+│       └── papers/              # 25 个 JSON 论文数据
 └── thesis/
     ├── 01-writing-key-points.html
     ├── 02-writing-intro.html
