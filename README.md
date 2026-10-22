@@ -15,6 +15,7 @@
 | [smart-campus-27-essays/](smart-campus-27-essays/) | 智慧校园 27 篇论文改写 V2（加速版） | 改写 |
 | [english-exercises.html](english-exercises.html) | 英语题专项 | |
 | [wrong-questions.html](wrong-questions.html) | 错题收藏夹 | |
+| [Smart_Campus_55_Essay_Tables.html](Smart_Campus_55_Essay_Tables.html) | 智慧校园论文 · 55 张正文表格速查 | 表格 |
 
 ## 论文写作专项（thesis/）
 
