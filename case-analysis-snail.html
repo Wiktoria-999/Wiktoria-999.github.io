@@ -1,0 +1,3419 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="light" name="color-scheme"/>
+<title>案例分析学习方法与计算题 | 系统规划与管理师 2026</title>
+<style>
+:root{
+ --navy:#0b2034;--navy-2:#102b42;--navy-3:#15344d;--teal:#10b7a4;
+ --mint:#b7fff0;--bg:#f2f6f9;--card:#fff;--text:#243449;--muted:#60758b;
+ --border:#e3ebf2;--shadow:0 4px 22px rgba(14,39,63,.055);--sidebar:292px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:82px}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.9 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft Yahei","PingFang SC",sans-serif}
+a{text-decoration:none;color:inherit}
+button,input{font:inherit}
+button{cursor:pointer}
+.sidebar{position:fixed;z-index:55;top:0;left:0;bottom:0;width:var(--sidebar);background:linear-gradient(165deg,#0d263c,#0a2032 68%,#0d2a3d);color:#b7c9d7;display:flex;flex-direction:column;box-shadow:3px 0 26px rgba(4,23,41,.1)}
+.side-brand{padding:25px 21px 20px;border-bottom:1px solid #223d50}
+.brand-kicker{font-size:10px;letter-spacing:3px;color:#56d9cb;font-weight:800}
+.side-brand h1{color:#fff;font-size:17px;letter-spacing:.25px;line-height:1.45;margin:8px 0 7px;font-weight:720}
+.side-brand p{font-size:11px;color:#8faabb;margin:0}
+.side-label{font-size:10px;font-weight:750;letter-spacing:2px;color:#80aab5;margin:16px 21px 8px}
+.side-body{overflow-y:auto;padding:0 9px 28px;scrollbar-width:thin;scrollbar-color:#365469 transparent;flex:1}
+.doc-group{margin-bottom:6px}
+.doc-toggle{color:#51dacb;padding:10px 9px 9px 12px;display:flex;width:100%;align-items:center;gap:8px;border:0;background:transparent;border-radius:8px;text-align:left;font-size:13px;font-weight:750}
+.doc-toggle:hover{background:#18394e}.doc-toggle .doc-number{color:#94fff0;font-size:12px;letter-spacing:.3px;flex-shrink:0}
+.doc-toggle .doc-arrow{margin-left:auto;font-size:15px;transition:transform .2s;color:#72b5c0}
+.doc-group:not(.expanded) .doc-arrow{transform:rotate(-90deg)}
+.doc-group:not(.expanded) .doc-tree{display:none}
+.doc-tree,.nav-sub{padding:0;margin:0;list-style:none}
+.doc-tree{padding:2px 0 0 2px}
+.nav-chapter{margin:2px 0}
+.nav-chapter-row{display:flex;align-items:flex-start;min-height:31px;border-radius:7px}
+.nav-expander,.nav-noexpand{height:29px;width:20px;flex:0 0 20px;padding:0;background:none;border:none;color:#789dad;display:flex;align-items:center;justify-content:center}
+.nav-expander:hover{color:#81e8dc}
+.chevron{display:block;transition:transform .18s;font-size:17px;line-height:1}
+.nav-expander[aria-expanded="true"] .chevron{transform:rotate(90deg)}
+.nav-link{display:block;border-radius:7px;transition:background .12s,color .12s;padding:5px 8px;min-width:0;flex:1;line-height:1.45;font-size:12.5px;color:#b0c7d6}
+.nav-link:hover{background:#17374d;color:#efffff}
+.nav-link.active{background:#1b4258;color:#90fff0;font-weight:700}
+.nav-sub{margin:1px 0 5px 20px;padding-left:8px;border-left:1px solid #27465c}
+.nav-sub li{margin:1px 0}
+.nav-sub .nav-link{font-size:12px;color:#8eaebf;padding:5px 9px}
+.nav-sub .nav-link:hover{color:#e1fbf5}
+.nav-sub .nav-link.active{color:#8affea}
+.nav-sub .level-4{padding-left:15px;color:#7596aa;font-size:11.5px}
+.nav-link.level-2{font-size:12.7px}
+.sidebar-footer{color:#7a9cad;border-top:1px solid #213c50;padding:12px 21px;font-size:10px}
+.scrim{display:none}
+.workspace{margin-left:var(--sidebar);min-height:100vh}
+.topbar{position:sticky;top:0;z-index:30;background:rgba(248,251,253,.95);backdrop-filter:blur(10px);border-bottom:1px solid #e0e9ef}
+.topbar-inner{max-width:1180px;margin:auto;padding:10px 28px;display:flex;align-items:center;gap:15px;min-height:62px}
+.topmark{font-size:12px;white-space:nowrap;color:#60758b;font-weight:650}
+.topmark b{color:#1d5162}
+.top-tabs{display:flex;gap:4px;padding:4px;background:#eaf0f4;border-radius:11px;margin-right:auto}
+.top-tab{font-size:12px;border:0;border-radius:8px;color:#527083;background:transparent;padding:7px 12px;font-weight:650;white-space:nowrap}
+.top-tab.active{background:white;color:#117f80;box-shadow:0 2px 8px #16354b14}
+.header-controls{display:flex;align-items:center;gap:8px}
+.btn-icon{border:1px solid #d6e3e9;background:#fff;border-radius:10px;color:#426276;height:35px;display:inline-flex;align-items:center;gap:6px;padding:0 10px;font-size:12px;white-space:nowrap}
+.btn-icon:hover{border-color:#9bcfcb;color:#147e7a}
+.mobile-menu{display:none}
+.main{max-width:1110px;padding:28px 34px 70px;margin:auto}
+.hero{background:linear-gradient(117deg,#10354e 0%,#0f4960 47%,#0d857d 100%);position:relative;color:white;border-radius:18px;padding:37px 40px 33px;overflow:hidden;box-shadow:0 16px 40px #14445a21;margin-bottom:22px}
+.hero::before{content:'';position:absolute;width:270px;height:270px;right:-80px;top:-143px;border:1px solid #c9fff72f;border-radius:50%;box-shadow:0 0 0 55px #b9fff711,0 0 0 110px #b9fff708}
+.hero .eyebrow{font-size:11px;color:#abf4e8;letter-spacing:2px;font-weight:700;margin-bottom:9px;position:relative}
+.hero h2{font-size:clamp(23px,3vw,31px);line-height:1.4;margin:0 0 11px;font-weight:760;position:relative}
+.hero .subtitle{max-width:680px;color:#d4e9ed;font-size:13px;line-height:1.85;position:relative;margin:0 0 17px}
+.hero-pills{display:flex;flex-wrap:wrap;gap:9px;position:relative}
+.hero-pill{border:1px solid #baffeb48;background:#ffffff15;color:#effefa;padding:4px 10px;border-radius:30px;font-size:11px}
+.quicklinks{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:24px}
+.quicklinks button{border:1px solid #dce8ed;background:#fff;color:#386478;box-shadow:0 2px 6px #123c5810;border-radius:9px;padding:7px 12px;font-size:12px}
+.quicklinks button:hover{border-color:#8fd2ca;color:#087d79}
+.doc-pane[hidden]{display:none !important}
+.chapter-card,.source-preface{background:#fff;border:1px solid #e6edf2;border-radius:14px;padding:24px 30px;margin-bottom:18px;box-shadow:var(--shadow)}
+.source-preface{padding:16px 24px}
+.prose{font-size:14px;line-height:1.95;overflow-wrap:anywhere}
+.prose p{margin:8px 0 14px}
+.prose> .chapter-card>h2{font-size:21px;color:#153d50;line-height:1.5;margin:1px 0 18px;letter-spacing:.1px;border-bottom:1px solid #e7eef3;padding-bottom:12px;font-weight:760}
+.prose h2.source-document-heading{font-size:17px;border:0;padding:0;margin:0 0 11px}
+.prose h3{font-size:16px;color:#0c6b70;line-height:1.6;margin:24px 0 11px;font-weight:740}
+.prose h3.topic-title{background:linear-gradient(90deg,#effaf8,transparent);border-left:3px solid #16b9a9;padding:8px 10px;border-radius:3px}
+.prose h4{font-size:14px;color:#205978;line-height:1.6;margin:20px 0 9px;font-weight:750}
+.prose strong{color:#20465b;font-weight:750}
+.prose blockquote{margin:14px 0 18px;padding:10px 17px;border-left:3px solid #1bb7a8;background:#eef9f7;border-radius:0 9px 9px 0;color:#265d66}
+.prose blockquote p{margin:4px 0}
+.prose blockquote strong{color:#0f746e}
+.prose blockquote.emphasis-note{background:#eaf8f5;border-left-color:#07988b}
+.prose hr{height:1px;background:#edf1f5;border:0;margin:24px 0}
+.prose ul,.prose ol{padding-left:24px;margin:9px 0 17px}
+.prose li{padding-left:2px;margin:4px 0}
+.prose li::marker{color:#19a598;font-weight:bold}
+.prose li>p{margin:5px 0}
+.prose li>h3,.prose li>h4{margin-top:15px}
+.prose li>hr{margin:14px 0}
+.prose .table-scroll{overflow-x:auto;margin:18px 0;border:1px solid #e5ecf0;border-radius:10px}
+.prose table{width:100%;border-collapse:collapse;font-size:13px;min-width:460px}
+.prose thead th{background:#e8f3f5;color:#245469;padding:10px 13px;text-align:left;white-space:nowrap;font-weight:740}
+.prose tbody td{padding:9px 13px;border-top:1px solid #e9eef2;vertical-align:top}
+.prose tbody tr:nth-child(2n){background:#fafcfd}
+.prose code:not(pre code){border:1px solid #e6edf1;border-radius:4px;padding:2px 5px;background:#f0f5f8;font-size:12px;color:#145e73}
+.code-wrap{margin:13px 0 20px;background:#10283a;color:#ddeef3;border:1px solid #244258;border-radius:10px;position:relative;overflow:hidden}
+.code-wrap pre{margin:0;padding:21px 19px 17px;overflow:auto;white-space:pre;scrollbar-width:thin;line-height:1.65;font-size:12.7px;font-family:"Cascadia Code","Consolas","SFMono-Regular",monospace}
+.code-wrap code{font:inherit;color:inherit}
+.copy-code{position:absolute;right:8px;top:8px;background:#23475c;border:1px solid #386276;border-radius:6px;color:#d5eded;font-size:10px;padding:3px 8px;line-height:1.5}
+.copy-code:hover{background:#285b6c}
+.source-disclaimer{font-size:12px;color:#638195;padding:13px 17px;background:#eaf0f4;border-radius:9px;margin:2px 0 21px}
+.search-panel{position:fixed;top:65px;right:38px;z-index:80;width:min(490px,calc(100vw - 24px));background:#fff;border:1px solid #dce8ed;border-radius:13px;box-shadow:0 22px 55px #102e4b32;padding:13px;display:none}
+.search-panel.open{display:block}
+.search-bar{display:flex;gap:8px;align-items:center;border:1px solid #dce6ec;border-radius:9px;padding:3px 7px}
+.search-bar input{height:35px;border:0;outline:0;min-width:0;flex:1;background:none;font-size:13px;color:#284257}
+.search-dismiss{border:0;background:transparent;color:#6e8795;font-size:21px}
+.results{max-height:min(60vh,520px);overflow-y:auto;margin-top:9px}
+.result-item{display:block;border:0;width:100%;background:transparent;text-align:left;border-radius:8px;padding:10px;color:#3a5c70}
+.result-item:hover{background:#edf8f6}
+.result-title{font-size:12px;font-weight:700;color:#128178;display:block}
+.result-snippet{font-size:12px;line-height:1.5;color:#718393;display:block;margin-top:3px}
+.search-empty{padding:18px;text-align:center;color:#8498a7;font-size:12px}
+.search-match{animation:flash 1.8s ease}
+@keyframes flash{0%,40%{outline:3px solid #28c0ad;border-radius:3px;background:#e9fbf6}100%{outline-color:transparent}}
+.bottom-footer{padding:9px 3px 0;color:#8399a8;font-size:11px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:9px}
+#toast{position:fixed;bottom:23px;right:24px;background:#13384c;color:white;z-index:90;padding:9px 14px;border-radius:9px;box-shadow:0 4px 18px #13384c33;font-size:12px;opacity:0;pointer-events:none;transition:opacity .2s}
+#toast.visible{opacity:1}
+@media(max-width:1180px){.topmark{display:none}.main{padding:24px 25px 60px}}
+@media(max-width:860px){
+ :root{--sidebar:285px}
+ .sidebar{transform:translateX(-102%);transition:transform .25s}
+ body.drawer-open .sidebar{transform:translateX(0)}
+ .scrim{display:none;position:fixed;inset:0;background:#092336a6;z-index:50}
+ body.drawer-open .scrim{display:block}
+ .workspace{margin-left:0}.mobile-menu{display:inline-flex}
+ .topbar-inner{padding:9px 14px;gap:9px}.top-tabs{margin-right:auto}
+ .main{padding:18px 16px 46px}.hero{padding:27px 24px;border-radius:14px}
+ .chapter-card{padding:22px 20px}.search-panel{top:61px;right:12px}
+}
+@media(max-width:570px){
+ body{font-size:14px}.hero h2{font-size:23px}.hero .subtitle{font-size:12px}
+ .top-tab{font-size:11px;padding:7px 9px}.topbar-inner{gap:5px}
+ .btn-icon{padding:0 8px}.btn-text{display:none}.header-controls{gap:5px}
+ .hero{padding:24px 19px}.chapter-card{padding:20px 16px}
+ .prose{font-size:13.5px}.prose> .chapter-card>h2{font-size:18px}
+ .prose h3{font-size:14.5px}.prose h4{font-size:13.5px}
+ .code-wrap pre{font-size:11.5px;padding:20px 13px 14px}
+ .prose table{font-size:12px}
+}
+@media print{
+ body{background:#fff!important;font-size:11pt}.sidebar,.scrim,.topbar,.hero,.quicklinks,.bottom-footer,.search-panel,#toast,.source-disclaimer,.copy-code{display:none!important}
+ .workspace{margin:0}.main{padding:0;max-width:unset}.doc-pane[hidden]{display:none!important}
+ .chapter-card,.source-preface{box-shadow:none;border:0;border-radius:0;padding:0;margin:0 0 15pt;break-inside:auto}
+ .prose> .chapter-card>h2{break-after:avoid;border-bottom:1pt solid #aaa}
+ .code-wrap{background:#f5f7f8!important;color:#222!important;border-color:#ddd!important;break-inside:avoid}
+ .code-wrap pre{white-space:pre-wrap}
+ .prose blockquote{border-left-color:#999;background:#f7f7f7!important}
+ .prose table{min-width:0}a{color:inherit}
+}
+</style>
+</head>
+<body>
+<div class="scrim" id="scrim"></div>
+<aside aria-label="本课目录" class="sidebar" id="sidebar">
+<div class="side-brand"><div class="brand-kicker">SYSTEM PLANNING · CASE STUDY</div><h1>案例分析 · 专题复习</h1><p>2026 · 学习笔记 · 离线网页版</p></div>
+<div class="side-label">本课目录</div>
+<nav class="side-body">
+<div class="doc-group expanded" data-group="study">
+<button class="doc-toggle" data-open-doc="study" type="button"><span class="doc-number">01</span><span>学习方法与答题技巧</span><span class="doc-arrow">⌄</span></button>
+<ul class="doc-tree"><li class="nav-chapter" data-chapter="study-001"><div class="nav-chapter-row"><span class="nav-noexpand"></span><a class="nav-link level-2" data-doc="study" data-id="study-001" href="#study-001" title="📘 案例分析学习介绍｜学习方法 + 答题技巧一体版">📘 案例分析学习介绍｜学习方法 + 答题技巧一体版</a></div></li><li class="nav-chapter" data-chapter="study-002"><div class="nav-chapter-row"><button aria-expanded="false" aria-label="展开或收起子栏目" class="nav-expander" data-target="sub-study-002" type="button"><span class="chevron">›</span></button><a class="nav-link level-2" data-doc="study" data-id="study-002" href="#study-002" title="🗺 1. 先建立案例考试全貌">🗺 1. 先建立案例考试全貌</a></div><ul class="nav-sub" hidden="" id="sub-study-002"><li><a class="nav-link level-3" data-doc="study" data-id="study-003" href="#study-003" title="考试结构">考试结构</a></li><li><a class="nav-link level-3" data-doc="study" data-id="study-004" href="#study-004" title="考试范围">考试范围</a></li></ul></li><li class="nav-chapter" data-chapter="study-005"><div class="nav-chapter-row"><button aria-expanded="false" aria-label="展开或收起子栏目" class="nav-expander" data-target="sub-study-005" type="button"><span class="chevron">›</span></button><a class="nav-link level-2" data-doc="study" data-id="study-005" href="#study-005" title="🧩 2. 案例分析主要有 4 类题">🧩 2. 案例分析主要有 4 类题</a></div><ul class="nav-sub" hidden="" id="sub-study-005"><li><a class="nav-link level-3" data-doc="study" data-id="study-006" href="#study-006" title="🔥 最重要结论">🔥 最重要结论</a></li></ul></li><li class="nav-chapter" data-chapter="study-007"><div class="nav-chapter-row"><button aria-expanded="false" aria-label="展开或收起子栏目" class="nav-expander" data-target="sub-study-007" type="button"><span class="chevron">›</span></button><a class="nav-link level-2" data-doc="study" data-id="study-007" href="#study-007" title="📊 3. 题型特点：为什么案例难？">📊 3. 题型特点：为什么案例难？</a></div><ul class="nav-sub" hidden="" id="sub-study-007"><li><a class="nav-link level-3" data-doc="study" data-id="study-008" href="#study-008" title="① 时间非常紧">① 时间非常紧</a></li><li><a class="nav-link level-3" data-doc="study" data-id="study-009" href="#study-009" title="② 背诵量大">② 背诵量大</a></li><li><a class="nav-link level-3" data-doc="study" data-id="study-010" href="#study-010" title="③ 三道大题不等于只考三个章节">③ 三道大题不等于只考三个章节</a></li></ul></li><li class="nav-chapter" data-chapter="study-011"><div class="nav-chapter-row"><button aria-expanded="false" aria-label="展开或收起子栏目" class="nav-expander" data-target="sub-study-011" type="button"><span class="chevron">›</span></button><a class="nav-link level-2" data-doc="study" data-id="study-011" href="#study-011" title="🎯 4. 老师对 2026 案例备考优先级的判断">🎯 4. 老师对 2026 案例备考优先级的判断</a></div><ul class="nav-sub" hidden="" id="sub-study-011"><li><a class="nav-link level-3" data-doc="study" data-id="study-012" href="#study-012" title="规划篇 4～10章">规划篇 4～10章</a></li><li><a class="nav-link level-3" data-doc="study" data-id="study-013" href="#study-013" title="服务管理篇 11～17章">服务管理篇 11～17章</a></li><li><a class="nav-link level-3" data-doc="study" data-id="study-014" href="#study-014" title="实践篇 18～24章">实践篇 18～24章</a></li></ul></li><li class="nav-chapter" data-chapter="study-015"><div class="nav-chapter-row"><span class="nav-noexpand"></span><a class="nav-link level-2" data-doc="study" data-id="study-015" href="#study-015" title="🧠 5. 案例题底层解题模型">🧠 5. 案例题底层解题模型</a></div></li><li class="nav-chapter" data-chapter="study-016"><div class="nav-chapter-row"><button aria-expanded="false" aria-label="展开或收起子栏目" class="nav-expander" data-target="sub-study-016" type="button"><span class="chevron">›</span></button><a class="nav-link level-2" data-doc="study" data-id="study-016" href="#study-016" title="🔥 6. 找茬题：最值得掌握的方法">🔥 6. 找茬题：最值得掌握的方法</a></div><ul class="nav-sub" hidden="" id="sub-study-016"><li><a class="nav-link level-3" data-doc="study" data-id="study-017" href="#study-017" title="材料分析">材料分析</a></li><li><a class="nav-link level-3" data-doc="study" data-id="study-018" href="#study-018" title="原因分析">原因分析</a></li><li><a class="nav-link level-3" data-doc="study" data-id="study-023" href="#study-023" title="真正通用的方法">真正通用的方法</a></li></ul></li><li class="nav-chapter" data-chapter="study-024"><div class="nav-chapter-row"><button aria-expanded="false" aria-label="展开或收起子栏目" class="nav-expander" data-target="sub-study-024" type="button"><span class="chevron">›</span></button><a class="nav-link level-2" data-doc="study" data-id="study-024" href="#study-024" title="🔥 7. 找茬题最重要的答题公式">🔥 7. 找茬题最重要的答题公式</a></div><ul class="nav-sub" hidden="" id="sub-study-024"><li><a class="nav-link level-3" data-doc="study" data-id="study-025" href="#study-025" title="⚠ 最大禁忌：纯万金油理论">⚠ 最大禁忌：纯万金油理论</a></li></ul></li><li class="nav-chapter" data-chapter="study-026"><div class="nav-chapter-row"><span class="nav-noexpand"></span><a class="nav-link level-2" data-doc="study" data-id="study-026" href="#study-026" title="✅ 8. 找茬题排版">✅ 8. 找茬题排版</a></div></li><li class="nav-chapter" data-chapter="study-027"><div class="nav-chapter-row"><span class="nav-noexpand"></span><a class="nav-link level-2" data-doc="study" data-id="study-027" href="#study-027" title="⭐ 9. 找茬题如何多写保分？">⭐ 9. 找茬题如何多写保分？</a></div></li><li class="nav-chapter" data-chapter="study-028"><div class="nav-chapter-row"><span class="nav-noexpand"></span><a class="nav-link level-2" data-doc="study" data-id="study-028" href="#study-028" title="🪄 10. 找茬题快速触发词">🪄 10. 找茬题快速触发词</a></div></li><li class="nav-chapter" data-chapter="study-029"><div class="nav-chapter-row"><button aria-expanded="false" aria-label="展开或收起子栏目" class="nav-expander" data-target="sub-study-029" type="button"><span class="chevron">›</span></button><a class="nav-link level-2" data-doc="study" data-id="study-029" href="#study-029" title="🔄 11. 优化题：就是“找茬题反过来”">🔄 11. 优化题：就是“找茬题反过来”</a></div><ul class="nav-sub" hidden="" id="sub-study-029"><li><a class="nav-link level-3" data-doc="study" data-id="study-030" href="#study-030" title="🔥 万能公式">🔥 万能公式</a></li><li><a class="nav-link level-3" data-doc="study" data-id="study-031" href="#study-031" title="🧠 和找茬题的区别">🧠 和找茬题的区别</a></li></ul></li><li class="nav-chapter" data-chapter="study-032"><div class="nav-chapter-row"><button aria-expanded="false" aria-label="展开或收起子栏目" class="nav-expander" data-target="sub-study-032" type="button"><span class="chevron">›</span></button><a class="nav-link level-2" data-doc="study" data-id="study-032" href="#study-032" title="🧩 12. 分析题：核心是“知识点 + 推理”">🧩 12. 分析题：核心是“知识点 + 推理”</a></div><ul class="nav-sub" hidden="" id="sub-study-032"><li><a class="nav-link level-3" data-doc="study" data-id="study-033" href="#study-033" title="分析题通用4步">分析题通用4步</a></li></ul></li><li class="nav-chapter" data-chapter="study-038"><div class="nav-chapter-row"><button aria-expanded="false" aria-label="展开或收起子栏目" class="nav-expander" data-target="sub-study-038" type="button"><span class="chevron">›</span></button><a class="nav-link level-2" data-doc="study" data-id="study-038" href="#study-038" title="🛠 13. 分析题常用4种推理方法">🛠 13. 分析题常用4种推理方法</a></div><ul class="nav-sub" hidden="" id="sub-study-038"><li><a class="nav-link level-3" data-doc="study" data-id="study-039" href="#study-039" title="① 关键词法">① 关键词法</a></li><li><a class="nav-link level-3" data-doc="study" data-id="study-040" href="#study-040" title="② 矛盾法">② 矛盾法</a></li><li><a class="nav-link level-3" data-doc="study" data-id="study-041" href="#study-041" title="③ 知识点判断法">③ 知识点判断法</a></li><li><a class="nav-link level-3" data-doc="study" data-id="study-042" href="#study-042" title="④ 题干拆解法">④ 题干拆解法</a></li></ul></li><li class="nav-chapter" data-chapter="study-043"><div class="nav-chapter-row"><button aria-expanded="false" aria-label="展开或收起子栏目" class="nav-expander" data-target="sub-study-043" type="button"><span class="chevron">›</span></button><a class="nav-link level-2" data-doc="study" data-id="study-043" href="#study-043" title="🎯 14. “确定优先”是分析题的重要习惯">🎯 14. “确定优先”是分析题的重要习惯</a></div><ul class="nav-sub" hidden="" id="sub-study-043"><li><a class="nav-link level-3" data-doc="study" data-id="study-044" href="#study-044" title="🧠 老师经验">🧠 老师经验</a></li></ul></li><li class="nav-chapter" data-chapter="study-045"><div class="nav-chapter-row"><button aria-expanded="false" aria-label="展开或收起子栏目" class="nav-expander" data-target="sub-study-045" type="button"><span class="chevron">›</span></button><a class="nav-link level-2" data-doc="study" data-id="study-045" href="#study-045" title="⚠ 15. 案例多选题：不要超选">⚠ 15. 案例多选题：不要超选</a></div><ul class="nav-sub" hidden="" id="sub-study-045"><li><a class="nav-link level-3" data-doc="study" data-id="study-046" href="#study-046" title="🔥 所以">🔥 所以</a></li></ul></li><li class="nav-chapter" data-chapter="study-047"><div class="nav-chapter-row"><button aria-expanded="false" aria-label="展开或收起子栏目" class="nav-expander" data-target="sub-study-047" type="button"><span class="chevron">›</span></button><a class="nav-link level-2" data-doc="study" data-id="study-047" href="#study-047" title="📖 16. 判断题怎么做？">📖 16. 判断题怎么做？</a></div><ul class="nav-sub" hidden="" id="sub-study-047"><li><a class="nav-link level-3" data-doc="study" data-id="study-048" href="#study-048" title="⚠ 老师课堂“历史分布小技巧”">⚠ 老师课堂“历史分布小技巧”</a></li></ul></li><li class="nav-chapter" data-chapter="study-049"><div class="nav-chapter-row"><button aria-expanded="false" aria-label="展开或收起子栏目" class="nav-expander" data-target="sub-study-049" type="button"><span class="chevron">›</span></button><a class="nav-link level-2" data-doc="study" data-id="study-049" href="#study-049" title="🧠 17. 分析型简答题：本质是“默写 + 场景判断”">🧠 17. 分析型简答题：本质是“默写 + 场景判断”</a></div><ul class="nav-sub" hidden="" id="sub-study-049"><li><a class="nav-link level-3" data-doc="study" data-id="study-050" href="#study-050" title="🔥 关键">🔥 关键</a></li></ul></li><li class="nav-chapter" data-chapter="study-051"><div class="nav-chapter-row"><button aria-expanded="false" aria-label="展开或收起子栏目" class="nav-expander" data-target="sub-study-051" type="button"><span class="chevron">›</span></button><a class="nav-link level-2" data-doc="study" data-id="study-051" href="#study-051" title="🚑 18. 分析题完全卡住时的应急保分顺序">🚑 18. 分析题完全卡住时的应急保分顺序</a></div><ul class="nav-sub" hidden="" id="sub-study-051"><li><a class="nav-link level-3" data-doc="study" data-id="study-052" href="#study-052" title="第一层：回材料找提示">第一层：回材料找提示</a></li><li><a class="nav-link level-3" data-doc="study" data-id="study-053" href="#study-053" title="第二层：回想同章相近知识">第二层：回想同章相近知识</a></li><li><a class="nav-link level-3" data-doc="study" data-id="study-054" href="#study-054" title="第三层：使用通用逻辑">第三层：使用通用逻辑</a></li><li><a class="nav-link level-3" data-doc="study" data-id="study-055" href="#study-055" title="⚠ 关于老师课堂提到的“卡bug”">⚠ 关于老师课堂提到的“卡bug”</a></li></ul></li><li class="nav-chapter" data-chapter="study-056"><div class="nav-chapter-row"><button aria-expanded="false" aria-label="展开或收起子栏目" class="nav-expander" data-target="sub-study-056" type="button"><span class="chevron">›</span></button><a class="nav-link level-2" data-doc="study" data-id="study-056" href="#study-056" title="🔥 19. 背诵题：案例真正的大头">🔥 19. 背诵题：案例真正的大头</a></div><ul class="nav-sub" hidden="" id="sub-study-056"><li><a class="nav-link level-3" data-doc="study" data-id="study-057" href="#study-057" title="短语型默写">短语型默写</a></li><li><a class="nav-link level-3" data-doc="study" data-id="study-058" href="#study-058" title="长句型默写">长句型默写</a></li><li><a class="nav-link level-3" data-doc="study" data-id="study-059" href="#study-059" title="不要为了简写删掉得分点">不要为了简写删掉得分点</a></li></ul></li><li class="nav-chapter" data-chapter="study-060"><div class="nav-chapter-row"><span class="nav-noexpand"></span><a class="nav-link level-2" data-doc="study" data-id="study-060" href="#study-060" title="🚑 20. 背诵题忘记时怎么办？">🚑 20. 背诵题忘记时怎么办？</a></div></li><li class="nav-chapter" data-chapter="study-061"><div class="nav-chapter-row"><button aria-expanded="false" aria-label="展开或收起子栏目" class="nav-expander" data-target="sub-study-061" type="button"><span class="chevron">›</span></button><a class="nav-link level-2" data-doc="study" data-id="study-061" href="#study-061" title="🧮 21. 计算题：重点是公式和分子分母">🧮 21. 计算题：重点是公式和分子分母</a></div><ul class="nav-sub" hidden="" id="sub-study-061"><li><a class="nav-link level-3" data-doc="study" data-id="study-062" href="#study-062" title="🔥 做题4步">🔥 做题4步</a></li><li><a class="nav-link level-3" data-doc="study" data-id="study-063" href="#study-063" title="⚠ 最后一步一定重新看题目">⚠ 最后一步一定重新看题目</a></li></ul></li><li class="nav-chapter" data-chapter="study-064"><div class="nav-chapter-row"><button aria-expanded="false" aria-label="展开或收起子栏目" class="nav-expander" data-target="sub-study-064" type="button"><span class="chevron">›</span></button><a class="nav-link level-2" data-doc="study" data-id="study-064" href="#study-064" title="🧭 22. 案例课真正建议怎么学？">🧭 22. 案例课真正建议怎么学？</a></div><ul class="nav-sub" hidden="" id="sub-study-064"><li><a class="nav-link level-3" data-doc="study" data-id="study-065" href="#study-065" title="系统理论是基础">系统理论是基础</a></li><li><a class="nav-link level-3" data-doc="study" data-id="study-066" href="#study-066" title="多刷题，但重点研究“怎么想”">多刷题，但重点研究“怎么想”</a></li><li><a class="nav-link level-3" data-doc="study" data-id="study-067" href="#study-067" title="找茬题至少完整拆解3～5道">找茬题至少完整拆解3～5道</a></li></ul></li><li class="nav-chapter" data-chapter="study-068"><div class="nav-chapter-row"><span class="nav-noexpand"></span><a class="nav-link level-2" data-doc="study" data-id="study-068" href="#study-068" title="✍️ 23. 最推荐的案例答题排版">✍️ 23. 最推荐的案例答题排版</a></div></li><li class="nav-chapter" data-chapter="study-069"><div class="nav-chapter-row"><span class="nav-noexpand"></span><a class="nav-link level-2" data-doc="study" data-id="study-069" href="#study-069" title="🧠 24. 一张“案例考试作战图”">🧠 24. 一张“案例考试作战图”</a></div></li><li class="nav-chapter" data-chapter="study-070"><div class="nav-chapter-row"><button aria-expanded="false" aria-label="展开或收起子栏目" class="nav-expander" data-target="sub-study-070" type="button"><span class="chevron">›</span></button><a class="nav-link level-2" data-doc="study" data-id="study-070" href="#study-070" title="🔥 25. 四类题型，一句话记住">🔥 25. 四类题型，一句话记住</a></div><ul class="nav-sub" hidden="" id="sub-study-070"><li><a class="nav-link level-3" data-doc="study" data-id="study-071" href="#study-071" title="找茬题">找茬题</a></li><li><a class="nav-link level-3" data-doc="study" data-id="study-072" href="#study-072" title="优化题">优化题</a></li><li><a class="nav-link level-3" data-doc="study" data-id="study-073" href="#study-073" title="分析题">分析题</a></li><li><a class="nav-link level-3" data-doc="study" data-id="study-074" href="#study-074" title="背诵题">背诵题</a></li><li><a class="nav-link level-3" data-doc="study" data-id="study-075" href="#study-075" title="计算题">计算题</a></li></ul></li><li class="nav-chapter" data-chapter="study-076"><div class="nav-chapter-row"><span class="nav-noexpand"></span><a class="nav-link level-2" data-doc="study" data-id="study-076" href="#study-076" title="✅ 26. 考场最后检查清单">✅ 26. 考场最后检查清单</a></div></li><li class="nav-chapter" data-chapter="study-077"><div class="nav-chapter-row"><span class="nav-noexpand"></span><a class="nav-link level-2" data-doc="study" data-id="study-077" href="#study-077" title="🪄 27. 最后压缩成5句">🪄 27. 最后压缩成5句</a></div></li></ul>
+</div>
+<div class="doc-group" data-group="calc">
+<button class="doc-toggle" data-open-doc="calc" type="button"><span class="doc-number">02</span><span>案例计算题专题</span><span class="doc-arrow">⌄</span></button>
+<ul class="doc-tree"><li class="nav-chapter" data-chapter="calc-001"><div class="nav-chapter-row"><span class="nav-noexpand"></span><a class="nav-link level-2" data-doc="calc" data-id="calc-001" href="#calc-001" title="案例计算题整体定位">案例计算题整体定位</a></div></li><li class="nav-chapter" data-chapter="calc-002"><div class="nav-chapter-row"><button aria-expanded="false" aria-label="展开或收起子栏目" class="nav-expander" data-target="sub-calc-002" type="button"><span class="chevron">›</span></button><a class="nav-link level-2" data-doc="calc" data-id="calc-002" href="#calc-002" title="🔥 所有计算题统一“三步走”">🔥 所有计算题统一“三步走”</a></div><ul class="nav-sub" hidden="" id="sub-calc-002"><li><a class="nav-link level-4" data-doc="calc" data-id="calc-003" href="#calc-003" title="🚨 特别提醒">🚨 特别提醒</a></li></ul></li><li class="nav-chapter" data-chapter="calc-004"><div class="nav-chapter-row"><button aria-expanded="false" aria-label="展开或收起子栏目" class="nav-expander" data-target="sub-calc-004" type="button"><span class="chevron">›</span></button><a class="nav-link level-2" data-doc="calc" data-id="calc-004" href="#calc-004" title="2.1 第6章 云资源规划｜计算题">2.1 第6章 云资源规划｜计算题</a></div><ul class="nav-sub" hidden="" id="sub-calc-004"><li><a class="nav-link level-3" data-doc="calc" data-id="calc-005" href="#calc-005" title="1. IOPS">1. IOPS</a></li><li><a class="nav-link level-3" data-doc="calc" data-id="calc-011" href="#calc-011" title="2. PUE">2. PUE</a></li><li><a class="nav-link level-3" data-doc="calc" data-id="calc-019" href="#calc-019" title="3. 2025年案例真题：云资源容量规划">3. 2025年案例真题：云资源容量规划</a></li></ul></li><li class="nav-chapter" data-chapter="calc-027"><div class="nav-chapter-row"><button aria-expanded="false" aria-label="展开或收起子栏目" class="nav-expander" data-target="sub-calc-027" type="button"><span class="chevron">›</span></button><a class="nav-link level-2" data-doc="calc" data-id="calc-027" href="#calc-027" title="2.2 第12章 信息系统服务管理｜计算题">2.2 第12章 信息系统服务管理｜计算题</a></div><ul class="nav-sub" hidden="" id="sub-calc-027"><li><a class="nav-link level-3" data-doc="calc" data-id="calc-028" href="#calc-028" title="1. 可用性指标">1. 可用性指标</a></li><li><a class="nav-link level-3" data-doc="calc" data-id="calc-037" href="#calc-037" title="2. 衡量项目收益的指标">2. 衡量项目收益的指标</a></li><li><a class="nav-link level-3" data-doc="calc" data-id="calc-052" href="#calc-052" title="3. 服务台关键测量指标">3. 服务台关键测量指标</a></li></ul></li><li class="nav-chapter" data-chapter="calc-063"><div class="nav-chapter-row"><button aria-expanded="false" aria-label="展开或收起子栏目" class="nav-expander" data-target="sub-calc-063" type="button"><span class="chevron">›</span></button><a class="nav-link level-2" data-doc="calc" data-id="calc-063" href="#calc-063" title="2.3 第13章 人员管理｜计算题">2.3 第13章 人员管理｜计算题</a></div><ul class="nav-sub" hidden="" id="sub-calc-063"><li><a class="nav-link level-3" data-doc="calc" data-id="calc-064" href="#calc-064" title="1. 补偿性原则">1. 补偿性原则</a></li><li><a class="nav-link level-3" data-doc="calc" data-id="calc-067" href="#calc-067" title="2. 招聘成功率">2. 招聘成功率</a></li><li><a class="nav-link level-3" data-doc="calc" data-id="calc-068" href="#calc-068" title="3. 招聘达成率">3. 招聘达成率</a></li></ul></li><li class="nav-chapter" data-chapter="calc-072"><div class="nav-chapter-row"><button aria-expanded="false" aria-label="展开或收起子栏目" class="nav-expander" data-target="sub-calc-072" type="button"><span class="chevron">›</span></button><a class="nav-link level-2" data-doc="calc" data-id="calc-072" href="#calc-072" title="2.4 第22章 智能制造发展规划｜计算题">2.4 第22章 智能制造发展规划｜计算题</a></div><ul class="nav-sub" hidden="" id="sub-calc-072"><li><a class="nav-link level-3" data-doc="calc" data-id="calc-073" href="#calc-073" title="1. OEE｜设备综合效率">1. OEE｜设备综合效率</a></li><li><a class="nav-link level-3" data-doc="calc" data-id="calc-074" href="#calc-074" title="2. 时间稼动率">2. 时间稼动率</a></li><li><a class="nav-link level-3" data-doc="calc" data-id="calc-075" href="#calc-075" title="3. 性能效率">3. 性能效率</a></li><li><a class="nav-link level-3" data-doc="calc" data-id="calc-077" href="#calc-077" title="4. 合格率">4. 合格率</a></li><li><a class="nav-link level-3" data-doc="calc" data-id="calc-078" href="#calc-078" title="5. 例题1">5. 例题1</a></li><li><a class="nav-link level-3" data-doc="calc" data-id="calc-079" href="#calc-079" title="6. 例题2">6. 例题2</a></li></ul></li><li class="nav-chapter" data-chapter="calc-085"><div class="nav-chapter-row"><span class="nav-noexpand"></span><a class="nav-link level-2" data-doc="calc" data-id="calc-085" href="#calc-085" title="🔥 全部公式总表">🔥 全部公式总表</a></div></li><li class="nav-chapter" data-chapter="calc-086"><div class="nav-chapter-row"><span class="nav-noexpand"></span><a class="nav-link level-2" data-doc="calc" data-id="calc-086" href="#calc-086" title="🧠 一眼判断“题目到底让我算什么”">🧠 一眼判断“题目到底让我算什么”</a></div></li><li class="nav-chapter" data-chapter="calc-087"><div class="nav-chapter-row"><button aria-expanded="false" aria-label="展开或收起子栏目" class="nav-expander" data-target="sub-calc-087" type="button"><span class="chevron">›</span></button><a class="nav-link level-2" data-doc="calc" data-id="calc-087" href="#calc-087" title="🚨 最容易错的15个点">🚨 最容易错的15个点</a></div><ul class="nav-sub" hidden="" id="sub-calc-087"><li><a class="nav-link level-3" data-doc="calc" data-id="calc-088" href="#calc-088" title="1. IOPS 时间单位是秒。">1. IOPS 时间单位是秒。</a></li><li><a class="nav-link level-3" data-doc="calc" data-id="calc-089" href="#calc-089" title="2. PUE越接近1越好。">2. PUE越接近1越好。</a></li><li><a class="nav-link level-3" data-doc="calc" data-id="calc-090" href="#calc-090" title="3. PUE正常不应小于1。">3. PUE正常不应小于1。</a></li><li><a class="nav-link level-3" data-doc="calc" data-id="calc-091" href="#calc-091" title="4. 容量规划目标利用率80%，是“除以80%”。">4. 容量规划目标利用率80%，是“除以80%”。</a></li><li><a class="nav-link level-3" data-doc="calc" data-id="calc-092" href="#calc-092" title="5. 容量规划中的RAM可能只是干扰项。">5. 容量规划中的RAM可能只是干扰项。</a></li><li><a class="nav-link level-3" data-doc="calc" data-id="calc-093" href="#calc-093" title="6. MTBF看正常运行时间。">6. MTBF看正常运行时间。</a></li><li><a class="nav-link level-3" data-doc="calc" data-id="calc-094" href="#calc-094" title="7. MTTR只看维修时间。">7. MTTR只看维修时间。</a></li><li><a class="nav-link level-3" data-doc="calc" data-id="calc-095" href="#calc-095" title="8. MTBSI = MTBF + MTTR。">8. MTBSI = MTBF + MTTR。</a></li><li><a class="nav-link level-3" data-doc="calc" data-id="calc-096" href="#calc-096" title="9. 投入产出比最终通常化成1:N。">9. 投入产出比最终通常化成1:N。</a></li><li><a class="nav-link level-3" data-doc="calc" data-id="calc-097" href="#calc-097" title="10. 投资回报率是利润/投资，不是收入/投资。">10. 投资回报率是利润/投资，不是收入/投资。</a></li><li><a class="nav-link level-3" data-doc="calc" data-id="calc-098" href="#calc-098" title="11. 题目明确给投资时，不要拿开支替代投资。">11. 题目明确给投资时，不要拿开支替代投资。</a></li><li><a class="nav-link level-3" data-doc="calc" data-id="calc-099" href="#calc-099" title="12. “率”别忘了 ×100%。">12. “率”别忘了 ×100%。</a></li><li><a class="nav-link level-3" data-doc="calc" data-id="calc-100" href="#calc-100" title="13. 服务台派单准确率最容易错。">13. 服务台派单准确率最容易错。</a></li><li><a class="nav-link level-3" data-doc="calc" data-id="calc-101" href="#calc-101" title="14. 招聘成功率、达成率分子一样。">14. 招聘成功率、达成率分子一样。</a></li><li><a class="nav-link level-3" data-doc="calc" data-id="calc-102" href="#calc-102" title="15. OEE最难的是性能效率。">15. OEE最难的是性能效率。</a></li></ul></li><li class="nav-chapter" data-chapter="calc-103"><div class="nav-chapter-row"><span class="nav-noexpand"></span><a class="nav-link level-2" data-doc="calc" data-id="calc-103" href="#calc-103" title="🎯 冲刺复习优先级">🎯 冲刺复习优先级</a></div></li><li class="nav-chapter" data-chapter="calc-104"><div class="nav-chapter-row"><span class="nav-noexpand"></span><a class="nav-link level-2" data-doc="calc" data-id="calc-104" href="#calc-104" title="🧠 考前一页回忆版">🧠 考前一页回忆版</a></div></li><li class="nav-chapter" data-chapter="calc-105"><div class="nav-chapter-row"><span class="nav-noexpand"></span><a class="nav-link level-2" data-doc="calc" data-id="calc-105" href="#calc-105" title="📌 最后只守住这8条">📌 最后只守住这8条</a></div></li></ul>
+</div>
+</nav>
+<div class="sidebar-footer">保留原文内容 · 按章节定位 · 离线可用</div>
+</aside>
+<div class="workspace">
+<header class="topbar">
+<div class="topbar-inner">
+<button aria-label="打开目录" class="btn-icon mobile-menu" id="mobileMenu">☰ <span class="btn-text">目录</span></button>
+<span class="topmark">系统规划与管理师 <b>/ 案例专题</b></span>
+<div aria-label="专题切换" class="top-tabs" role="tablist">
+<button aria-selected="true" class="top-tab active" data-switch="study" role="tab">01 学习方法</button>
+<button aria-selected="false" class="top-tab" data-switch="calc" role="tab">02 计算题</button>
+</div>
+<div class="header-controls">
+<button class="btn-icon" id="searchOpen" title="搜索当前两份笔记（Ctrl+K）">⌕ <span class="btn-text">搜索</span></button>
+<button class="btn-icon" id="printBtn" title="打印当前专题">▤ <span class="btn-text">打印</span></button>
+</div>
+</div>
+</header>
+<main class="main">
+<section class="doc-pane" data-doc="study">
+<div class="hero"><div class="eyebrow">CASE ANALYSIS · PART 01</div><h2>案例分析学习方法与答题技巧</h2><p class="subtitle">从考试全貌、题型识别，到找茬、分析、背诵、计算与考场保分。按原 Markdown 全文整理，适合考前回顾答题思路。</p><div class="hero-pills"><span class="hero-pill">27个核心专题</span><span class="hero-pill">找茬 / 分析 / 背诵 / 计算</span><span class="hero-pill">多选与判断技巧</span></div></div>
+<div class="quicklinks"><button data-jump="study-016">找茬题解法</button><button data-jump="study-024">答题技巧</button><button data-jump="study-047">判断题</button><button data-jump="study-056">背诵题</button></div>
+<p class="source-disclaimer">资料来源：用户上传的《案例分析学习介绍｜学习方法 + 答题技巧一体版.md》。老师的预测、历史经验和应急方法均按原笔记保留；它们不等同于官方命题规则。</p>
+<div class="doc-content"><div class="prose"><section class="chapter-card" data-chapter="1"><h2 class="source-document-heading" data-title="📘 案例分析学习介绍｜学习方法 + 答题技巧一体版" id="study-001">📘 案例分析学习介绍｜学习方法 + 答题技巧一体版</h2>
+<blockquote>
+<p><strong>本节定位</strong><br/>
+这一节不是继续学新的教材知识点，而是专门学习：<br/>
+案例分析考什么、怎么考；<br/>
+不同题型应该怎么解；<br/>
+如何把已经学过的理论真正“调出来”用于案例；<br/>
+如何组织答案，减少会做却丢分；<br/>
+临场卡住时如何尽量保分。<br/>
+核心思想：<br/>
+<strong>案例题 = 教材理论 + 材料场景 + 规范表达。</strong><br/>
+只背理论不够，只看材料也不够；真正得分来自“用教材知识解释材料中的具体问题”。</p>
+</blockquote>
+<hr/>
+</section><section class="chapter-card" data-chapter="2"><h2 data-title="🗺 1. 先建立案例考试全貌" id="study-002">🗺 1. 先建立案例考试全貌</h2>
+<ol>
+<li>
+<h3 class="topic-title" data-title="考试结构" id="study-003">考试结构</h3>
+<p>系统规划与管理师案例分析：</p>
+<ul>
+<li>
+<p><strong>3 道大题</strong></p>
+</li>
+<li>
+<p>每题约 <strong>25 分</strong></p>
+</li>
+<li>
+<p>总分 <strong>75 分</strong></p>
+</li>
+<li>
+<p><strong>45 分及格</strong></p>
+<p>课件说明，高级资格相关科目采用连考安排，总作答时间为 <strong>240 分钟</strong>。</p>
+<p>🧠 <strong>老师课堂建议</strong></p>
+<p>案例正常作答时间非常紧，老师建议：</p>
+<blockquote>
+<p>尽量把综合知识中能够挪出的时间留给案例，争取让案例拥有接近 <strong>120 分钟</strong>的作答时间。</p>
+</blockquote>
+<p>⚠ 具体考试时间规则以当年官方考试安排为准；这里保留的是本课程针对 2026 年备考时的课堂说明和时间策略。</p>
+<hr/>
+</li>
+</ul>
+</li>
+<li>
+<h3 class="topic-title" data-title="考试范围" id="study-004">考试范围</h3>
+<p>课件给出的范围：</p>
+<blockquote>
+<p><strong>教材第 4～24 章全部知识。</strong></p>
+</blockquote>
+<p>但老师根据当前考试情况判断：</p>
+<blockquote>
+<p>实际案例重点通常仍集中在 <strong>第 4～17 章</strong>。</p>
+</blockquote>
+<p>因此：</p>
+<ul>
+<li>
+<p>规划篇：4～10章</p>
+</li>
+<li>
+<p>服务管理篇：11～17章</p>
+</li>
+<li>
+<p>实践篇：18～24章整体案例优先级较低</p>
+<hr/>
+</li>
+</ul>
+</li>
+</ol>
+</section><section class="chapter-card" data-chapter="3"><h2 data-title="🧩 2. 案例分析主要有 4 类题" id="study-005">🧩 2. 案例分析主要有 4 类题</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th><strong>题型</strong></th>
+<th><strong>核心能力</strong></th>
+<th><strong>老师总体判断</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>找茬题</strong></td>
+<td>从案例材料中找出存在的问题</td>
+<td>分值通常不算最大，但非常讲究方法</td>
+</tr>
+<tr>
+<td><strong>分析题</strong></td>
+<td>理解知识并在具体场景中判断、推理</td>
+<td>形式灵活</td>
+</tr>
+<tr>
+<td><strong>计算题</strong></td>
+<td>指标公式与简单计算</td>
+<td>相对少、通常不难</td>
+</tr>
+<tr>
+<td><strong>背诵题</strong></td>
+<td>调取教材固定框架</td>
+<td><strong>分值占比最大，是案例备考核心</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3 class="topic-title" data-title="🔥 最重要结论" id="study-006">🔥 最重要结论</h3>
+<p>老师反复强调：</p>
+<blockquote>
+<p><strong>案例不是只会分析就行，真正占分最多的仍然是背诵 / 默写。</strong></p>
+</blockquote>
+<p>常见背诵题包括：</p>
+<ul>
+<li>
+<p>简答式默写；</p>
+</li>
+<li>
+<p>填空式默写；</p>
+</li>
+<li>
+<p>“变异版默写”——表面看像分析，实际上仍要求先把教材框架准确调出来。</p>
+<hr/>
+</li>
+</ul>
+</section><section class="chapter-card" data-chapter="4"><h2 data-title="📊 3. 题型特点：为什么案例难？" id="study-007">📊 3. 题型特点：为什么案例难？</h2>
+<h3 class="topic-title" data-title="① 时间非常紧" id="study-008">① 时间非常紧</h3>
+<p>需要在有限时间内完成：</p>
+<blockquote>
+<p>阅读材料 → 定位知识点 → 分析 → 回忆理论 → 组织答案 → 输入答案。</p>
+</blockquote>
+<p>所以不能靠临场慢慢想。</p>
+<h3 class="topic-title" data-title="② 背诵量大" id="study-009">② 背诵量大</h3>
+<p>尤其固定：</p>
+<ul>
+<li>
+<p>分类；</p>
+</li>
+<li>
+<p>流程；</p>
+</li>
+<li>
+<p>活动；</p>
+</li>
+<li>
+<p>原则；</p>
+</li>
+<li>
+<p>角色职责；</p>
+</li>
+<li>
+<p>步骤。</p>
+<p>很多题就是直接或变形默写。</p>
+</li>
+</ul>
+<h3 class="topic-title" data-title="③ 三道大题不等于只考三个章节" id="study-010">③ 三道大题不等于只考三个章节</h3>
+<p>老师特别强调：</p>
+<blockquote>
+<p><strong>一道案例可能混合多个知识领域。</strong></p>
+</blockquote>
+<p>三道大题最终可能覆盖：</p>
+<blockquote>
+<p><strong>5～7 个章节 / 领域。</strong></p>
+</blockquote>
+<hr/>
+</section><section class="chapter-card" data-chapter="5"><h2 data-title="🎯 4. 老师对 2026 案例备考优先级的判断" id="study-011">🎯 4. 老师对 2026 案例备考优先级的判断</h2>
+<blockquote>
+<p>⚠ 以下属于老师基于 2025 真题和教材结构给出的 <strong>2026 备考预测</strong>，不是官方命题结论。</p>
+</blockquote>
+<ol>
+<li>
+<h3 class="topic-title" data-title="规划篇 4～10章" id="study-012">规划篇 4～10章</h3>
+<p>课堂大致排序：</p>
+<blockquote>
+<p><strong>8、10 → 4、5 → 7、9 → 6</strong></p>
+</blockquote>
+<p>其中第8章、第10章优先级最高；第6章因为2025年考查较多，老师判断当年再次大篇幅出现的优先级下降。</p>
+</li>
+<li>
+<h3 class="topic-title" data-title="服务管理篇 11～17章" id="study-013">服务管理篇 11～17章</h3>
+<p>课堂排序：</p>
+<blockquote>
+<p><strong>12、15 → 14 → 13 → 16 → 11、17</strong></p>
+</blockquote>
+<p>其中：</p>
+<ul>
+<li>
+<p>第12章 信息系统服务管理：最高优先级之一</p>
+</li>
+<li>
+<p>第15章 技术与研发管理：最高优先级之一</p>
+</li>
+<li>
+<p>第14章：其次</p>
+</li>
+<li>
+<p>第13章：再次</p>
+</li>
+<li>
+<p>第16章：相对靠后</p>
+</li>
+<li>
+<p>第11、17章：老师判断案例概率较低</p>
+</li>
+</ul>
+</li>
+<li>
+<h3 class="topic-title" data-title="实践篇 18～24章" id="study-014">实践篇 18～24章</h3>
+<p>老师判断案例优先级整体较低，以关注焦点、规划要点等核心内容为主。</p>
+<hr/>
+</li>
+</ol>
+</section><section class="chapter-card" data-chapter="6"><h2 data-title="🧠 5. 案例题底层解题模型" id="study-015">🧠 5. 案例题底层解题模型</h2>
+<p>无论题型，先走这条主线：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">先看问题
+   ↓
+判断属于哪个领域
+   ↓
+定位教材知识点
+   ↓
+回顾核心框架
+   ↓
+再读材料找对应信息
+   ↓
+结合场景分析
+   ↓
+分点、规范作答
+</code></pre></div>
+<blockquote>
+<p><strong>先确定“考什么”，再去材料里找“哪里体现了这个考点”。</strong></p>
+</blockquote>
+<hr/>
+</section><section class="chapter-card" data-chapter="7"><h2 data-title="🔥 6. 找茬题：最值得掌握的方法" id="study-016">🔥 6. 找茬题：最值得掌握的方法</h2>
+<p>找茬题本质：</p>
+<blockquote>
+<p><strong>从案例材料中发现违反教材理论、管理原则、流程或要求的地方。</strong></p>
+</blockquote>
+<p>老师给出的训练步骤：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">材料分析
+   ↓
+原因分析
+   ↓
+组织语句
+   ↓
+开始作答
+</code></pre></div>
+<p>⚠ 这是训练阶段的拆解法。真正考试熟练后，可以边读、边找、边答。</p>
+<ol>
+<li>
+<h3 class="topic-title" data-title="材料分析" id="study-017">材料分析</h3>
+<p>逐句阅读材料，把可能有问题的语句先标出来。</p>
+<p>老师原则：</p>
+<blockquote>
+<p><strong>宁可暂时多标，不要轻易漏掉。</strong></p>
+</blockquote>
+<p>重点关注：</p>
+<ul>
+<li>
+<p>人员配置明显不合理；</p>
+</li>
+<li>
+<p>客户投诉；</p>
+</li>
+<li>
+<p>工具不好用；</p>
+</li>
+<li>
+<p>响应慢；</p>
+</li>
+<li>
+<p>故障恢复慢；</p>
+</li>
+<li>
+<p>备件不可用；</p>
+</li>
+<li>
+<p>流程缺失；</p>
+</li>
+<li>
+<p>管理机制缺失；</p>
+</li>
+<li>
+<p>“刚成立”“大量新人”“没有经验”等风险信号。</p>
+</li>
+</ul>
+</li>
+<li>
+<h3 class="topic-title" data-title="原因分析" id="study-018">原因分析</h3>
+<p>找出可疑句子后，要回到<strong>教材核心知识框架</strong>进行系统排查。</p>
+<p>例如信息系统服务管理案例，可以按：</p>
+<blockquote>
+<p><strong>人员 / 资源 / 技术 / 过程</strong></p>
+</blockquote>
+<p>四要素排查。</p>
+</li>
+</ol>
+<h4 class="detail-title" data-title="① 人员" id="study-019">① 人员</h4>
+<p>检查：</p>
+<ul>
+<li>
+<p>组织结构；</p>
+</li>
+<li>
+<p>岗位设置；</p>
+</li>
+<li>
+<p>人员能力；</p>
+</li>
+<li>
+<p>人员储备；</p>
+</li>
+<li>
+<p>培训；</p>
+</li>
+<li>
+<p>职责；</p>
+</li>
+<li>
+<p>绩效；</p>
+</li>
+<li>
+<p>沟通。</p>
+</li>
+</ul>
+<h4 class="detail-title" data-title="② 资源" id="study-020">② 资源</h4>
+<p>围绕：</p>
+<blockquote>
+<p><strong>服务工具 / 服务台 / 知识库 / 备件库</strong></p>
+</blockquote>
+<p>检查工具、沟通、知识维护、备件可用性、资源调度等。</p>
+<h4 class="detail-title" data-title="③ 技术" id="study-021">③ 技术</h4>
+<p>可从：</p>
+<ul>
+<li>
+<p>技术研发；</p>
+</li>
+<li>
+<p>发现问题技术；</p>
+</li>
+<li>
+<p>解决问题技术；</p>
+</li>
+<li>
+<p>测试环境；</p>
+</li>
+<li>
+<p>应急预案；</p>
+</li>
+<li>
+<p>知识转移；</p>
+</li>
+<li>
+<p>SOP / 技术手册；</p>
+<p>等方面排查。</p>
+</li>
+</ul>
+<h4 class="detail-title" data-title="④ 过程" id="study-022">④ 过程</h4>
+<p>回想：</p>
+<ul>
+<li>
+<p>服务级别</p>
+</li>
+<li>
+<p>服务报告</p>
+</li>
+<li>
+<p>事件</p>
+</li>
+<li>
+<p>问题</p>
+</li>
+<li>
+<p>配置</p>
+</li>
+<li>
+<p>变更</p>
+</li>
+<li>
+<p>发布</p>
+</li>
+<li>
+<p>信息安全</p>
+<p>检查有没有缺失、错误、不规范或执行不到位。</p>
+</li>
+</ul>
+<ol>
+<li>
+<h3 class="topic-title" data-title="真正通用的方法" id="study-023">真正通用的方法</h3>
+<p>四要素只是服务管理案例的一个例子。</p>
+<p>如果题目换成信息系统规划，就应该回顾：</p>
+<ul>
+<li>
+<p>规划内容；</p>
+</li>
+<li>
+<p>规划过程；</p>
+</li>
+<li>
+<p>规划方法；</p>
+</li>
+<li>
+<p>相关原则。</p>
+<p>所以真正的通用法是：</p>
+<blockquote>
+<p><strong>找到该领域的核心教材框架 → 把它当检查清单 → 逐项反查案例。</strong></p>
+</blockquote>
+<hr/>
+</li>
+</ul>
+</li>
+</ol>
+</section><section class="chapter-card" data-chapter="8"><h2 data-title="🔥 7. 找茬题最重要的答题公式" id="study-024">🔥 7. 找茬题最重要的答题公式</h2>
+<p>老师给出的核心结构：</p>
+<blockquote>
+<p><strong>问题点（概括） + 具体表现（案例原文 / 改写） + 违反的原则 / 改进方向（可选）</strong></p>
+</blockquote>
+<p>例如：</p>
+<blockquote>
+<p><strong>运维能力不足。</strong> 运维人员大部分由软件开发人员转岗而来，缺少运维经验，能力不能满足运维服务要求，<strong>应先培训后上岗</strong>。</p>
+</blockquote>
+<p>拆开：</p>
+<ol>
+<li>
+<p>运维能力不足 → 问题点</p>
+</li>
+<li>
+<p>大部分由开发人员转岗、缺少经验 → 案例表现</p>
+</li>
+<li>
+<p>应先培训后上岗 → 可选改进</p>
+</li>
+</ol>
+<h3 class="topic-title" data-title="⚠ 最大禁忌：纯万金油理论" id="study-025">⚠ 最大禁忌：纯万金油理论</h3>
+<p>只写：</p>
+<blockquote>
+<p>岗位设置不合理、人员管理机制不健全、服务工具有问题、知识库有问题……</p>
+</blockquote>
+<p>这种答案任何案例都能套，没有体现材料。</p>
+<p>老师反复强调：</p>
+<blockquote>
+<p>找茬题必须凸显案例中的<strong>人物、事件、活动和具体表现</strong>。</p>
+</blockquote>
+<p>🪄：</p>
+<blockquote>
+<p><strong>理论负责判断，材料负责得分。</strong></p>
+</blockquote>
+<hr/>
+</section><section class="chapter-card" data-chapter="9"><h2 data-title="✅ 8. 找茬题排版" id="study-026">✅ 8. 找茬题排版</h2>
+<p>如果题目已经要求从“人员、资源、技术、过程”四方面指出问题，最好直接按这四类回答。</p>
+<p>原则：</p>
+<blockquote>
+<p><strong>一个问题 = 一条。</strong></p>
+</blockquote>
+<p>不要把多个问题揉在一个长句里。</p>
+<p>案例通常按点给分，分点会明显更稳。</p>
+<hr/>
+</section><section class="chapter-card" data-chapter="10"><h2 data-title="⭐ 9. 找茬题如何多写保分？" id="study-027">⭐ 9. 找茬题如何多写保分？</h2>
+<p>老师课堂经验：</p>
+<blockquote>
+<p>如果题目<strong>没有限制答案数量</strong>，可以适当多写几条，留容错空间。</p>
+</blockquote>
+<p>但如果题目明确规定：</p>
+<ul>
+<li>
+<p>写5项；</p>
+</li>
+<li>
+<p>最多选3项；</p>
+</li>
+<li>
+<p>列出6条；</p>
+<p>就必须遵守限制。</p>
+<p>特别是多选题：</p>
+<blockquote>
+<p><strong>超过最大选项数量，可能直接不得分。</strong></p>
+</blockquote>
+<p>所以：</p>
+<blockquote>
+<p><strong>开放简答可适当多写；限项题绝不能超。</strong></p>
+</blockquote>
+<hr/>
+</li>
+</ul>
+</section><section class="chapter-card" data-chapter="11"><h2 data-title="🪄 10. 找茬题快速触发词" id="study-028">🪄 10. 找茬题快速触发词</h2>
+<p>老师课件给了一组“看到某现象 → 优先想到什么”的找茬万金油。</p>
+<p>⚠ 这些只能用于<strong>帮助找方向</strong>，不能直接当最终答案。</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th><strong>案例现象</strong></th>
+<th><strong>优先排查</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>事件数量异常下降</td>
+<td>事件管理机制</td>
+</tr>
+<tr>
+<td>不能提供充分服务时间</td>
+<td>可用性管理</td>
+</tr>
+<tr>
+<td>甲方要求做合同外工作</td>
+<td>服务目录 / 服务范围管理</td>
+</tr>
+<tr>
+<td>合同里没有的工作</td>
+<td>服务目录管理</td>
+</tr>
+<tr>
+<td>技术人员能力差</td>
+<td>培训、经验、人员风险</td>
+</tr>
+<tr>
+<td>新员工比例很高</td>
+<td>人员结构、培训、岗位</td>
+</tr>
+<tr>
+<td>运维越来越复杂</td>
+<td>人员、资源、技术、过程优化</td>
+</tr>
+<tr>
+<td>对备件响应要求越来越高</td>
+<td>备件管理</td>
+</tr>
+<tr>
+<td>团队士气低、积极性差</td>
+<td>人员管理</td>
+</tr>
+<tr>
+<td>用户投诉、抱怨</td>
+<td>事件管理、服务水平、沟通</td>
+</tr>
+<tr>
+<td>运维部门刚成立</td>
+<td>培训、岗位结构、能力</td>
+</tr>
+<tr>
+<td>大量开发人员转运维</td>
+<td>岗位结构、培训</td>
+</tr>
+<tr>
+<td>客户抱怨</td>
+<td>沟通管理</td>
+</tr>
+<tr>
+<td>报告错误很多</td>
+<td>服务报告设计 / 管理</td>
+</tr>
+<tr>
+<td>故障反复</td>
+<td>事件管理 + 知识库 / 问题管理</td>
+</tr>
+<tr>
+<td>同类问题反复发生</td>
+<td>问题管理、根因未解决</td>
+</tr>
+<tr>
+<td>可用性指标异常</td>
+<td>时间周期、指标设计</td>
+</tr>
+<tr>
+<td>问题直接联系项目经理</td>
+<td>服务台 / 沟通机制</td>
+</tr>
+<tr>
+<td>服务级别频繁调整</td>
+<td>服务级别管理、协议确定</td>
+</tr>
+<tr>
+<td>事件恢复效果差</td>
+<td>解决问题技术、知识储备</td>
+</tr>
+<tr>
+<td>人员服务意识差、经验不足</td>
+<td>培训、岗位与职责</td>
+</tr>
+<tr>
+<td>很多事件派不出去</td>
+<td>事件管理、职责不清</td>
+</tr>
+<tr>
+<td>分派事件没人处理</td>
+<td>职责不清、目标 / 机制</td>
+</tr>
+<tr>
+<td>相关人员说“不是自己的工作”</td>
+<td>职责不清、人员意识</td>
+</tr>
+<tr>
+<td>事件人员过多</td>
+<td>事件处理不完整、满意度 / 协调</td>
+</tr>
+<tr>
+<td>有人离职</td>
+<td>人员需要储备</td>
+</tr>
+<tr>
+<td>关键系统故障</td>
+<td>关键事件响应机制、应急演练</td>
+</tr>
+<tr>
+<td>关键系统长期不可用</td>
+<td>应急机制、连续性</td>
+</tr>
+<tr>
+<td>新招项目经理</td>
+<td>经验不足、管理风险</td>
+</tr>
+<tr>
+<td>客户满意度低</td>
+<td>服务回顾、沟通、服务质量</td>
+</tr>
+<tr>
+<td>组织有技术人员担任某岗位</td>
+<td>检查岗位结构是否合理</td>
+</tr>
+<tr>
+<td>经常在客户现场发生争执</td>
+<td>服务意识、沟通机制</td>
+</tr>
+<tr>
+<td>有人对项目不满意</td>
+<td>沟通机制</td>
+</tr>
+<tr>
+<td>运行很久才发现问题</td>
+<td>监控机制不足</td>
+</tr>
+</tbody>
+</table></div>
+<hr/>
+</section><section class="chapter-card" data-chapter="12"><h2 data-title="🔄 11. 优化题：就是“找茬题反过来”" id="study-029">🔄 11. 优化题：就是“找茬题反过来”</h2>
+<p>优化题本质：</p>
+<blockquote>
+<p><strong>先找到问题，再针对问题给改进措施。</strong></p>
+</blockquote>
+<h3 class="topic-title" data-title="🔥 万能公式" id="study-030">🔥 万能公式</h3>
+<blockquote>
+<p><strong>优化点（概括） + 具体方案（结合案例）</strong></p>
+</blockquote>
+<p>例如：</p>
+<blockquote>
+<p><strong>优化资源分配策略。</strong> 调整预算中硬件设备和软件资源投入比例，增加数据治理、人员培训等方面的资源投入。</p>
+</blockquote>
+<h3 class="topic-title" data-title="🧠 和找茬题的区别" id="study-031">🧠 和找茬题的区别</h3>
+<p>找茬：</p>
+<blockquote>
+<p>哪里错了？</p>
+</blockquote>
+<p>优化：</p>
+<blockquote>
+<p>错在哪里 + 应该怎么改？</p>
+</blockquote>
+<p>所以：</p>
+<blockquote>
+<p><strong>会找茬，基本就会优化。</strong></p>
+</blockquote>
+<hr/>
+</section><section class="chapter-card" data-chapter="13"><h2 data-title="🧩 12. 分析题：核心是“知识点 + 推理”" id="study-032">🧩 12. 分析题：核心是“知识点 + 推理”</h2>
+<p>分析题可能出现：</p>
+<ul>
+<li>
+<p>选择题</p>
+</li>
+<li>
+<p>判断题</p>
+</li>
+<li>
+<p>简答题</p>
+</li>
+<li>
+<p>填空题</p>
+</li>
+<li>
+<p>图形 / 模型分析</p>
+<p>它主要考：</p>
+<blockquote>
+<p><strong>理论知识在具体场景中的理解和应用。</strong></p>
+</blockquote>
+</li>
+</ul>
+<ol>
+<li>
+<h3 class="topic-title" data-title="分析题通用4步" id="study-033">分析题通用4步</h3>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">题目分析
+   ↓
+知识回顾
+   ↓
+分析推理
+   ↓
+选出 / 写出答案
+</code></pre></div>
+</li>
+</ol>
+<h4 class="detail-title" data-title="① 题目分析" id="study-034">① 题目分析</h4>
+<p>先判断：</p>
+<blockquote>
+<p>这题到底考哪一个知识点？</p>
+</blockquote>
+<h4 class="detail-title" data-title="② 知识回顾" id="study-035">② 知识回顾</h4>
+<p>回想：</p>
+<ul>
+<li>
+<p>这个知识点有哪些分类？</p>
+</li>
+<li>
+<p>每一类核心关键词是什么？</p>
+</li>
+<li>
+<p>有什么区别？</p>
+</li>
+</ul>
+<h4 class="detail-title" data-title="③ 分析推理" id="study-036">③ 分析推理</h4>
+<p>把材料场景和关键词逐一匹配。</p>
+<h4 class="detail-title" data-title="④ 选出答案" id="study-037">④ 选出答案</h4>
+<blockquote>
+<p><strong>先处理最确定的，再处理不确定的。</strong></p>
+</blockquote>
+<hr/>
+</section><section class="chapter-card" data-chapter="14"><h2 data-title="🛠 13. 分析题常用4种推理方法" id="study-038">🛠 13. 分析题常用4种推理方法</h2>
+<h3 class="topic-title" data-title="① 关键词法" id="study-039">① 关键词法</h3>
+<p>从题干和选项中提取关键词，与教材概念匹配。</p>
+<h3 class="topic-title" data-title="② 矛盾法" id="study-040">② 矛盾法</h3>
+<p>如果两个选项明显互相矛盾：</p>
+<blockquote>
+<p>正确答案往往更可能在其中之一。</p>
+</blockquote>
+<p>⚠ 这是辅助判断，不是绝对规则。</p>
+<h3 class="topic-title" data-title="③ 知识点判断法" id="study-041">③ 知识点判断法</h3>
+<p>先明确题目考点，再排除：</p>
+<blockquote>
+<p><strong>与当前知识领域明显无关的选项。</strong></p>
+</blockquote>
+<h3 class="topic-title" data-title="④ 题干拆解法" id="study-042">④ 题干拆解法</h3>
+<p>当题干特别长、特别绕时：</p>
+<blockquote>
+<p>把长句拆成短句，再用自己的话重新翻译。</p>
+</blockquote>
+<p>例如复杂题干拆完可能只是：</p>
+<blockquote>
+<p>“引入了一项技术，但该技术在高故障、弱连接场景缺少理论支撑，问违反哪个技术原则？”</p>
+</blockquote>
+<p>这样就容易抓到：</p>
+<blockquote>
+<p><strong>可靠性</strong></p>
+</blockquote>
+<p>而不是被长句绕进去。</p>
+<hr/>
+</section><section class="chapter-card" data-chapter="15"><h2 data-title="🎯 14. “确定优先”是分析题的重要习惯" id="study-043">🎯 14. “确定优先”是分析题的重要习惯</h2>
+<p>无论选择、判断还是场景匹配：</p>
+<blockquote>
+<p><strong>先做最确定的项。</strong></p>
+</blockquote>
+<p>最后再用剩余选项 / 剩余知识点推理不确定项。</p>
+<h3 class="topic-title" data-title="🧠 老师经验" id="study-044">🧠 老师经验</h3>
+<p>如果一道匹配题给出若干知识类别，再给若干场景，命题人经常会让各类别都有机会出现。</p>
+<p>因此：</p>
+<blockquote>
+<p>做到最后发现某个类别始终没出现，可以将它作为检查线索。</p>
+</blockquote>
+<p>⚠ 这是老师的<strong>命题经验和推理技巧</strong>，不是教材规则，不应机械套用。</p>
+<hr/>
+</section><section class="chapter-card" data-chapter="16"><h2 data-title="⚠ 15. 案例多选题：不要超选" id="study-045">⚠ 15. 案例多选题：不要超选</h2>
+<p>如果题目明确：</p>
+<blockquote>
+<p><strong>最多选3项</strong></p>
+</blockquote>
+<p>那么：</p>
+<blockquote>
+<p><strong>绝对不要写4项。</strong></p>
+</blockquote>
+<p>老师说明，这类题通常按命中正确项给对应分值，但超过最大数量可能直接失分。</p>
+<h3 class="topic-title" data-title="🔥 所以" id="study-046">🔥 所以</h3>
+<p>开放简答：</p>
+<blockquote>
+<p>没限制 → 可以适当多写。</p>
+</blockquote>
+<p>多选 / 限项题：</p>
+<blockquote>
+<p><strong>明确限制 → 绝不能超。</strong></p>
+</blockquote>
+<hr/>
+</section><section class="chapter-card" data-chapter="17"><h2 data-title="📖 16. 判断题怎么做？" id="study-047">📖 16. 判断题怎么做？</h2>
+<p>基本流程：</p>
+<ol>
+<li>
+<p>先看题干，直接找明显错误；</p>
+</li>
+<li>
+<p>如果题干引用案例人物 / 行为，再回材料核对；</p>
+</li>
+<li>
+<p>确定的先答；</p>
+</li>
+<li>
+<p>模棱两可的最后推理。</p>
+</li>
+</ol>
+<h3 class="topic-title" data-title="⚠ 老师课堂“历史分布小技巧”" id="study-048">⚠ 老师课堂“历史分布小技巧”</h3>
+<p>老师回顾历年案例判断题后认为：</p>
+<blockquote>
+<p>五道判断题经常呈现 <strong>2对3错 / 3对2错</strong> 的分布。</p>
+</blockquote>
+<p>他建议：</p>
+<blockquote>
+<p>如果最后只剩一两道完全拿不准，可以把这个历史分布当作最后的猜题参考。</p>
+</blockquote>
+<p>但要明确：</p>
+<blockquote>
+<p><strong>这只是课堂经验，不是考试规则，也不能代替知识判断。</strong></p>
+</blockquote>
+<p>不要为了凑“2对3错”去改掉自己原本有理论依据的答案。</p>
+<hr/>
+</section><section class="chapter-card" data-chapter="18"><h2 data-title="🧠 17. 分析型简答题：本质是“默写 + 场景判断”" id="study-049">🧠 17. 分析型简答题：本质是“默写 + 场景判断”</h2>
+<p>例如：</p>
+<blockquote>
+<p>“案例中的5个场景分别适合哪种云计算模式？说明理由。”</p>
+</blockquote>
+<p>做法：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">先把相关模式全部回忆出来
+        ↓
+先匹配最确定的场景
+        ↓
+剩下不确定的再推理
+        ↓
+每个答案说明材料中的理由
+</code></pre></div>
+<h3 class="topic-title" data-title="🔥 关键" id="study-050">🔥 关键</h3>
+<blockquote>
+<p><strong>知识点本身记不下来，再会分析也没有用。</strong></p>
+</blockquote>
+<p>所以分析型简答仍然建立在背诵基础上。</p>
+<hr/>
+</section><section class="chapter-card" data-chapter="19"><h2 data-title="🚑 18. 分析题完全卡住时的应急保分顺序" id="study-051">🚑 18. 分析题完全卡住时的应急保分顺序</h2>
+<p>这是老师专门讲的临场保分策略。</p>
+<p>⚠ 不是正常学习方法，只用于：</p>
+<blockquote>
+<p><strong>考场实在不会时尽量不要留白。</strong></p>
+</blockquote>
+<h3 class="topic-title" data-title="第一层：回材料找提示" id="study-052">第一层：回材料找提示</h3>
+<p>很多时候不是没背，而是紧张后暂时想不起来。</p>
+<p>重新读题干和案例，看看能不能被关键词触发记忆。</p>
+<h3 class="topic-title" data-title="第二层：回想同章相近知识" id="study-053">第二层：回想同章相近知识</h3>
+<p>如果目标框架想不起来：</p>
+<blockquote>
+<p>尝试回忆该章节中相近的分类、流程、模式。</p>
+</blockquote>
+<p>有时能碰到正确关键词。</p>
+<h3 class="topic-title" data-title="第三层：使用通用逻辑" id="study-054">第三层：使用通用逻辑</h3>
+<p>如果完全忘记，可以根据题型写：</p>
+<p>流程类：</p>
+<blockquote>
+<p>规划 → 设计 → 实施 → 检查 / 验收 → 改进</p>
+</blockquote>
+<p>问题解决类：</p>
+<blockquote>
+<p>发现问题 → 分析原因 → 制订方案 → 评审 → 实施 → 检查</p>
+</blockquote>
+<p>⚠ 这些不是教材标准答案，只是最后的<strong>擦边保分尝试</strong>。</p>
+<h3 class="topic-title" data-title="⚠ 关于老师课堂提到的“卡bug”" id="study-055">⚠ 关于老师课堂提到的“卡bug”</h3>
+<p>课堂中老师演示了一些：</p>
+<blockquote>
+<p>在题目没有限制唯一答案时，用多种可能答案争取命中部分得分</p>
+</blockquote>
+<p>的极端应急做法。</p>
+<p>这类方法应理解为：</p>
+<blockquote>
+<p><strong>万不得已的考场保分思路</strong></p>
+</blockquote>
+<p>而不是正常答题策略。</p>
+<p>优先级始终应该是：</p>
+<blockquote>
+<p><strong>教材知识 → 材料判断 → 正常推理。</strong></p>
+</blockquote>
+<hr/>
+</section><section class="chapter-card" data-chapter="20"><h2 data-title="🔥 19. 背诵题：案例真正的大头" id="study-056">🔥 19. 背诵题：案例真正的大头</h2>
+<p>老师判断：</p>
+<blockquote>
+<p>背诵题通常是案例分值最多的一类。</p>
+</blockquote>
+<p>因此案例复习最核心的能力之一：</p>
+<blockquote>
+<p><strong>把教材固定框架练到可以闭卷调取。</strong></p>
+</blockquote>
+<ol>
+<li>
+<h3 class="topic-title" data-title="短语型默写" id="study-057">短语型默写</h3>
+<p>例如：</p>
+<ul>
+<li>
+<p>固定分类；</p>
+</li>
+<li>
+<p>原则名称；</p>
+</li>
+<li>
+<p>4项活动；</p>
+</li>
+<li>
+<p>5个步骤。</p>
+<p>老师要求：</p>
+<blockquote>
+<p><strong>尽量准确，短语越短越应该写标准名称。</strong></p>
+</blockquote>
+<p>尤其填空式题目：</p>
+<blockquote>
+<p>可能要求接近一字不差。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<h3 class="topic-title" data-title="长句型默写" id="study-058">长句型默写</h3>
+<p>如果教材标准答案本身很长：</p>
+<p>老师认为：</p>
+<blockquote>
+<p><strong>核心意思正确、关键词完整，表述达到七八成相似即可。</strong></p>
+</blockquote>
+<p>重点是：</p>
+<ul>
+<li>
+<p>核心动作；</p>
+</li>
+<li>
+<p>对象；</p>
+</li>
+<li>
+<p>关键限定词；</p>
+<p>不能丢。</p>
+</li>
+</ul>
+</li>
+<li>
+<h3 class="topic-title" data-title="不要为了简写删掉得分点" id="study-059">不要为了简写删掉得分点</h3>
+<p>例如标准答案：</p>
+<blockquote>
+<p>“构建系统原型，检验可行性并发现问题”</p>
+</blockquote>
+<p>如果只写：</p>
+<blockquote>
+<p>“原型构建”</p>
+</blockquote>
+<p>很可能只能拿部分分。</p>
+<p>🪄：</p>
+<blockquote>
+<p><strong>短框架背标准词，长框架背关键词链。</strong></p>
+</blockquote>
+<hr/>
+</li>
+</ol>
+</section><section class="chapter-card" data-chapter="21"><h2 data-title="🚑 20. 背诵题忘记时怎么办？" id="study-060">🚑 20. 背诵题忘记时怎么办？</h2>
+<p>老师给出的顺序：</p>
+<ol>
+<li>
+<p>回材料看有没有提示；</p>
+</li>
+<li>
+<p>回忆相近知识；</p>
+</li>
+<li>
+<p>结合题目语境写通用步骤；</p>
+</li>
+<li>
+<p>尽量不要留白。</p>
+<p>⚠ 但这只是：</p>
+<blockquote>
+<p><strong>临场补救。</strong></p>
+</blockquote>
+<p>真正备考仍然应该把高频固定框架提前背熟。</p>
+<hr/>
+</li>
+</ol>
+</section><section class="chapter-card" data-chapter="22"><h2 data-title="🧮 21. 计算题：重点是公式和分子分母" id="study-061">🧮 21. 计算题：重点是公式和分子分母</h2>
+<p>系统规划与管理师案例计算题总体特点：</p>
+<ul>
+<li>
+<p>数量相对少；</p>
+</li>
+<li>
+<p>一般是指标计算；</p>
+</li>
+<li>
+<p>难度通常不高；</p>
+</li>
+<li>
+<p>偶尔可能出现材料之外的计算。</p>
+</li>
+</ul>
+<h3 class="topic-title" data-title="🔥 做题4步" id="study-062">🔥 做题4步</h3>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">识别指标
+   ↓
+写公式
+   ↓
+判断分子 / 分母
+   ↓
+代数计算 + 写单位
+</code></pre></div>
+<p>老师强调：</p>
+<blockquote>
+<p>即使忘了公式，有些指标也可以根据含义推理出分子分母。</p>
+</blockquote>
+<p>但正常备考仍要：</p>
+<blockquote>
+<p><strong>把教材出现过的指标公式熟练掌握。</strong></p>
+</blockquote>
+<h3 class="topic-title" data-title="⚠ 最后一步一定重新看题目" id="study-063">⚠ 最后一步一定重新看题目</h3>
+<p>老师专门提醒：</p>
+<blockquote>
+<p>计算出某个中间值，不代表已经回答了题目。</p>
+</blockquote>
+<p>例如：</p>
+<p>算出今年总共需要12人，但题目实际问“至少增加多少人”，如果原来有6人，最终答案应该是：</p>
+<blockquote>
+<p><strong>增加6人</strong></p>
+</blockquote>
+<p>所以：</p>
+<blockquote>
+<p><strong>公式算完 → 再读一次问题。</strong></p>
+</blockquote>
+<hr/>
+</section><section class="chapter-card" data-chapter="23"><h2 data-title="🧭 22. 案例课真正建议怎么学？" id="study-064">🧭 22. 案例课真正建议怎么学？</h2>
+<p>老师最后的备考建议可以压缩成：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">理论打底
+   ↓
+掌握高频框架
+   ↓
+学习题型方法
+   ↓
+刷真题 / 案例题
+   ↓
+总结自己的错误
+   ↓
+形成稳定答题模板
+</code></pre></div>
+<ol>
+<li>
+<h3 class="topic-title" data-title="系统理论是基础" id="study-065">系统理论是基础</h3>
+<p>无论题型怎么变：</p>
+<blockquote>
+<p><strong>案例分析的根本仍然是教材知识。</strong></p>
+</blockquote>
+<p>尤其：</p>
+<ul>
+<li>
+<p>分类；</p>
+</li>
+<li>
+<p>流程；</p>
+</li>
+<li>
+<p>原则；</p>
+</li>
+<li>
+<p>活动；</p>
+</li>
+<li>
+<p>方法；</p>
+<p>必须熟。</p>
+</li>
+</ul>
+</li>
+<li>
+<h3 class="topic-title" data-title="多刷题，但重点研究“怎么想”" id="study-066">多刷题，但重点研究“怎么想”</h3>
+<p>刷题不要只看：</p>
+<blockquote>
+<p>标准答案是什么？</p>
+</blockquote>
+<p>更重要的是复盘：</p>
+<ol>
+<li>
+<p>为什么判断它属于这个领域？</p>
+</li>
+<li>
+<p>对应教材哪一个框架？</p>
+</li>
+<li>
+<p>材料哪一句暴露了问题？</p>
+</li>
+<li>
+<p>为什么这个答案能得分？</p>
+</li>
+<li>
+<p>我为什么会漏掉？</p>
+</li>
+</ol>
+</li>
+<li>
+<h3 class="topic-title" data-title="找茬题至少完整拆解3～5道" id="study-067">找茬题至少完整拆解3～5道</h3>
+<p>老师对初学者建议：</p>
+<blockquote>
+<p>一开始真的按照“材料分析 → 教材框架检查 → 原因分析 → 组织语句”完整做几道。</p>
+</blockquote>
+<p>等形成感觉后：</p>
+<blockquote>
+<p>再逐步变成边读边答。</p>
+</blockquote>
+<hr/>
+</li>
+</ol>
+</section><section class="chapter-card" data-chapter="24"><h2 data-title="✍️ 23. 最推荐的案例答题排版" id="study-068">✍️ 23. 最推荐的案例答题排版</h2>
+<p>无论找茬还是简答，优先：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">1. ……
+2. ……
+3. ……
+4. ……
+</code></pre></div>
+<p>如果题目有维度：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">人员方面：
+1. ……
+2. ……
+
+资源方面：
+1. ……
+2. ……
+</code></pre></div>
+<p>原则：</p>
+<blockquote>
+<p><strong>有层次、有编号、一点一条。</strong></p>
+</blockquote>
+<hr/>
+</section><section class="chapter-card" data-chapter="25"><h2 data-title="🧠 24. 一张“案例考试作战图”" id="study-069">🧠 24. 一张“案例考试作战图”</h2>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">拿到一道案例题
+        ↓
+先看问题
+        ↓
+它是什么题型？
+ ┌──────┬──────┬──────┬──────┐
+ 找茬    分析    背诵    计算
+ │       │       │       │
+定位领域 定知识点  调框架   找公式
+ │       │       │       │
+教材骨架 回关键词  标准词   分子分母
+ │       │       │       │
+找材料   做推理   分点写   代数计算
+ │       │       │       │
+问题+场景+可选改进         检查单位
+ └──────────────┬──────────┘
+                ↓
+        分点、编号、规范作答
+</code></pre></div>
+<hr/>
+</section><section class="chapter-card" data-chapter="26"><h2 data-title="🔥 25. 四类题型，一句话记住" id="study-070">🔥 25. 四类题型，一句话记住</h2>
+<h3 class="topic-title" data-title="找茬题" id="study-071">找茬题</h3>
+<blockquote>
+<p><strong>拿教材当检查清单，到材料里抓违反教材的地方。</strong></p>
+</blockquote>
+<h3 class="topic-title" data-title="优化题" id="study-072">优化题</h3>
+<blockquote>
+<p><strong>找到问题，再给具体改法。</strong></p>
+</blockquote>
+<h3 class="topic-title" data-title="分析题" id="study-073">分析题</h3>
+<blockquote>
+<p><strong>先回忆知识边界，再用关键词和场景推理。</strong></p>
+</blockquote>
+<h3 class="topic-title" data-title="背诵题" id="study-074">背诵题</h3>
+<blockquote>
+<p><strong>短语写标准词，长句保核心关键词。</strong></p>
+</blockquote>
+<h3 class="topic-title" data-title="计算题" id="study-075">计算题</h3>
+<blockquote>
+<p><strong>先写公式，再找分子分母，最后检查题目到底问什么。</strong></p>
+</blockquote>
+<hr/>
+</section><section class="chapter-card" data-chapter="27"><h2 data-title="✅ 26. 考场最后检查清单" id="study-076">✅ 26. 考场最后检查清单</h2>
+<p>做完一道案例后快速检查：</p>
+<ul>
+<li>
+<p>[ ] 我有没有先回答题目真正问的内容？</p>
+</li>
+<li>
+<p>[ ] 找茬答案有没有写到案例中的具体人物 / 事件 / 行为？</p>
+</li>
+<li>
+<p>[ ] 有没有只写理论、没有结合材料？</p>
+</li>
+<li>
+<p>[ ] 一个得分点是否单独一条？</p>
+</li>
+<li>
+<p>[ ] 有没有按题目要求分类？</p>
+</li>
+<li>
+<p>[ ] 题目有没有限制答案数量？</p>
+</li>
+<li>
+<p>[ ] 多选题有没有超选？</p>
+</li>
+<li>
+<p>[ ] 默写题标准名称有没有写错？</p>
+</li>
+<li>
+<p>[ ] 计算题有没有写错单位？</p>
+</li>
+<li>
+<p>[ ] 计算完有没有再次确认题目问的是“总量”还是“增量”？</p>
+</li>
+<li>
+<p>[ ] 有没有留空白的小问可以再尝试写一点？</p>
+<hr/>
+</li>
+</ul>
+</section><section class="chapter-card" data-chapter="28"><h2 data-title="🪄 27. 最后压缩成5句" id="study-077">🪄 27. 最后压缩成5句</h2>
+<blockquote>
+<p><strong>① 案例先看问题，再看材料。</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>② 找茬不是凭感觉，要拿教材框架反查材料。</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>③ 找茬答案 = 问题点 + 案例表现 +（必要时）原因/改进。</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>④ 案例按点给分：一点一条、分层编号、不要把多个问题揉成一句。</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>⑤ 案例高分的根本仍然是：理论背得出来，材料看得明白，答案写得规范。</strong></p>
+</blockquote>
+</section></div></div>
+</section>
+<section class="doc-pane" data-doc="calc" hidden="">
+<div class="hero"><div class="eyebrow">CASE ANALYSIS · PART 02</div><h2>案例分析计算题 · 完整整理版</h2><p class="subtitle">按第6章云资源、第12章服务管理、第13章人员管理、第22章智能制造梳理公式、例题、课堂口径与易错点。</p><div class="hero-pills"><span class="hero-pill">4个章节领域</span><span class="hero-pill">逐步计算过程</span><span class="hero-pill">公式速查与冲刺记忆</span></div></div>
+<div class="quicklinks"><button data-jump="calc-004">云资源规划</button><button data-jump="calc-027">服务管理</button><button data-jump="calc-085">公式总表</button><button data-jump="calc-104">考前回忆版</button></div>
+<p class="source-disclaimer">资料来源：用户上传的《案例分析专题｜计算题｜完整整理版.md》。保留笔记中“教材公式”和“老师案例计算口径”的区别，不额外替换为其他资料的公式。</p>
+<div class="doc-content"><div class="prose"><div class="source-preface"><blockquote>
+<p><strong>适用：系统规划与管理师（第2版）｜案例分析计算题</strong><br/>
+本次没有对应的精讲文稿和精讲 PDF，因此本笔记只基于本次上传的两份案例专题材料整理：<br/>
+《02 26年案例分析计算题.pdf》：<strong>54 页</strong><br/>
+《[02]--02 26年案例分析计算题.doc》：<strong>20 页</strong><br/>
+已完整核对两份材料后再开始整理。PDF 中的公式表、例题表格、思维导图与 DOC 课堂讲解互相校验；语音稿中出现的同音识别，如 “POE / PU1 / ID设备 / MTDR / O一一”等，以下统一按课件正式写法整理为：<br/>
+<strong>PUE、IT设备、MTTR、OEE</strong>。<br/>
+整理原则：<br/>
+保留老师的考试判断、解题方法、口诀和易错提醒；<br/>
+不自行扩充教材外公式；<br/>
+当“教材公式”和“案例实际计算口径”存在差异时，分别写清；<br/>
+所有题型都整理成“识别题目 → 套什么公式 → 找哪些参数 → 易错点”的形式；<br/>
+标题层级按复习笔记习惯统一，最大为 h2。</p>
+</blockquote>
+<hr/>
+</div><section class="chapter-card" data-chapter="1"><h2 data-title="案例计算题整体定位" id="calc-001">案例计算题整体定位</h2>
+<p>案例计算题涉及的知识点不多，而且整体难度较低，主要是：</p>
+<blockquote>
+<p><strong>加、减、乘、除、百分比、简单比例、加权计算。</strong></p>
+</blockquote>
+<p>老师课堂定位：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">有时案例会考 4～6 分
+有时一题不考
+
+但：
+一旦考到，通常属于送分题
+所以公式必须会，不能主动放弃
+</code></pre></div>
+<p>教材前 1～5 章没有案例计算题，因此本专题从第 6 章开始汇总。</p>
+<p>本专题共 4 大块：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">2.1 第6章 云资源规划
+    IOPS
+    PUE
+    云资源容量规划
+
+2.2 第12章 信息系统服务管理
+    MTBF / MTTR / MTBSI
+    项目收益指标
+    服务台关键测量指标
+
+2.3 第13章 人员管理
+    补偿性原则 / 加权计算
+    招聘成功率
+    招聘达成率
+
+2.4 第22章 智能制造发展规划
+    OEE 设备综合效率
+</code></pre></div>
+<hr/>
+</section><section class="chapter-card" data-chapter="2"><h2 data-title="🔥 所有计算题统一“三步走”" id="calc-002">🔥 所有计算题统一“三步走”</h2>
+<p>老师反复强调：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">第一步：先写 / 想出公式
+第二步：从题干找公式里的参数
+第三步：代入计算
+</code></pre></div>
+<p>不要一看到数字就直接算。</p>
+<p>正确顺序应该是：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">问什么？
+↓
+对应哪个指标？
+↓
+公式是什么？
+↓
+题干里的分子、分母分别是谁？
+↓
+代入
+↓
+检查单位 / 百分号 / 结果范围
+</code></pre></div>
+<h4 class="detail-title" data-title="🚨 特别提醒" id="calc-003">🚨 特别提醒</h4>
+<p>凡是看到：</p>
+<blockquote>
+<p><strong>“率”</strong></p>
+</blockquote>
+<p>老师要求：</p>
+<blockquote>
+<p><strong>最终通常要写成百分比。</strong></p>
+</blockquote>
+<p>例如：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">0.25
+</code></pre></div>
+<p>如果问的是投资回报率，应写：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">25%
+</code></pre></div>
+<p>而不是只写：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">0.25
+</code></pre></div>
+<hr/>
+</section><section class="chapter-card" data-chapter="3"><h2 data-title="2.1 第6章 云资源规划｜计算题" id="calc-004">2.1 第6章 云资源规划｜计算题</h2>
+<blockquote class="emphasis-note">
+<p><strong>考试定位：案例计算题。</strong><br/>
+<strong>老师要求：IOPS、PUE公式必须会；2025年容量规划题掌握解题思路。</strong><br/>
+云资源规划主要涉及：<br/>
+IOPS<br/>
+PUE<br/>
+2025年案例真题中的容量规划</p>
+</blockquote>
+<hr/>
+<h3 class="topic-title" data-title="1. IOPS" id="calc-005">1. IOPS</h3>
+<p>IOPS：</p>
+<blockquote>
+<p><strong>每秒输入/输出操作数</strong></p>
+</blockquote>
+<p>是衡量存储性能的重要指标。</p>
+<h4 class="detail-title" data-title="① 公式" id="calc-006">① 公式</h4>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">IOPS = 总 I/O 操作次数 ÷ 总时间（秒）
+</code></pre></div>
+<h4 class="detail-title" data-title="② 意义" id="calc-007">② 意义</h4>
+<blockquote>
+<p><strong>IOPS 越高，存储系统随机读写性能越好。</strong></p>
+</blockquote>
+<h4 class="detail-title" data-title="③ 题目识别关键词" id="calc-008">③ 题目识别关键词</h4>
+<p>看到：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">并发用户数
+每个用户发起多少次 I/O
+某分钟 / 某秒
+每秒操作次数
+</code></pre></div>
+<p>想到：</p>
+<blockquote>
+<p><strong>IOPS</strong></p>
+</blockquote>
+<hr/>
+<h4 class="detail-title" data-title="④ 例题" id="calc-009">④ 例题</h4>
+<p>某数据库有：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">100 个并发用户
+每分钟平均每个用户发起 30 次 I/O 请求
+</code></pre></div>
+<p>总 I/O 操作次数：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">100 × 30 = 3000 次
+</code></pre></div>
+<p>总时间：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">1 分钟 = 60 秒
+</code></pre></div>
+<p>因此：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">IOPS = 3000 ÷ 60
+     = 50
+</code></pre></div>
+<p>答案：</p>
+<blockquote>
+<p><strong>50</strong></p>
+</blockquote>
+<h4 class="detail-title" data-title="🚨 易错点" id="calc-010">🚨 易错点</h4>
+<p>IOPS 的时间单位是：</p>
+<blockquote>
+<p><strong>秒</strong></p>
+</blockquote>
+<p>题目给“分钟”，一定先换成秒。</p>
+<hr/>
+<h3 class="topic-title" data-title="2. PUE" id="calc-011">2. PUE</h3>
+<p>PUE：</p>
+<blockquote>
+<p><strong>评价数据中心能源效率的指标。</strong></p>
+</blockquote>
+<h4 class="detail-title" data-title="① 公式" id="calc-012">① 公式</h4>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">PUE = 数据中心总用电量 ÷ IT设备总用电量
+</code></pre></div>
+<h4 class="detail-title" data-title="② 结果判断" id="calc-013">② 结果判断</h4>
+<blockquote>
+<p><strong>PUE 越接近 1，数据中心绿色化程度越高。</strong></p>
+</blockquote>
+<p>而且：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">PUE ≥ 1
+</code></pre></div>
+<p>因为：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">数据中心总用电量
+=
+IT设备用电量
++
+空调、照明、门禁等其他辅助用电
+</code></pre></div>
+<p>所以总用电量不可能小于 IT 设备用电量。</p>
+<hr/>
+<h4 class="detail-title" data-title="③ IT设备 vs 非IT设备" id="calc-014">③ IT设备 vs 非IT设备</h4>
+<p><strong>IT设备典型：</strong></p>
+<ul>
+<li>
+<p>服务器；</p>
+</li>
+<li>
+<p>网络设备；</p>
+</li>
+<li>
+<p>交换机等。</p>
+<p><strong>非IT / 辅助设备典型：</strong></p>
+</li>
+<li>
+<p>空调；</p>
+</li>
+<li>
+<p>照明；</p>
+</li>
+<li>
+<p>门禁；</p>
+</li>
+<li>
+<p>其他辅助设施。</p>
+</li>
+</ul>
+<h4 class="detail-title" data-title="🚨 题目可能故意给很多用电项" id="calc-015">🚨 题目可能故意给很多用电项</h4>
+<p>先分类：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">哪些属于 IT 设备
+哪些属于辅助设备
+</code></pre></div>
+<p>再计算。</p>
+<hr/>
+<h4 class="detail-title" data-title="④ 例题" id="calc-016">④ 例题</h4>
+<p>数据中心：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">总用电量 = 1500 万度
+IT设备用电量 = 1200 万度
+</code></pre></div>
+<p>则：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">PUE = 1500 ÷ 1200
+    = 1.25
+</code></pre></div>
+<hr/>
+<h4 class="detail-title" data-title="⑤ 比较绿色化程度" id="calc-017">⑤ 比较绿色化程度</h4>
+<p>A 数据中心：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">1200 ÷ 900 ≈ 1.33
+</code></pre></div>
+<p>B 数据中心：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">1600 ÷ 1500 ≈ 1.07
+</code></pre></div>
+<p>C 数据中心：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">800 ÷ 400 = 2
+</code></pre></div>
+<p>最接近 1：</p>
+<blockquote>
+<p><strong>B 数据中心</strong></p>
+</blockquote>
+<p>因此绿色化程度最高。</p>
+<h4 class="detail-title" data-title="🧠 一句话" id="calc-018">🧠 一句话</h4>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">PUE 越小越好
+但不能小于 1
+</code></pre></div>
+<hr/>
+<h3 class="topic-title" data-title="3. 2025年案例真题：云资源容量规划" id="calc-019">3. 2025年案例真题：云资源容量规划</h3>
+<blockquote class="emphasis-note">
+<p><strong>考试定位：2025年已考，4分。</strong><br/>
+老师说明：<br/>
+教材没有直接给出这道题的公式；<br/>
+属于简单线性比例 / 容量规划；<br/>
+有一定超纲性质；<br/>
+这种超纲题较少；<br/>
+但既然已经考过，解题思路要掌握。</p>
+</blockquote>
+<p>题目条件：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">前端服务器：
+8 vCPU
+32G RAM
+300 个虚拟机实例
+当前 CPU 使用率 50%
+
+应用服务器：
+16 vCPU
+32G RAM
+200 个虚拟机实例
+当前 CPU 使用率 60%
+
+三年后：
+业务量翻倍
+资源与业务线性增长
+实例类型不变
+目标 CPU 利用率 80%
+</code></pre></div>
+<p>要求计算：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">三年后的 vCPU 总量
+实例数量
+</code></pre></div>
+<hr/>
+<h4 class="detail-title" data-title="① 第一步：算当前实际使用资源量" id="calc-020">① 第一步：算当前实际使用资源量</h4>
+<p>前端：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">总配置资源
+= 8 × 300
+= 2400 vCPU
+</code></pre></div>
+<p>当前只使用 50%：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">当前实际使用量
+= 2400 × 50%
+= 1200 vCPU
+</code></pre></div>
+<p>应用服务器：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">总配置资源
+= 16 × 200
+= 3200 vCPU
+</code></pre></div>
+<p>当前使用 60%：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">当前实际使用量
+= 3200 × 60%
+= 1920 vCPU
+</code></pre></div>
+<hr/>
+<h4 class="detail-title" data-title="② 第二步：业务量翻倍" id="calc-021">② 第二步：业务量翻倍</h4>
+<p>因为：</p>
+<blockquote>
+<p><strong>资源与业务线性增长</strong></p>
+</blockquote>
+<p>所以三年后的实际资源使用量：</p>
+<p>前端：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">1200 × 2
+= 2400 vCPU
+</code></pre></div>
+<p>应用服务器：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">1920 × 2
+= 3840 vCPU
+</code></pre></div>
+<hr/>
+<h4 class="detail-title" data-title="③ 第三步：按80%利用率反推容量" id="calc-022">③ 第三步：按80%利用率反推容量</h4>
+<p>这一点最容易错。</p>
+<p>题目说：</p>
+<blockquote>
+<p>CPU 利用率控制为 80%。</p>
+</blockquote>
+<p>现在算出的 2400 / 3840 是：</p>
+<blockquote>
+<p><strong>实际需要使用的资源量</strong></p>
+</blockquote>
+<p>而不是总容量。</p>
+<p>所以：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">总容量 = 实际使用量 ÷ 目标利用率
+</code></pre></div>
+<p>前端：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">2400 ÷ 80%
+= 3000 vCPU
+</code></pre></div>
+<p>应用服务器：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">3840 ÷ 80%
+= 4800 vCPU
+</code></pre></div>
+<hr/>
+<h4 class="detail-title" data-title="④ 第四步：算实例数量" id="calc-023">④ 第四步：算实例数量</h4>
+<p>实例类型不变。</p>
+<p>前端每实例：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">8 vCPU
+</code></pre></div>
+<p>所以：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">3000 ÷ 8
+= 375 个实例
+</code></pre></div>
+<p>应用服务器每实例：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">16 vCPU
+</code></pre></div>
+<p>所以：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">4800 ÷ 16
+= 300 个实例
+</code></pre></div>
+<p>最终：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">前端：
+3000 vCPU
+375 个实例
+
+应用服务器：
+4800 vCPU
+300 个实例
+</code></pre></div>
+<hr/>
+<h4 class="detail-title" data-title="🧠 老师“水缸”理解法" id="calc-024">🧠 老师“水缸”理解法</h4>
+<p>如果：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">实际需要 1 吨水
+水缸最多只允许使用 80%
+</code></pre></div>
+<p>那么水缸容量应该是：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">1 ÷ 80%
+= 1.25 吨
+</code></pre></div>
+<p>而不是：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">1 × 80%
+= 0.8 吨
+</code></pre></div>
+<p>所以：</p>
+<blockquote>
+<p><strong>已知实际使用量，反推总容量，要除以利用率。</strong></p>
+</blockquote>
+<hr/>
+<h4 class="detail-title" data-title="🚨 本题干扰项" id="calc-025">🚨 本题干扰项</h4>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">32G RAM
+</code></pre></div>
+<p>在本题计算中：</p>
+<blockquote>
+<p><strong>不参与计算。</strong></p>
+</blockquote>
+<p>老师明确说它是干扰项。</p>
+<hr/>
+<h4 class="detail-title" data-title="云资源计算题速查" id="calc-026">云资源计算题速查</h4>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">IOPS
+= 总I/O操作次数 ÷ 秒数
+
+PUE
+= 数据中心总用电量 ÷ IT设备用电量
+越接近1越绿色
+
+容量规划：
+当前实际使用量
+= 单实例资源 × 实例数 × 当前利用率
+
+未来实际使用量
+= 当前实际使用量 × 业务增长倍数
+
+未来总容量
+= 未来实际使用量 ÷ 目标利用率
+
+实例数
+= 未来总容量 ÷ 单实例资源
+</code></pre></div>
+<hr/>
+</section><section class="chapter-card" data-chapter="4"><h2 data-title="2.2 第12章 信息系统服务管理｜计算题" id="calc-027">2.2 第12章 信息系统服务管理｜计算题</h2>
+<blockquote class="emphasis-note">
+<p><strong>考试定位：</strong>🔥 <strong>本专题计算题最多的一块。</strong><br/>
+包含：<br/>
+可用性指标<br/>
+衡量项目收益的指标<br/>
+服务台关键测量指标</p>
+</blockquote>
+<hr/>
+<h3 class="topic-title" data-title="1. 可用性指标" id="calc-028">1. 可用性指标</h3>
+<blockquote class="emphasis-note">
+<p><strong>老师要求：MTBF、MTTR、MTBSI 三个公式必须记。</strong></p>
+</blockquote>
+<p>可用性需求识别时，需要将：</p>
+<blockquote>
+<p>客户业务需求</p>
+</blockquote>
+<p>转化为：</p>
+<blockquote>
+<p>信息系统可用性需求。</p>
+</blockquote>
+<p>还需要分析：</p>
+<ul>
+<li>
+<p>服务不可用对业务的影响；</p>
+</li>
+<li>
+<p>服务不可用造成的成本损失。</p>
+<hr/>
+</li>
+</ul>
+<h4 class="detail-title" data-title="① MTBF｜平均无故障时间" id="calc-029">① MTBF｜平均无故障时间</h4>
+<p>MTBF：</p>
+<blockquote>
+<p><strong>Mean Time Between Failures，平均无故障时间。</strong></p>
+</blockquote>
+<p>课件描述：</p>
+<blockquote>
+<p>从一次事件恢复到下一次事件发生之间的平均间隔时间，不包含修复运行时间。</p>
+</blockquote>
+<p>计算：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">MTBF
+= 系统正常运行总时间 ÷ 故障次数
+</code></pre></div>
+<p>判断：</p>
+<blockquote>
+<p><strong>MTBF 越长，系统可靠性越高。</strong></p>
+</blockquote>
+<hr/>
+<h4 class="detail-title" data-title="② MTTR｜平均故障修复时间" id="calc-030">② MTTR｜平均故障修复时间</h4>
+<p>MTTR：</p>
+<blockquote>
+<p><strong>平均故障修复时间。</strong></p>
+</blockquote>
+<p>计算：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">MTTR
+= 系统故障修复总时间 ÷ 故障次数
+</code></pre></div>
+<p>判断：</p>
+<blockquote>
+<p><strong>MTTR 越短，易恢复性越好。</strong></p>
+</blockquote>
+<hr/>
+<h4 class="detail-title" data-title="③ MTBSI｜平均故障间隔" id="calc-031">③ MTBSI｜平均故障间隔</h4>
+<p>MTBSI：</p>
+<blockquote>
+<p><strong>两次相邻事件之间的间隔时间。</strong></p>
+</blockquote>
+<p>计算：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">MTBSI
+= MTBF + MTTR
+</code></pre></div>
+<p>判断：</p>
+<blockquote>
+<p><strong>MTBSI 越长，可靠性越高。</strong></p>
+</blockquote>
+<hr/>
+<h4 class="detail-title" data-title="④ 三个指标最简记忆" id="calc-032">④ 三个指标最简记忆</h4>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">MTBF：
+正常运行时间 ÷ 故障次数
+
+MTTR：
+维修时间 ÷ 故障次数
+
+MTBSI：
+MTBF + MTTR
+</code></pre></div>
+<hr/>
+<h4 class="detail-title" data-title="⑤ 图示例题" id="calc-033">⑤ 图示例题</h4>
+<p>正常运行：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">150 小时
+120 小时
+210 小时
+</code></pre></div>
+<p>维修：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">3 小时
+3 小时
+6 小时
+</code></pre></div>
+<p>故障次数：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">3 次
+</code></pre></div>
+<p>则：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">正常运行总时间
+= 150 + 120 + 210
+= 480 小时
+
+MTBF
+= 480 ÷ 3
+= 160 小时
+</code></pre></div>
+<p>维修总时间：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">3 + 3 + 6
+= 12 小时
+</code></pre></div>
+<p>所以：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">MTTR
+= 12 ÷ 3
+= 4 小时
+</code></pre></div>
+<p>最后：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">MTBSI
+= 160 + 4
+= 164 小时
+</code></pre></div>
+<hr/>
+<h4 class="detail-title" data-title="⑥ 练习题" id="calc-034">⑥ 练习题</h4>
+<p>正常运行：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">1800
+1500
+1200 小时
+</code></pre></div>
+<p>故障维修：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">1.5
+1
+0.5 小时
+</code></pre></div>
+<p>故障次数：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">3
+</code></pre></div>
+<p>MTBF：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">(1800 + 1500 + 1200) ÷ 3
+= 1500 小时
+</code></pre></div>
+<p>MTTR：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">(1.5 + 1 + 0.5) ÷ 3
+= 1 小时
+</code></pre></div>
+<p>MTBSI：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">1500 + 1
+= 1501 小时
+</code></pre></div>
+<hr/>
+<h4 class="detail-title" data-title="⑦ 注意“最后一段没再故障”" id="calc-035">⑦ 注意“最后一段没再故障”</h4>
+<p>设备一年内：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">正常 120 天
+→ 故障
+
+正常 220 天
+→ 故障
+
+维修后又正常 25 天
+→ 年末，没有再次故障
+</code></pre></div>
+<p>正常运行总时间：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">120 + 220 + 25
+= 365 天
+</code></pre></div>
+<p>但是：</p>
+<blockquote>
+<p><strong>故障次数只有2次。</strong></p>
+</blockquote>
+<p>因此：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">MTBF
+= 365 ÷ 2
+= 182.5 天
+</code></pre></div>
+<h4 class="detail-title" data-title="🚨 易错" id="calc-036">🚨 易错</h4>
+<p>不能因为有 3 段正常运行时间，就误认为有 3 次故障。</p>
+<hr/>
+<h3 class="topic-title" data-title="2. 衡量项目收益的指标" id="calc-037">2. 衡量项目收益的指标</h3>
+<blockquote class="emphasis-note">
+<p><strong>考试定位：</strong>🔥🔥 <strong>重点。</strong><br/>
+共有4个：<br/>
+项目投入产出比<br/>
+项目投资回报率<br/>
+项目净产出<br/>
+人均产出</p>
+</blockquote>
+<hr/>
+<h4 class="detail-title" data-title="① 项目投入产出比" id="calc-038">① 项目投入产出比</h4>
+<p>公式：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">R = K / IN = 1 : N
+</code></pre></div>
+<p>其中：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">R  = 投入产出比
+K  = 项目投资总额
+IN = 项目收入总额
+</code></pre></div>
+<p>通常表示为：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">1 : N
+</code></pre></div>
+<p>判断：</p>
+<blockquote>
+<p><strong>N 越大，经济效益越好。</strong></p>
+</blockquote>
+<hr/>
+<h4 class="detail-title" data-title="② 它主要用来干什么？" id="calc-039">② 它主要用来干什么？</h4>
+<p>投入产出比用于：</p>
+<blockquote>
+<p>了解不同项目的盈利水平，确定合理的业务发展方向。</p>
+</blockquote>
+<p>所以题目出现：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">哪个项目盈利水平最高？
+哪个项目经济效益最好？
+判断业务发展方向
+</code></pre></div>
+<p>优先想到：</p>
+<blockquote>
+<p><strong>投入产出比</strong></p>
+</blockquote>
+<hr/>
+<h4 class="detail-title" data-title="③ 如何化成 1:N" id="calc-040">③ 如何化成 1:N</h4>
+<p>例如：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">投入 120
+收入 150
+</code></pre></div>
+<p>则：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">120 : 150
+</code></pre></div>
+<p>两边同时除以 120：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">1 : 1.25
+</code></pre></div>
+<p>所以：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">N = 1.25
+</code></pre></div>
+<hr/>
+<h4 class="detail-title" data-title="④ 项目投资回报率" id="calc-041">④ 项目投资回报率</h4>
+<p>公式：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">项目投资回报率
+= 项目利润 ÷ 项目投资总额 × 100%
+</code></pre></div>
+<p>题目问：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">比较不同业务 / 项目的价值
+找最佳重点投资方向
+</code></pre></div>
+<p>通常考虑：</p>
+<blockquote>
+<p><strong>项目投资回报率</strong></p>
+</blockquote>
+<hr/>
+<h4 class="detail-title" data-title="⑤ 项目净产出" id="calc-042">⑤ 项目净产出</h4>
+<p>公式：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">项目净产出
+= 收入 - 开支
+</code></pre></div>
+<p>老师课堂统一解释：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">项目净产出
+= 项目利润
+= 净利润
+</code></pre></div>
+<p>在本专题做题中可以按同一个量理解。</p>
+<hr/>
+<h4 class="detail-title" data-title="⑥ 人均产出" id="calc-043">⑥ 人均产出</h4>
+<p>公式：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">单位人均产出
+= 净利润总额 ÷ 人员数量
+</code></pre></div>
+<p>适合：</p>
+<blockquote>
+<p><strong>人员成本占投入成本比重较大的组织。</strong></p>
+</blockquote>
+<hr/>
+<h4 class="detail-title" data-title="⑦ 四个指标快速对应" id="calc-044">⑦ 四个指标快速对应</h4>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">看盈利水平 / 经济效益
+→ 投入产出比
+
+看项目值不值得投 / 比较重点投资方向
+→ 投资回报率
+
+问项目赚了多少钱
+→ 净产出
+
+问平均每个人贡献多少利润
+→ 人均产出
+</code></pre></div>
+<hr/>
+<h4 class="detail-title" data-title="⑧ 投资、投入、开支、收入、产出关系" id="calc-045">⑧ 投资、投入、开支、收入、产出关系</h4>
+<p>这一块是课堂里反复解释的易混点。</p>
+<p>老师统一口径：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">投入 = 投资
+
+产出 = 收入
+
+净产出 = 利润 = 净利润
+
+开支 = 日常经营支出
+</code></pre></div>
+<h4 class="detail-title" data-title="🚨 投资和开支不是同一个东西" id="calc-046">🚨 投资和开支不是同一个东西</h4>
+<p>例如：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">10万元买网约车
+→ 投资
+
+每天充电、维护、过路费
+→ 开支
+</code></pre></div>
+<p>但是考试题中有时：</p>
+<blockquote>
+<p>问投资回报率，却没有单独给“投资”。</p>
+</blockquote>
+<p>老师处理方式：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">如果题目明确给了投资
+→ 使用题目给的投资
+
+如果题目没给投资
+→ 按案例出题口径，将各项开支合计作为投资计算
+</code></pre></div>
+<p>这是本课程针对考试题的处理方法。</p>
+<hr/>
+<h4 class="detail-title" data-title="⑨ 综合例题" id="calc-047">⑨ 综合例题</h4>
+<p>某项目：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">收入：150万
+
+人工开支：70万
+硬件开支：15万
+软件开支：20万
+外部支持开支：10万
+其他开支：5万
+
+人数：6人
+</code></pre></div>
+<p>总开支：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">70 + 15 + 20 + 10 + 5
+= 120 万
+</code></pre></div>
+<hr/>
+<p><strong>项目净产出</strong></p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">150 - 120
+= 30 万
+</code></pre></div>
+<hr/>
+<p><strong>投入产出比</strong></p>
+<p>题目没有另给投资，因此按课堂处理：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">120 : 150
+= 1 : 1.25
+</code></pre></div>
+<hr/>
+<p><strong>人均产出</strong></p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">30 ÷ 6
+= 5 万元/人
+</code></pre></div>
+<hr/>
+<p><strong>投资回报率</strong></p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">30 ÷ 120 × 100%
+= 25%
+</code></pre></div>
+<h4 class="detail-title" data-title="🚨 一定写成" id="calc-048">🚨 一定写成</h4>
+<blockquote>
+<p><strong>25%</strong></p>
+</blockquote>
+<p>不要只写：</p>
+<blockquote>
+<p>0.25</p>
+</blockquote>
+<hr/>
+<h4 class="detail-title" data-title="⑩ 比较盈利水平例题" id="calc-049">⑩ 比较盈利水平例题</h4>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">A：投入100，产出150
+→ 1 : 1.5
+
+B：投入150，产出210
+→ 1 : 1.4
+
+C：投入80，产出130
+→ 1 : 1.625
+
+D：投入120，产出200
+→ 1 : 1.67
+</code></pre></div>
+<p>N 最大：</p>
+<blockquote>
+<p><strong>D</strong></p>
+</blockquote>
+<p>所以 D 盈利水平最高。</p>
+<hr/>
+<h4 class="detail-title" data-title="⑪ “投资单独给出”的题" id="calc-050">⑪ “投资单独给出”的题</h4>
+<p>某项目合计：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">收入 = 220 万
+
+人工开支 = 118
+硬件开支 = 18
+软件开支 = 12
+场地开支 = 7.2
+外部支持开支 = 6
+其他开支 = 3.6
+
+投资 = 300 万
+</code></pre></div>
+<p>总开支：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">118 + 18 + 12 + 7.2 + 6 + 3.6
+= 164.8 万
+</code></pre></div>
+<p>净利润：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">220 - 164.8
+= 55.2 万
+</code></pre></div>
+<p>题目已经明确给：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">投资 = 300 万
+</code></pre></div>
+<p>因此：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">投资回报率
+= 55.2 ÷ 300 × 100%
+= 18.4%
+</code></pre></div>
+<h4 class="detail-title" data-title="🚨 不要再拿164.8当投资" id="calc-051">🚨 不要再拿164.8当投资</h4>
+<p>因为：</p>
+<blockquote>
+<p><strong>题目已经单独给了“投资300万”。</strong></p>
+</blockquote>
+<hr/>
+<h3 class="topic-title" data-title="3. 服务台关键测量指标" id="calc-052">3. 服务台关键测量指标</h3>
+<blockquote class="emphasis-note">
+<p><strong>考试定位：</strong>🔥🔥 <strong>高频易错，争议最大的一组公式。</strong><br/>
+老师特别提醒：<br/>
+<strong>默写教材公式</strong> 和 <strong>做案例实际计算</strong>，处理口径可能不同。</p>
+</blockquote>
+<p>服务台关键测量指标有 4 个：</p>
+<ol>
+<li>
+<p><strong>接听率</strong></p>
+</li>
+<li>
+<p><strong>派单准确率</strong></p>
+</li>
+<li>
+<p><strong>录单率</strong></p>
+</li>
+<li>
+<p><strong>平均通话时间</strong></p>
+<hr/>
+</li>
+</ol>
+<h4 class="detail-title" data-title="① 教材公式｜如果题目要求默写，按教材写" id="calc-053">① 教材公式｜如果题目要求默写，按教材写</h4>
+<p><strong>接听率</strong></p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">接听率
+= 服务台人员响应的电话数量
+  ÷ 用户呼叫服务台的总数量
+  × 100%
+</code></pre></div>
+<hr/>
+<p><strong>派单准确率</strong></p>
+<p>教材表达：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">派单准确率
+= 服务台人员首次派单得到解决的事件或服务请求数量
+  ÷ 事件或服务请求的数量
+  × 100%
+</code></pre></div>
+<hr/>
+<p><strong>录单率</strong></p>
+<p>教材表达：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">录单率
+= 接收用户呼叫并做记录的事件或服务请求数量
+  ÷ 服务台接到的所有用户呼叫数量
+  × 100%
+</code></pre></div>
+<hr/>
+<p><strong>平均通话时间</strong></p>
+<p>教材表达：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">平均通话时间
+= 用户呼叫持续总时间
+  ÷ 事件或服务请求数量
+</code></pre></div>
+<hr/>
+<h4 class="detail-title" data-title="② 为什么实际计算不能机械套教材？" id="calc-054">② 为什么实际计算不能机械套教材？</h4>
+<p>老师认为：</p>
+<blockquote>
+<p>教材公式按“理想状态”描述，实际案例会把业务过程拆得更细。</p>
+</blockquote>
+<p>实际业务链：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">用户呼叫
+├─ 未接听
+└─ 接听
+   ├─ 未记录
+   └─ 已记录
+      ├─ 不需要派单 / 自行解决
+      └─ 派单
+         ├─ 未解决
+         └─ 解决
+            ├─ 非首次解决
+            └─ 首次派单解决
+</code></pre></div>
+<p>所以：</p>
+<blockquote>
+<p>做案例计算时，要看题目给了哪些真实数据。</p>
+</blockquote>
+<hr/>
+<h4 class="detail-title" data-title="③ 案例计算优先口径" id="calc-055">③ 案例计算优先口径</h4>
+<p><strong>接听率</strong></p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">接听率
+= 接听数 ÷ 呼叫总数 × 100%
+</code></pre></div>
+<hr/>
+<p><strong>派单准确率</strong></p>
+<p>优先：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">派单准确率
+= 首次派单解决数 ÷ 派单数 × 100%
+</code></pre></div>
+<p>如果题目：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">没有给派单数
+</code></pre></div>
+<p>则按课堂处理：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">退而求其次，用记录数作分母
+</code></pre></div>
+<p>如果连记录数也没有：</p>
+<blockquote>
+<p>再根据题目现有数据向上一层判断。</p>
+</blockquote>
+<p>老师的表述：</p>
+<blockquote>
+<p><strong>“一层一层往上拨。”</strong></p>
+</blockquote>
+<h4 class="detail-title" data-title="🚨 这一条最重要" id="calc-056">🚨 这一条最重要</h4>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">明确给派单数
+→ 用派单数
+
+没给派单数，但给记录数
+→ 用记录数
+</code></pre></div>
+<hr/>
+<p><strong>录单率</strong></p>
+<p>案例实际计算：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">录单率
+= 记录数 ÷ 接听数 × 100%
+</code></pre></div>
+<p>因为：</p>
+<blockquote>
+<p>没接通的电话，本身没有进入服务人员的记录环节。</p>
+</blockquote>
+<hr/>
+<p><strong>平均通话时间</strong></p>
+<p>案例实际计算：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">平均通话时间
+= 总通话时长 ÷ 接听数
+</code></pre></div>
+<p>因为：</p>
+<blockquote>
+<p>未接听的呼叫没有通话时间。</p>
+</blockquote>
+<hr/>
+<h4 class="detail-title" data-title="④ 指标的白话理解" id="calc-057">④ 指标的白话理解</h4>
+<p><strong>接听率</strong></p>
+<blockquote>
+<p>衡量电话有没有接。</p>
+</blockquote>
+<p>老师白话：</p>
+<blockquote>
+<p>“主要是衡量你上班有没有摸鱼。”</p>
+</blockquote>
+<hr/>
+<p><strong>派单准确率</strong></p>
+<blockquote>
+<p>衡量派出去的单，是否能够通过首次派单得到解决。</p>
+</blockquote>
+<p>课堂理解：</p>
+<blockquote>
+<p><strong>干活效率高不高。</strong></p>
+</blockquote>
+<hr/>
+<p><strong>录单率</strong></p>
+<blockquote>
+<p>接了电话以后，有没有把事件 / 服务请求规范记录下来。</p>
+</blockquote>
+<p>课堂理解：</p>
+<blockquote>
+<p><strong>工作规范不规范。</strong></p>
+</blockquote>
+<hr/>
+<p><strong>平均通话时间</strong></p>
+<blockquote>
+<p>平均一次接通电话要聊多久。</p>
+</blockquote>
+<p>课堂理解：</p>
+<blockquote>
+<p><strong>沟通能力 / 业务熟练程度。</strong></p>
+</blockquote>
+<hr/>
+<h4 class="detail-title" data-title="⑤ 服务台场景题完整例子" id="calc-058">⑤ 服务台场景题完整例子</h4>
+<p>已知：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">呼叫数 = 100
+接听数 = 80
+记录数 = 70
+派单数 = 60
+首次派单解决数 = 40
+总通话时长 = 400 分钟
+</code></pre></div>
+<p><strong>接听率</strong></p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">80 ÷ 100 × 100%
+= 80%
+</code></pre></div>
+<p><strong>派单准确率</strong></p>
+<p>因为题目明确给了派单数：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">40 ÷ 60 × 100%
+≈ 66.6%
+</code></pre></div>
+<p><strong>录单率</strong></p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">70 ÷ 80 × 100%
+= 87.5%
+</code></pre></div>
+<p><strong>平均通话时间</strong></p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">400 ÷ 80
+= 5 分钟/次
+</code></pre></div>
+<p>所以如果选项说：</p>
+<blockquote>
+<p>录单率 = 70%</p>
+</blockquote>
+<p>则：</p>
+<blockquote>
+<p>❌ 错误</p>
+</blockquote>
+<hr/>
+<h4 class="detail-title" data-title="⑥ 没有派单数怎么办？" id="calc-059">⑥ 没有派单数怎么办？</h4>
+<p>题目：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">用户呼叫数 = 200
+服务台人员接听数 = 160
+记录事件数 = 120
+首次派单得到解决事件数 = 100
+通话时长 = 600 分钟
+</code></pre></div>
+<p>没有给：</p>
+<blockquote>
+<p><strong>派单数</strong></p>
+</blockquote>
+<p>则课堂口径：</p>
+<p><strong>接听率</strong></p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">160 ÷ 200
+= 80%
+</code></pre></div>
+<p><strong>派单准确率</strong></p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">100 ÷ 120
+≈ 83%
+</code></pre></div>
+<p>因为：</p>
+<blockquote>
+<p>没有派单数，使用记录数作为分母。</p>
+</blockquote>
+<p><strong>录单率</strong></p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">120 ÷ 160
+= 75%
+</code></pre></div>
+<p><strong>平均通话时间</strong></p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">600 ÷ 160
+= 3.75 分钟
+</code></pre></div>
+<hr/>
+<h4 class="detail-title" data-title="⑦ 已明确派单数" id="calc-060">⑦ 已明确派单数</h4>
+<p>题目：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">记录事件 = 200
+派单 = 180
+成功解决 = 160
+首次派单解决 = 150
+</code></pre></div>
+<p>派单准确率：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">150 ÷ 180
+≈ 83%
+</code></pre></div>
+<h4 class="detail-title" data-title="🚨 不是" id="calc-061">🚨 不是</h4>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">150 ÷ 160
+</code></pre></div>
+<p>因为：</p>
+<blockquote>
+<p>150 ÷ 160 更接近“首次解决占已解决事件比例”，不是本题要求的派单准确率。</p>
+</blockquote>
+<hr/>
+<h4 class="detail-title" data-title="服务台一眼判断" id="calc-062">服务台一眼判断</h4>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">呼叫了多少
+↓
+接了多少
+→ 接听率
+
+接了多少
+↓
+记录多少
+→ 录单率
+
+派了多少
+↓
+首次派单解决多少
+→ 派单准确率
+
+接通后的总通话时间
+↓
+接听数量
+→ 平均通话时间
+</code></pre></div>
+<hr/>
+</section><section class="chapter-card" data-chapter="5"><h2 data-title="2.3 第13章 人员管理｜计算题" id="calc-063">2.3 第13章 人员管理｜计算题</h2>
+<blockquote class="emphasis-note">
+<p><strong>考试定位：选择题 / 案例简单计算。</strong><br/>
+包含：<br/>
+补偿性原则<br/>
+招聘成功率<br/>
+招聘达成率</p>
+</blockquote>
+<hr/>
+<h3 class="topic-title" data-title="1. 补偿性原则" id="calc-064">1. 补偿性原则</h3>
+<p>补偿性原则：</p>
+<blockquote>
+<p>在招聘测评中，对不同项目设置不同权重，综合评价申请人。</p>
+</blockquote>
+<p>课件示例公式：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">未来工作绩效预测值
+= 0.6
++ 0.4 × 工龄
++ 0.3 × IQ成绩
++ 0.5 × 学历分值
+</code></pre></div>
+<p>核心思想：</p>
+<blockquote>
+<p><strong>不同指标之间可以通过权重进行补偿。</strong></p>
+</blockquote>
+<hr/>
+<h4 class="detail-title" data-title="① 加权算法" id="calc-065">① 加权算法</h4>
+<p>课堂例题设置：</p>
+<p><strong>笔试面试成绩</strong></p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">80分及以上 → 10分
+60～80分   → 8分
+60分以下   → 6分
+
+权重：50%
+</code></pre></div>
+<p><strong>学历</strong></p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">硕士及以上 → 10分
+本科       → 6分
+专科       → 4分
+
+权重：30%
+</code></pre></div>
+<p><strong>年龄</strong></p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">30岁以下 → 10分
+30～35岁 → 6分
+35岁以上 → 2分
+
+权重：20%
+</code></pre></div>
+<p>最终得分：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">笔试面试分值 × 50%
++
+学历分值 × 30%
++
+年龄分值 × 20%
+</code></pre></div>
+<hr/>
+<h4 class="detail-title" data-title="② 例题" id="calc-066">② 例题</h4>
+<p>A：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">32岁 → 6分
+硕士 → 10分
+75分 → 8分
+
+8×50% + 10×30% + 6×20%
+= 8.2
+</code></pre></div>
+<p>B：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">25岁 → 10分
+本科 → 6分
+85分 → 10分
+
+10×50% + 6×30% + 10×20%
+= 8.8
+</code></pre></div>
+<p>C：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">23岁 → 10分
+专科 → 4分
+90分 → 10分
+
+10×50% + 4×30% + 10×20%
+= 8.2
+</code></pre></div>
+<p>D：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">42岁 → 2分
+硕士 → 10分
+95分 → 10分
+
+10×50% + 10×30% + 2×20%
+= 8.4
+</code></pre></div>
+<p>最高：</p>
+<blockquote>
+<p><strong>B：8.8分</strong></p>
+</blockquote>
+<hr/>
+<h3 class="topic-title" data-title="2. 招聘成功率" id="calc-067">2. 招聘成功率</h3>
+<p>公式：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">招聘成功率
+= 实际上岗人数 ÷ 面试人数 × 100%
+</code></pre></div>
+<hr/>
+<h3 class="topic-title" data-title="3. 招聘达成率" id="calc-068">3. 招聘达成率</h3>
+<p>公式：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">招聘达成率
+= 实际上岗人数 ÷ 计划招聘人数 × 100%
+</code></pre></div>
+<hr/>
+<h4 class="detail-title" data-title="🧠 老师口诀" id="calc-069">🧠 老师口诀</h4>
+<p>两个公式：</p>
+<blockquote>
+<p><strong>分子完全一样：实际上岗人数。</strong></p>
+</blockquote>
+<p>区别在分母。</p>
+<p>老师口诀：</p>
+<blockquote>
+<p><strong>面试成功，达成计划。</strong></p>
+</blockquote>
+<p>对应：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">成功率
+→ 面试成功
+→ 分母 = 面试人数
+
+达成率
+→ 达成计划
+→ 分母 = 计划招聘人数
+</code></pre></div>
+<hr/>
+<h4 class="detail-title" data-title="例题" id="calc-070">例题</h4>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">计划招聘 = 100 人
+参加面试 = 120 人
+实际上岗 = 80 人
+</code></pre></div>
+<p>招聘成功率：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">80 ÷ 120 × 100%
+≈ 66.7%
+</code></pre></div>
+<p>招聘达成率：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">80 ÷ 100 × 100%
+= 80%
+</code></pre></div>
+<hr/>
+<h4 class="detail-title" data-title="🚨 成功率 vs 达成率" id="calc-071">🚨 成功率 vs 达成率</h4>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">实际 / 面试
+→ 成功率
+
+实际 / 计划
+→ 达成率
+</code></pre></div>
+<p>记：</p>
+<blockquote>
+<p><strong>面试成功，达成计划。</strong></p>
+</blockquote>
+<hr/>
+</section><section class="chapter-card" data-chapter="6"><h2 data-title="2.4 第22章 智能制造发展规划｜计算题" id="calc-072">2.4 第22章 智能制造发展规划｜计算题</h2>
+<blockquote class="emphasis-note">
+<p><strong>考试定位：</strong>🔥 <strong>OEE计算。</strong><br/>
+<strong>老师要求：OEE总公式一定会；重点理解性能效率。</strong></p>
+</blockquote>
+<hr/>
+<h3 class="topic-title" data-title="1. OEE｜设备综合效率" id="calc-073">1. OEE｜设备综合效率</h3>
+<p>OEE：</p>
+<blockquote>
+<p>一个独立测量工具，用来表现机器实际生产能力相对于理论产能的比率。</p>
+</blockquote>
+<p>由3个关键要素组成：</p>
+<ol>
+<li>
+<p><strong>时间稼动率</strong></p>
+</li>
+<li>
+<p><strong>性能效率</strong></p>
+</li>
+<li>
+<p><strong>合格率</strong></p>
+</li>
+</ol>
+<p>公式：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">OEE
+= 时间稼动率
+× 性能效率
+× 合格率
+</code></pre></div>
+<hr/>
+<h3 class="topic-title" data-title="2. 时间稼动率" id="calc-074">2. 时间稼动率</h3>
+<p>公式：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">时间稼动率
+= 实际运行时间 ÷ 计划运行时间
+</code></pre></div>
+<p>实际运行时间通常：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">计划运行时间 - 停机时间
+</code></pre></div>
+<hr/>
+<h3 class="topic-title" data-title="3. 性能效率" id="calc-075">3. 性能效率</h3>
+<p>公式：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">性能效率
+= 实际产量
+  ÷（实际运行时间 × 理论每分钟产量）
+</code></pre></div>
+<p>核心不是死背文字，而是理解：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">实际产了多少
+÷
+在这段实际运行时间里，理论上应该产多少
+</code></pre></div>
+<h4 class="detail-title" data-title="🧠 老师反复强调" id="calc-076">🧠 老师反复强调</h4>
+<p>这一项是 OEE 里：</p>
+<blockquote>
+<p><strong>最容易不会算的部分。</strong></p>
+</blockquote>
+<p>所以遇到题目先问：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">实际运行了多少分钟？
+理论速度是多少件/分钟？
+那么理论上这段时间应该生产多少件？
+</code></pre></div>
+<p>再拿：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">实际产量 ÷ 理论产量
+</code></pre></div>
+<hr/>
+<h3 class="topic-title" data-title="4. 合格率" id="calc-077">4. 合格率</h3>
+<p>根据课件例题：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">合格率
+= 合格品数量 ÷ 实际总产量
+</code></pre></div>
+<p>如果给：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">不合格率 = 5%
+</code></pre></div>
+<p>则：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">合格率 = 1 - 5% = 95%
+</code></pre></div>
+<hr/>
+<h3 class="topic-title" data-title="5. 例题1" id="calc-078">5. 例题1</h3>
+<p>设备：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">7 × 24 小时运行
+某周故障停机 2 小时
+性能效率 = 90%
+不合格率 = 5%
+</code></pre></div>
+<p>计划运行时间：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">7 × 24
+= 168 小时
+</code></pre></div>
+<p>实际运行时间：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">168 - 2
+= 166 小时
+</code></pre></div>
+<p>时间稼动率：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">166 ÷ 168
+</code></pre></div>
+<p>合格率：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">1 - 5%
+= 95%
+</code></pre></div>
+<p>所以：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">OEE
+= (166 ÷ 168)
+× 90%
+× 95%
+
+≈ 84.5%
+</code></pre></div>
+<p>答案：</p>
+<blockquote>
+<p><strong>84.5%</strong></p>
+</blockquote>
+<hr/>
+<h3 class="topic-title" data-title="6. 例题2" id="calc-079">6. 例题2</h3>
+<p>设备：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">计划生产时间 = 480 分钟
+停机 = 60 分钟
+理论产能 = 1 件/分钟
+实际生产 = 350 件
+其中不合格 = 20 件
+</code></pre></div>
+<hr/>
+<h4 class="detail-title" data-title="① 时间稼动率" id="calc-080">① 时间稼动率</h4>
+<p>实际运行：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">480 - 60
+= 420 分钟
+</code></pre></div>
+<p>所以：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">时间稼动率
+= 420 ÷ 480
+= 87.5%
+</code></pre></div>
+<hr/>
+<h4 class="detail-title" data-title="② 性能效率" id="calc-081">② 性能效率</h4>
+<p>420 分钟理论应生产：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">420 × 1
+= 420 件
+</code></pre></div>
+<p>实际生产：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">350 件
+</code></pre></div>
+<p>所以：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">性能效率
+= 350 ÷ 420
+≈ 83.3%
+</code></pre></div>
+<hr/>
+<h4 class="detail-title" data-title="③ 合格率" id="calc-082">③ 合格率</h4>
+<p>合格品：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">350 - 20
+= 330 件
+</code></pre></div>
+<p>所以：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">合格率
+= 330 ÷ 350
+≈ 94.3%
+</code></pre></div>
+<hr/>
+<h4 class="detail-title" data-title="④ OEE" id="calc-083">④ OEE</h4>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">OEE
+= 87.5%
+× 83.3%
+× 94.3%
+
+≈ 68.6%
+</code></pre></div>
+<p>答案：</p>
+<blockquote>
+<p><strong>68.6%</strong></p>
+</blockquote>
+<hr/>
+<h4 class="detail-title" data-title="⑤ 性能效率专项理解" id="calc-084">⑤ 性能效率专项理解</h4>
+<p>如果题目把理论速度改成：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">2 分钟生产 1 件
+</code></pre></div>
+<p>则实际运行：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">420 分钟
+</code></pre></div>
+<p>对应理论产量：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">420 ÷ 2
+= 210 件
+</code></pre></div>
+<p>接下来仍然按照：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">性能效率
+= 实际产量 ÷ 理论产量
+</code></pre></div>
+<p>老师用这个变式主要是在强调：</p>
+<blockquote>
+<p><strong>必须先把“理论速度”换算成实际运行时间内的理论产量。</strong></p>
+</blockquote>
+<hr/>
+</section><section class="chapter-card" data-chapter="7"><h2 data-title="🔥 全部公式总表" id="calc-085">🔥 全部公式总表</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th><strong>模块</strong></th>
+<th><strong>指标</strong></th>
+<th><strong>公式</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>云资源</td>
+<td>IOPS</td>
+<td>总I/O操作次数 ÷ 总时间（秒）</td>
+</tr>
+<tr>
+<td>云资源</td>
+<td>PUE</td>
+<td>数据中心总用电量 ÷ IT设备总用电量</td>
+</tr>
+<tr>
+<td>容量</td>
+<td>当前实际资源</td>
+<td>单实例资源 × 实例数 × 当前利用率</td>
+</tr>
+<tr>
+<td>容量</td>
+<td>未来实际资源</td>
+<td>当前实际资源 × 业务增长倍数</td>
+</tr>
+<tr>
+<td>容量</td>
+<td>未来总容量</td>
+<td>未来实际资源 ÷ 目标利用率</td>
+</tr>
+<tr>
+<td>容量</td>
+<td>实例数</td>
+<td>总容量 ÷ 单实例资源</td>
+</tr>
+<tr>
+<td>可用性</td>
+<td>MTBF</td>
+<td>正常运行总时间 ÷ 故障次数</td>
+</tr>
+<tr>
+<td>可用性</td>
+<td>MTTR</td>
+<td>故障修复总时间 ÷ 故障次数</td>
+</tr>
+<tr>
+<td>可用性</td>
+<td>MTBSI</td>
+<td>MTBF + MTTR</td>
+</tr>
+<tr>
+<td>项目收益</td>
+<td>投入产出比</td>
+<td>投入 : 产出 = 1 : N</td>
+</tr>
+<tr>
+<td>项目收益</td>
+<td>投资回报率</td>
+<td>项目利润 ÷ 项目投资总额 ×100%</td>
+</tr>
+<tr>
+<td>项目收益</td>
+<td>项目净产出</td>
+<td>收入 - 开支</td>
+</tr>
+<tr>
+<td>项目收益</td>
+<td>人均产出</td>
+<td>净利润总额 ÷ 人员数量</td>
+</tr>
+<tr>
+<td>服务台</td>
+<td>接听率</td>
+<td>接听数 ÷ 呼叫数 ×100%</td>
+</tr>
+<tr>
+<td>服务台</td>
+<td>派单准确率</td>
+<td>首派解决数 ÷ 派单数 ×100%</td>
+</tr>
+<tr>
+<td>服务台</td>
+<td>录单率</td>
+<td>记录数 ÷ 接听数 ×100%</td>
+</tr>
+<tr>
+<td>服务台</td>
+<td>平均通话时间</td>
+<td>总通话时间 ÷ 接听数</td>
+</tr>
+<tr>
+<td>人员</td>
+<td>招聘成功率</td>
+<td>实际上岗人数 ÷ 面试人数 ×100%</td>
+</tr>
+<tr>
+<td>人员</td>
+<td>招聘达成率</td>
+<td>实际上岗人数 ÷ 计划招聘人数 ×100%</td>
+</tr>
+<tr>
+<td>智能制造</td>
+<td>OEE</td>
+<td>时间稼动率 × 性能效率 × 合格率</td>
+</tr>
+<tr>
+<td>OEE</td>
+<td>时间稼动率</td>
+<td>实际运行时间 ÷ 计划运行时间</td>
+</tr>
+<tr>
+<td>OEE</td>
+<td>性能效率</td>
+<td>实际产量 ÷（实际运行时间 × 理论每分钟产量）</td>
+</tr>
+<tr>
+<td>OEE</td>
+<td>合格率</td>
+<td>合格品数 ÷ 实际总产量</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>服务台表中的计算口径按老师案例计算法整理；如果题目明确要求“默写教材公式”，应使用教材原表述。</p>
+</blockquote>
+<hr/>
+</section><section class="chapter-card" data-chapter="8"><h2 data-title="🧠 一眼判断“题目到底让我算什么”" id="calc-086">🧠 一眼判断“题目到底让我算什么”</h2>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">每秒I/O操作多少
+→ IOPS
+
+数据中心绿色化程度
+→ PUE
+
+三年后业务增长、CPU利用率、实例数量
+→ 容量规划
+
+平均多久不坏
+→ MTBF
+
+平均修一次要多久
+→ MTTR
+
+两次故障事件平均隔多久
+→ MTBSI
+
+哪个项目盈利水平最高
+→ 投入产出比
+
+哪个项目更值得重点投资
+→ 投资回报率
+
+项目到底赚了多少钱
+→ 净产出
+
+平均每个人贡献多少利润
+→ 人均产出
+
+电话接了多少
+→ 接听率
+
+首次派单解决得怎么样
+→ 派单准确率
+
+接了电话有没有规范记录
+→ 录单率
+
+一通电话平均聊多久
+→ 平均通话时间
+
+面试的人最后有多少成功上岗
+→ 招聘成功率
+
+计划招的人完成了多少
+→ 招聘达成率
+
+设备实际产能相对于理论产能
+→ OEE
+</code></pre></div>
+<hr/>
+</section><section class="chapter-card" data-chapter="9"><h2 data-title="🚨 最容易错的15个点" id="calc-087">🚨 最容易错的15个点</h2>
+<h3 class="topic-title" data-title="1. IOPS 时间单位是秒。" id="calc-088">1. IOPS 时间单位是秒。</h3>
+<p>分钟要先换算。</p>
+<hr/>
+<h3 class="topic-title" data-title="2. PUE越接近1越好。" id="calc-089">2. PUE越接近1越好。</h3>
+<p>不是越大越好。</p>
+<hr/>
+<h3 class="topic-title" data-title="3. PUE正常不应小于1。" id="calc-090">3. PUE正常不应小于1。</h3>
+<p>因为总用电量包含IT设备用电量。</p>
+<hr/>
+<h3 class="topic-title" data-title="4. 容量规划目标利用率80%，是“除以80%”。" id="calc-091">4. 容量规划目标利用率80%，是“除以80%”。</h3>
+<p>不是乘。</p>
+<hr/>
+<h3 class="topic-title" data-title="5. 容量规划中的RAM可能只是干扰项。" id="calc-092">5. 容量规划中的RAM可能只是干扰项。</h3>
+<p>题目问vCPU就围绕vCPU算。</p>
+<hr/>
+<h3 class="topic-title" data-title="6. MTBF看正常运行时间。" id="calc-093">6. MTBF看正常运行时间。</h3>
+<p>不要把维修时间加进去。</p>
+<hr/>
+<h3 class="topic-title" data-title="7. MTTR只看维修时间。" id="calc-094">7. MTTR只看维修时间。</h3>
+<hr/>
+<h3 class="topic-title" data-title="8. MTBSI = MTBF + MTTR。" id="calc-095">8. MTBSI = MTBF + MTTR。</h3>
+<hr/>
+<h3 class="topic-title" data-title="9. 投入产出比最终通常化成1:N。" id="calc-096">9. 投入产出比最终通常化成1:N。</h3>
+<p>N越大，盈利水平越高。</p>
+<hr/>
+<h3 class="topic-title" data-title="10. 投资回报率是利润/投资，不是收入/投资。" id="calc-097">10. 投资回报率是利润/投资，不是收入/投资。</h3>
+<p>先算：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">利润 = 收入 - 开支
+</code></pre></div>
+<hr/>
+<h3 class="topic-title" data-title="11. 题目明确给投资时，不要拿开支替代投资。" id="calc-098">11. 题目明确给投资时，不要拿开支替代投资。</h3>
+<p>只有没给投资时，按课程案例口径才用总开支代替。</p>
+<hr/>
+<h3 class="topic-title" data-title="12. “率”别忘了 ×100%。" id="calc-099">12. “率”别忘了 ×100%。</h3>
+<hr/>
+<h3 class="topic-title" data-title="13. 服务台派单准确率最容易错。" id="calc-100">13. 服务台派单准确率最容易错。</h3>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">有派单数
+→ 首派解决数 / 派单数
+
+没有派单数
+→ 退到记录数
+</code></pre></div>
+<hr/>
+<h3 class="topic-title" data-title="14. 招聘成功率、达成率分子一样。" id="calc-101">14. 招聘成功率、达成率分子一样。</h3>
+<p>口诀：</p>
+<blockquote>
+<p><strong>面试成功，达成计划。</strong></p>
+</blockquote>
+<hr/>
+<h3 class="topic-title" data-title="15. OEE最难的是性能效率。" id="calc-102">15. OEE最难的是性能效率。</h3>
+<p>永远先算：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">实际运行时间内
+理论上应该生产多少件
+</code></pre></div>
+<p>再用：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">实际产量 ÷ 理论产量
+</code></pre></div>
+<hr/>
+</section><section class="chapter-card" data-chapter="10"><h2 data-title="🎯 冲刺复习优先级" id="calc-103">🎯 冲刺复习优先级</h2>
+<p>如果考试前只剩很少时间，建议按下面顺序：</p>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">第一优先：
+服务台4指标
+尤其派单准确率
+
+第二优先：
+项目收益4指标
+尤其投入产出比、投资回报率
+
+第三优先：
+MTBF / MTTR / MTBSI
+
+第四优先：
+OEE
+
+第五优先：
+PUE / IOPS
+
+第六优先：
+招聘成功率 / 达成率 / 加权计算
+
+第七优先：
+2025年云容量规划
+</code></pre></div>
+<p>原因不是按难度，而是按：</p>
+<blockquote>
+<p><strong>公式数量 + 易混程度 + 案例可出题性</strong></p>
+</blockquote>
+<hr/>
+</section><section class="chapter-card" data-chapter="11"><h2 data-title="🧠 考前一页回忆版" id="calc-104">🧠 考前一页回忆版</h2>
+<div class="code-wrap"><button class="copy-code" title="复制内容" type="button">复制</button><pre><code class="language-plaintext">案例计算题 = 先公式 → 找参数 → 代入
+
+━━━━━━━━━━━━
+第6章 云资源
+━━━━━━━━━━━━
+
+IOPS
+= 总I/O次数 / 秒数
+越大存储随机读写越好
+
+PUE
+= 总用电 / IT用电
+越接近1越绿色
+PUE≥1
+
+容量：
+当前实际
+= 单实例 × 实例数 × 当前利用率
+
+未来实际
+= 当前实际 × 业务倍数
+
+未来总容量
+= 未来实际 / 目标利用率
+
+实例数
+= 总容量 / 单实例
+
+2025真题：
+前端 3000 vCPU / 375实例
+应用 4800 vCPU / 300实例
+
+━━━━━━━━━━━━
+第12章 可用性
+━━━━━━━━━━━━
+
+MTBF
+= 正常运行总时间 / 故障次数
+越长越可靠
+
+MTTR
+= 修复总时间 / 故障次数
+越短越好恢复
+
+MTBSI
+= MTBF + MTTR
+
+━━━━━━━━━━━━
+项目收益
+━━━━━━━━━━━━
+
+投入产出比：
+投入 : 收入 = 1 : N
+N越大越好
+
+投资回报率：
+利润 / 投资 ×100%
+
+净产出：
+收入 - 开支
+
+人均产出：
+净利润 / 人数
+
+投入 = 投资
+产出 = 收入
+净产出 = 利润 = 净利润
+
+有单独投资
+→ 用单独投资
+
+没给投资
+→ 按课程口径用总开支
+
+━━━━━━━━━━━━
+服务台
+━━━━━━━━━━━━
+
+接听率
+= 接听 / 呼叫
+
+派单准确率
+= 首派解决 / 派单
+
+有派单数用派单数
+没派单数退到记录数
+
+录单率
+= 记录 / 接听
+
+平均通话
+= 总通话时间 / 接听数
+
+━━━━━━━━━━━━
+第13章 人员
+━━━━━━━━━━━━
+
+加权得分
+= 各指标分值 × 各自权重后求和
+
+招聘成功率
+= 实际上岗 / 面试人数
+
+招聘达成率
+= 实际上岗 / 计划人数
+
+口诀：
+面试成功
+达成计划
+
+━━━━━━━━━━━━
+第22章 OEE
+━━━━━━━━━━━━
+
+OEE
+= 时间稼动率
+× 性能效率
+× 合格率
+
+时间稼动率
+= 实际运行 / 计划运行
+
+性能效率
+= 实际产量
+  /（实际运行时间 × 理论每分钟产量）
+
+合格率
+= 合格品 / 总产量
+
+最难：
+性能效率
+
+先问：
+实际运行这段时间
+理论应该产多少？
+</code></pre></div>
+<hr/>
+</section><section class="chapter-card" data-chapter="12"><h2 data-title="📌 最后只守住这8条" id="calc-105">📌 最后只守住这8条</h2>
+<blockquote>
+<p><strong>① IOPS = I/O次数 ÷ 秒数。</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>② PUE = 总用电 ÷ IT用电，越接近1越好。</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>③ MTBF看运行、MTTR看维修、MTBSI两者相加。</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>④ 投入产出比看盈利水平，投资回报率看利润/投资。</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>⑤ 服务台：接听/呼叫，记录/接听，首派解决/派单，通话时间/接听。</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>⑥ 派单准确率：有派单数必须优先用派单数。</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>⑦ 招聘口诀：面试成功，达成计划。</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>⑧ OEE = 时间稼动率 × 性能效率 × 合格率；性能效率先算理论产量。</strong></p>
+</blockquote>
+<p>这部分计算题总体并不难。真正需要防的是：</p>
+<blockquote>
+<p><strong>公式记混、分母选错、把投资和开支混淆、忘记百分号、没有先算“理论量”。</strong></p>
+</blockquote>
+<p>把这些易错点处理好，案例中一旦出现计算题，通常就是比较稳定的拿分点。</p>
+</section></div></div>
+</section>
+<footer class="bottom-footer"><span>© 2026 · 系统规划与管理师 · 案例分析复习笔记</span><span>支持离线阅读 · Ctrl + K 搜索 · Ctrl + P 打印当前专题</span></footer>
+</main>
+</div>
+<div aria-label="搜索学习笔记" class="search-panel" id="searchPanel" role="dialog">
+<div class="search-bar"><span style="color:#1aa89c;padding:0 6px">⌕</span><input autocomplete="off" id="searchInput" placeholder="搜索公式、考点、关键词…"/><button class="search-dismiss" id="searchClose" title="关闭">×</button></div>
+<div class="results" id="results"><div class="search-empty">输入关键词，可同时搜索两份资料</div></div>
+</div>
+<div aria-live="polite" id="toast"></div>
+<script>
+(()=>{
+ const $=(s,base=document)=>base.querySelector(s), $$=(s,base=document)=>Array.from(base.querySelectorAll(s));
+ const docPane={study:$('.doc-pane[data-doc="study"]'),calc:$('.doc-pane[data-doc="calc"]')};
+ let current='study',toastT;
+ const openDrawer=()=>document.body.classList.add('drawer-open');
+ const closeDrawer=()=>document.body.classList.remove('drawer-open');
+ $('#mobileMenu').addEventListener('click',openDrawer);
+ $('#scrim').addEventListener('click',closeDrawer);
+ function expandChapter(id,should){
+  const btn=$('.nav-expander[data-target="sub-'+id+'"]'); if(!btn)return;
+  const sub=$('#sub-'+id);if(!sub)return;
+  btn.setAttribute('aria-expanded',String(should));sub.hidden=!should;
+ }
+ $$('.nav-expander').forEach(b=>b.addEventListener('click',e=>{
+  e.stopPropagation();const id=b.dataset.target.slice(4);expandChapter(id,b.getAttribute('aria-expanded')!=='true');
+ }));
+ function setDoc(doc,reset=true){
+  if(!docPane[doc])return;
+  current=doc;
+  Object.keys(docPane).forEach(k=>docPane[k].hidden=k!==doc);
+  $$('.top-tab').forEach(b=>{let active=b.dataset.switch===doc;b.classList.toggle('active',active);b.setAttribute('aria-selected',String(active));});
+  $$('.doc-group').forEach(g=>g.classList.toggle('expanded',g.dataset.group===doc));
+  if(reset){window.scrollTo({top:0,behavior:'instant'});}
+ }
+ function selectNav(id){
+  $$('.nav-link.active').forEach(el=>el.classList.remove('active'));
+  const a=$('.nav-link[data-id="'+id+'"]');if(!a)return;
+  a.classList.add('active');
+  let p=a.closest('.nav-sub');if(p)expandChapter(p.id.slice(4),true);
+  // Try to keep visible in sidebar without jumping the page.
+  const body=$('.side-body');if(body){const r=a.getBoundingClientRect(),b=body.getBoundingClientRect();if(r.bottom>b.bottom-10||r.top<b.top+10)a.scrollIntoView({block:'nearest',behavior:'instant'});}
+ }
+ function goTo(id,flash=false){
+  const el=document.getElementById(id);if(!el)return;
+  const doc=id.startsWith('calc-')?'calc':'study';setDoc(doc,false);
+  if(flash){el.classList.remove('search-match');void el.offsetWidth;el.classList.add('search-match');}
+  el.scrollIntoView({block:'start',behavior:'smooth'});
+  selectNav(id);try{history.replaceState(null,'','#'+id);}catch(_){}
+  closeDrawer();
+ }
+ $$('.nav-link').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();goTo(a.dataset.id)}));
+ $$('.top-tab').forEach(b=>b.addEventListener('click',()=>{setDoc(b.dataset.switch);closeDrawer();}));
+ $$('.doc-toggle').forEach(b=>b.addEventListener('click',()=>{setDoc(b.dataset.openDoc);closeDrawer();}));
+ $$('.quicklinks button').forEach(b=>b.addEventListener('click',()=>goTo(b.dataset.jump)));
+ $('#printBtn').addEventListener('click',()=>window.print());
+ function toast(s){let t=$('#toast');t.textContent=s;t.classList.add('visible');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('visible'),1700);}
+ $$('.copy-code').forEach(b=>b.addEventListener('click',async()=>{
+  let val=$('code',b.parentElement)?.innerText || $('code',b.parentElement)?.textContent || '';
+  try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(val)}else{
+   const ta=document.createElement('textarea');ta.value=val;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();}
+   toast('内容已复制');
+  }catch(_){toast('请选中代码手动复制');}
+ }));
+ const panel=$('#searchPanel'),input=$('#searchInput'),results=$('#results');
+ function closeSearch(){panel.classList.remove('open')}
+ function openSearch(){panel.classList.add('open');input.focus();input.select()}
+ $('#searchOpen').addEventListener('click',openSearch);
+ $('#searchClose').addEventListener('click',closeSearch);
+ document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openSearch()}if(e.key==='Escape'){closeSearch();closeDrawer()}});
+ document.addEventListener('click',e=>{if(!panel.contains(e.target)&&!$('#searchOpen').contains(e.target))closeSearch()});
+ let ix=0;
+ const entries=[];
+ for(const doc of ['study','calc']){
+  let chapter='';
+  $$('.chapter-card',docPane[doc]).forEach(card=>{
+   let h=$('h2',card);chapter=h?.innerText?.trim()||'';
+   $$('h2,h3,h4,p,pre,td',card).forEach(el=>{
+    const v=(el.textContent||'').replace(/\s+/g,' ').trim();if(v.length<2) return;
+    if(!el.id)el.id='search-'+doc+'-'+(++ix);
+    entries.push({id:el.id,doc,section:chapter,text:v.slice(0,950),rank:el.matches('h2,h3,h4')?2:1});
+   });
+  });
+ }
+ function renderSearch(){
+  const term=input.value.trim().toLowerCase();results.replaceChildren();
+  if(term.length<2){results.innerHTML='<div class="search-empty">输入至少2个字符，可查找两份资料中的具体段落</div>';return}
+  const words=term.split(/\s+/).filter(Boolean);
+  const matches=entries.filter(it=>words.every(w=>it.text.toLowerCase().includes(w))).sort((a,b)=>b.rank-a.rank).slice(0,32);
+  if(!matches.length){results.innerHTML='<div class="search-empty">没有找到匹配内容，试试更短的关键词</div>';return}
+  for(const it of matches){
+   const item=document.createElement('button');item.type='button';item.className='result-item';
+   const title=document.createElement('span');title.className='result-title';title.textContent=(it.doc==='calc'?'计算题 · ':'学习方法 · ')+it.section.slice(0,40);
+   const snippet=document.createElement('span');snippet.className='result-snippet';
+   const at=it.text.toLowerCase().indexOf(words[0]);const start=Math.max(0,at-43);
+   snippet.textContent=(start?'…':'')+it.text.slice(start,start+140)+(it.text.length>start+140?'…':'');
+   item.append(title,snippet);item.addEventListener('click',()=>{goTo(it.id,true);closeSearch()});results.append(item);
+  }
+ }
+ input.addEventListener('input',renderSearch);
+ const q=location.hash.slice(1);
+ if(q&&document.getElementById(q))goTo(q);else{
+  // Open the first active article's main TOC to expose its subitems.
+  const first=$('.doc-group[data-group="study"] .nav-expander');if(first)expandChapter(first.dataset.target.slice(4),true);
+ }
+ // Keep current chapter highlighted during reading, but do not interfere with open search.
+ const heads=$$('.doc-pane h2[id], .doc-pane h3[id]');
+ let pending=false;
+ window.addEventListener('scroll',()=>{
+  if(pending)return;pending=true;
+  requestAnimationFrame(()=>{
+   pending=false;if(document.body.classList.contains('drawer-open'))return;
+   let seen;
+   for(const h of heads){if(h.closest('.doc-pane')?.hidden)continue;if(h.getBoundingClientRect().top<125)seen=h;else break;}
+   if(seen){const a=$('.nav-link[data-id="'+seen.id+'"]');if(a){
+    $$('.nav-link.active').forEach(el=>el.classList.remove('active'));a.classList.add('active');
+   }}
+  });
+ },{passive:true});
+})();
+</script>
+</body></html>

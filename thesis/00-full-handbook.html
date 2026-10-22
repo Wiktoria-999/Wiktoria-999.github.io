@@ -1,0 +1,494 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><title>2026 系规论文｜从零写出一篇论文 · 01～20课程总复习手册</title><style>
+:root{--bg:#f5f7f8;--paper:#fff;--ink:#243545;--muted:#718393;--line:#dfe8ed;--navy:#10283b;--teal:#138d7e;--teal-soft:#e7f5f0;--blue:#356d9e;--blue-soft:#eef5fd;--amber:#996322;--amber-soft:#fff5e6;--red:#b45655;--red-soft:#fff1f0;--shadow:0 13px 36px rgba(22,46,61,.047);--radius:18px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.92 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","PingFang SC",sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer}a{text-decoration:none;color:inherit}h1,h2,h3,h4,p{margin-top:0}h1{font-size:clamp(31px,3.25vw,48px);line-height:1.32;margin:10px 0 14px}h2{font-size:24px;line-height:1.5}h3{font-size:18px;line-height:1.5}h4{font-size:15px}strong{color:#234756}::selection{background:#b4e9da}pre{font-family:inherit}
+.layout{display:grid;grid-template-columns:268px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--navy);color:#c3d6df;padding:27px 18px 25px;scrollbar-color:#67818e transparent;scrollbar-width:thin}.brand{display:flex;gap:11px;align-items:center;padding:0 6px;margin-bottom:25px}.logo{display:grid;place-items:center;width:44px;height:44px;border-radius:13px;background:#1a5e63;color:#c4f6df;font-weight:800}.brand b{display:block;color:#fff;font-size:14px;letter-spacing:.2px}.brand small{display:block;font-size:11px;color:#9bb7c1;line-height:1.4}.navtitle{font-size:10px;letter-spacing:2px;color:#819fae;font-weight:900;margin:25px 10px 9px}.side-search{margin:6px 0 25px}.side-search input{width:100%;border:1px solid #436173;border-radius:12px;background:#1a3a4d;color:#fff;padding:10px 12px;font-size:13px;outline:none}.side-search input::placeholder{color:#9fb5c0}.side-search input:focus{border-color:#61c7b2;box-shadow:0 0 0 3px #53bbad33}.search-hint{font-size:11px;color:#9ddcca;padding:4px 9px;min-height:24px}.sidebar nav a,.sidebar .resource{display:block;width:100%;text-align:left;border:0;background:transparent;padding:9px 11px;margin:2px 0;border-radius:10px;color:#c8dbe3;font-size:13px;line-height:1.48}.sidebar nav a:hover,.sidebar nav a.active,.sidebar .resource:hover{background:#24475b;color:#fff}.sidebar a.major{font-weight:800;color:#b5e9d8}.side-meta{margin:23px 10px 0;border-top:1px solid #2c4a59;padding-top:14px;color:#85a1af;font-size:11px;line-height:1.8}.main{min-width:0;padding:30px clamp(18px,4vw,60px) 85px;max-width:1490px;width:100%;margin:0 auto}.topbar{display:flex;gap:12px;justify-content:space-between;align-items:center;margin-bottom:22px}.crumb{color:#798e9d;font-size:12px;font-weight:700}.actions{display:flex;flex-wrap:wrap;gap:8px}.ctrl{border:1px solid var(--line);background:#fff;color:#536d79;border-radius:10px;padding:7px 13px;font-size:12px}.ctrl:hover{background:#f3f9f7;border-color:#a4c9c6}.ctrl.primary{color:#087b6a;border-color:#9edbc7;background:#effbf7}.menu{display:none}.hero{border-radius:23px;background:linear-gradient(115deg,#142c3e,#183f4a 64%,#235c58);color:#fff;padding:40px clamp(25px,4vw,56px);box-shadow:0 19px 45px rgba(14,48,53,.15);position:relative;overflow:hidden}.hero:after{content:"09";font-size:195px;font-weight:900;color:#ffffff0c;position:absolute;bottom:-91px;right:20px;line-height:1}.hero > *{position:relative;z-index:1}.hero h1{color:#fff}.hero p{max-width:820px;color:#c7dfe4;line-height:1.9;margin-bottom:14px}.eyebrow{font-size:12px;color:#a2e1d0;letter-spacing:2px;font-weight:800}.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}.pill{border:1px solid #ffffff40;border-radius:999px;background:#ffffff0c;font-size:12px;color:#e2f2f3;padding:5px 11px}.notice{background:#fff9ec;border:1px solid #f1dec0;border-left:4px solid #e0a64f;color:#795e34;padding:13px 16px;border-radius:0 12px 12px 0;font-size:13px;margin:20px 0 34px}.notice strong{color:#845823}.section{scroll-margin-top:25px;margin:42px 0}.section-head{display:flex;align-items:center;gap:13px;margin-bottom:15px}.index{color:var(--teal);font-size:12px;font-weight:900;letter-spacing:1px;white-space:nowrap}.section-head h2{margin:0}.sublead{color:var(--muted);font-size:14px;margin:0 0 18px}.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow);margin:0}.card h3{margin:0 0 8px}.card p:last-child{margin-bottom:0}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.kicker{display:inline-block;font-size:11px;font-weight:900;letter-spacing:.7px;color:#138271;border-radius:999px;background:var(--teal-soft);padding:3px 9px}.kicker.blue{background:var(--blue-soft);color:#31658b}.kicker.warn{background:var(--amber-soft);color:#916523}.kicker.red{background:var(--red-soft);color:#a75955}.callout{background:var(--teal-soft);border-radius:13px;padding:15px 18px;color:#276a5b;margin:17px 0}.callout strong{color:inherit}.callout.warning{background:var(--amber-soft);color:#805e34}.callout.blue{background:var(--blue-soft);color:#375e7e}.callout.red{background:var(--red-soft);color:#945656}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}.stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}.stat b{font-size:24px;color:var(--teal);display:block;line-height:1.5}.stat small{font-size:12px;color:#728594;line-height:1.5;display:block}.flow{display:flex;gap:9px;align-items:stretch;flex-wrap:wrap}.flow-step{background:#f1faf5;border:1px solid #d2e9dd;border-radius:12px;flex:1;min-width:125px;padding:14px;font-size:13px}.flow-step b{display:block;color:#157e6f}.flow-arrow{color:#7cabad;align-self:center}.rule-list{padding-left:21px;margin:8px 0}.rule-list li{margin-bottom:8px}.rule-list li::marker{color:var(--teal)}.teaching{padding:16px 19px;border-left:3px solid #2c9d87;background:#f3faf8;margin:18px 0;border-radius:0 12px 12px 0}.teaching b{color:#137568}.section-title{font-size:18px;font-weight:800;margin:26px 0 12px;padding-left:12px;border-left:3px solid var(--teal)}.table-wrap{overflow:auto;border-radius:14px;border:1px solid var(--line);background:#fff}.comparison{border-collapse:collapse;width:100%;min-width:660px;font-size:13px}.comparison th{background:#eef7f5;color:#1c5c56;white-space:nowrap}.comparison th,.comparison td{padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}.comparison tr:last-child td{border-bottom:0}.tagrow{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}.tag{font-size:11px;border:1px solid #d6e9e3;background:#f3faf7;color:#1b8271;border-radius:999px;padding:2px 10px}.caution-inline{font-size:12px;color:#8b6b45}.step-badge{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:#daf1e8;color:#0f806e;font-weight:900;margin-bottom:10px}.score{font-size:25px;color:#148876;font-weight:850;white-space:nowrap}.muted{color:#718393}.small{font-size:12px;line-height:1.7}.example{border-radius:13px;border:1px solid #dbe7eb;background:#f8fbfc;padding:14px 17px;line-height:1.9}.example strong{color:#246256}.headlined{font-weight:800;color:#135f59}.note-line{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:12px}.softbtn{border:1px solid #b9d9d0;background:#effaf5;border-radius:9px;color:#167c6c;padding:7px 12px;font-size:12px;font-weight:700}.softbtn:hover{background:#dff5e9}.softbtn.ghost{background:#fff;color:#456274;border-color:#d2e1e7}.details{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;margin:12px 0}.details summary{cursor:pointer;list-style:none;padding:15px 19px;font-weight:800;display:flex;justify-content:space-between;gap:10px;align-items:center}.details summary::-webkit-details-marker{display:none}.details summary::after{content:"⌄";color:#358e7c}.details[open] summary::after{content:"⌃"}.details[open] summary{background:#f6fbf9;border-bottom:1px solid var(--line)}.details .inner{padding:17px 20px}.mini-points{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.point{border:1px solid #dbe8e9;padding:12px 15px;border-radius:12px;font-size:13px;background:#fbfdfd}.point b{display:block;color:#177d72}.prompt{background:#162f3e;color:#e8f4f3;border-radius:14px;padding:17px 19px;white-space:pre-wrap;font-size:13px;line-height:1.85;overflow-wrap:anywhere;margin:10px 0}.prompt .dim{color:#c5d9df}.version{display:none}.version.active{display:block}.tabs{display:flex;gap:9px;flex-wrap:wrap;margin:14px 0}.tab{border:1px solid #d5e5e7;background:#fff;border-radius:10px;padding:8px 17px;color:#526b78;font-size:13px;font-weight:800}.tab.active{background:#138d7e;border-color:#138d7e;color:#fff}.version-card{background:#fff;padding:21px;border:1px solid var(--line);border-radius:15px}.practice-panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}.question{border-bottom:1px dashed #d9e6e8;padding:16px 0}.question:last-child{border:0}.question p{font-weight:800;margin:0 0 9px}.options{display:flex;flex-wrap:wrap;gap:8px}.choice{border:1px solid #d6e3e6;background:#fff;border-radius:9px;padding:7px 12px;font-size:12px;color:#3f6274}.choice.correct{background:#e2f6ec;border-color:#77cbae;color:#14755d}.choice.wrong{background:#fff1ee;border-color:#e2a29b;color:#a14f48}.feedback{font-size:12px;color:#608176;margin:10px 0 0}.facts-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.fact{background:#f5faf7;border:1px solid #d8e9e0;border-radius:12px;padding:14px}.fact strong{display:block;color:#158677}.transcript-original{font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere;color:#4a6373;line-height:1.85;max-height:68vh;overflow:auto;padding:13px 18px;border-radius:12px;background:#f8fafb;border:1px solid #e2eaef}.reader-overlay{position:fixed;inset:0;background:#071723dd;z-index:50;padding:16px;display:none}.reader-overlay.show{display:flex;align-items:center;justify-content:center}.reader{background:#f7fafb;width:min(1120px,100%);height:min(95vh,1040px);border-radius:16px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 70px #0005}.reader-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 17px;background:#10283b;color:#e9faf6}.reader-header b{color:white}.reader-controls{display:flex;gap:7px;flex-wrap:wrap;align-items:center}.reader-controls button,.reader-controls input{border:1px solid #476476;border-radius:8px;background:#1c4455;color:#fff;padding:6px 9px;font-size:12px}.reader-controls input{width:56px;text-align:center}.reader-stage{flex:1;min-height:0;overflow:auto;display:flex;align-items:flex-start;justify-content:center;background:#e3e8ea;padding:18px}.reader-stage img{max-width:100%;max-height:none;width:auto;height:auto;object-fit:contain;box-shadow:0 5px 18px #21313c30}.reader-stage.zoom img{max-width:none;width:130%;height:auto}.reader-foot{padding:8px 16px;background:#f5fafb;font-size:11px;text-align:center;color:#7b8b93}.mobile-cover{display:none}.focus .layout{display:block}.focus .sidebar{display:none}.focus .main{max-width:1110px}.focus .hero{padding-left:55px}.search-dim{opacity:.36}.end-note{margin-top:35px;color:#718393;font-size:12px;text-align:center}.example p:last-child{margin-bottom:0}
+@media(max-width:1100px){.grid3{grid-template-columns:repeat(2,minmax(0,1fr))}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:790px){.layout{display:block}.sidebar{position:fixed;left:0;top:0;bottom:0;width:min(285px,84vw);z-index:30;transform:translateX(-106%);transition:transform .23s ease;box-shadow:4px 0 25px #10283b18}.sidebar.mobile-open{transform:translateX(0)}.mobile-cover.show{display:block;position:fixed;inset:0;background:#11263477;z-index:29}.main{padding:20px 16px 50px}.topbar{align-items:flex-start;flex-wrap:wrap}.crumb{font-size:11px}.actions{gap:5px}.ctrl{font-size:11px;padding:7px 9px}.menu{display:inline-block}.hero{border-radius:17px;padding:27px 23px}.hero:after{font-size:140px;right:5px;bottom:-63px}.hero p{font-size:13px}.section{margin:31px 0}.section-head h2{font-size:21px}.grid2,.grid3,.facts-grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.card{padding:18px}.mini-points{grid-template-columns:1fr}.flow-arrow{display:none}.reader-header{align-items:flex-start;flex-direction:column}.reader-controls{gap:5px}.reader-stage{padding:7px}.reader{height:94vh}.reader-stage img{width:100%}.reader-stage.zoom img{width:180%}.focus .hero{padding-left:23px}}
+@media print{body{background:#fff!important;font-size:12px}.layout{display:block}.sidebar,.topbar,.reader-overlay,.mobile-cover,.softbtn,.tabs,.actions,.no-print{display:none!important}.main{padding:0;margin:0;max-width:100%}.hero{background:#f0f6f5!important;color:#243545!important;border:1px solid #c8dada;box-shadow:none;print-color-adjust:exact;-webkit-print-color-adjust:exact}.hero h1,.hero p,.hero .eyebrow{color:#243545!important}.hero .pill{color:#243545;border-color:#c3d7d5}.card,.details,.stat{box-shadow:none;break-inside:avoid}.section{margin:25px 0}.details .inner{display:block!important}.prompt{background:#f1f7f7!important;color:#233b42!important;border:1px solid #cddada}.source-block{display:none!important}}
+
+.keystrip{display:flex;flex-wrap:wrap;gap:9px;margin:14px 0}.keystrip span{display:inline-flex;gap:6px;align-items:center;padding:6px 11px;border:1px solid #d4e7e0;background:#f5fcf8;border-radius:9px;font-size:12px;color:#256b5c;font-weight:700}
+.triad{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.triad .card{height:100%}
+.tinytitle{font-weight:850;color:#147b70;font-size:14px;margin:13px 0 6px}.table-note{padding:10px 13px;color:#748795;font-size:12px}.guide{margin:14px 0;border-radius:14px;padding:18px;background:#f1f8fb;border:1px solid #dae8ee}.guide b{color:#2b7189}.focus .sidebar{display:none}.pills a{color:#fff}.pills a:hover{text-decoration:underline}
+.lesson-tag{font-size:11px;color:#217e70;font-weight:800;letter-spacing:.6px;display:inline-flex;align-items:center;gap:5px}.side-note{color:#9bb6bf;font-size:11px;margin:8px 10px}.smallrows li{margin:6px 0}.calc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:15px 0}.calc-cell{display:flex;flex-direction:column;gap:5px}.calc-cell span{color:#68818b;font-size:12px}.calc-cell input,.calc-cell select{width:100%;border:1px solid #cfdddf;border-radius:9px;background:white;padding:7px 12px;color:#325263}.calc-result{background:#eaf7f1;border:1px solid #c8e5d9;padding:16px 18px;border-radius:12px;color:#166d5e;font-size:13px}.calc-result b{font-size:25px}.calc-result.bad{background:#fff2ef;color:#ac5a51;border-color:#f0c6bb}
+.embed-top{margin:7px 0 15px;display:flex;gap:8px;flex-wrap:wrap}.exam-number{font-size:10px;color:#1f8776;border-radius:99px;border:1px solid #bfe0d6;padding:3px 9px;font-weight:800}.exam-header{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.exam-header h3{margin:0}.source-hint{font-size:12px;color:#718793}.e-table .comparison{min-width:650px}.emph-ink{color:#136a60;font-weight:850}.micro{font-size:11px;line-height:1.65;color:#7c8f96}
+@media(max-width:790px){.triad,.calc-grid{grid-template-columns:1fr}.reader-stage.zoom img{width:190%}.guide{padding:14px}}
+@media print{.calc-grid,.calc-result,.reader-overlay,.quiz-card,.no-print{display:none!important}.triad{grid-template-columns:1fr 1fr}.section{page-break-inside:auto}.details .inner{display:block}}
+
+.chaptercards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.coreterm{display:flex;gap:14px;align-items:start;padding:14px 16px;border-left:3px solid var(--teal);background:#f1faf6;border-radius:0 12px 12px 0;margin:12px 0}
+.coreterm b{display:block;color:#126f65}.coreterm p{margin:2px 0;font-size:13px}.emph{color:#106f65;font-weight:800}
+.exam-body p{margin:9px 0}.exam-row{display:grid;grid-template-columns:90px minmax(0,1fr) 95px;gap:12px;padding:12px 5px;border-bottom:1px dashed #d8e4e8;align-items:start}.exam-row:last-child{border-bottom:0}
+.exam-row .type{font-size:11px;color:#187e6f;background:#e7f5f0;border-radius:8px;padding:3px 8px;text-align:center}
+.exam-row b{font-size:12px}.source-ref{border:1px solid #d9e9e6;border-radius:10px;background:white;color:#1b776a;padding:5px 10px;font-size:12px;white-space:nowrap}
+.source-ref:hover{background:#e8f6f1}.annot{color:#546f77;font-size:12px;border-radius:9px;background:#f0f6f7;padding:8px 12px;margin:10px 0}
+.checkpoints{columns:2;column-gap:24px;padding-left:24px}.checkpoints li{break-inside:avoid;margin-bottom:9px}
+.rubric{font-size:12px;color:#648080;font-weight:750}
+@media(max-width:790px){.chaptercards{grid-template-columns:1fr}.exam-row{grid-template-columns:75px 1fr;gap:7px}.exam-row b:last-child{grid-column:2}.checkpoints{columns:1}}
+@media print{.resource,.reader,.exam-selector,.source-ref{display:none!important}.reader-stage{display:none}.details .inner{display:block!important}}
+
+
+/* ============================================================
+   2026 系规论文 · Lesson 09 UI Standard · 01—09 shared shell
+   Only topbar / left navigation styles; original teaching content preserved.
+   ============================================================ */
+body .course-sidebar{display:block!important;position:sticky;top:0;height:100vh;overflow-y:auto;overflow-x:hidden;
+  box-sizing:border-box;background:#142e40!important;color:#c3d6df!important;
+  padding:27px 18px 25px!important;border:0!important;scrollbar-color:#67818e transparent;
+  scrollbar-width:thin;}
+body .course-sidebar .brand{display:flex;align-items:center;gap:11px;padding:0 6px!important;
+  margin:0 0 25px!important;border:0!important;box-shadow:none;background:transparent!important;}
+body .course-sidebar .brand .logo{display:grid;place-items:center;flex:none;width:44px;height:44px;
+  border-radius:13px;background:#1a5e63!important;color:#c4f6df!important;
+  font-weight:800;font-size:17px;padding:0!important;}
+body .course-sidebar .brand b{display:block;color:#fff!important;font-size:14px;letter-spacing:.2px;}
+body .course-sidebar .brand small{display:block;font-size:11px;color:#9bb7c1!important;
+  line-height:1.4;letter-spacing:0;}
+body .course-sidebar .navtitle{font-size:10px!important;letter-spacing:2px!important;
+  color:#819fae!important;font-weight:900!important;margin:25px 10px 9px!important;
+  padding:0!important;border:0!important;}
+body .course-sidebar nav.course-nav{display:block!important;margin:0!important;padding:0!important;
+  width:auto;border:0!important;background:transparent!important;}
+body .course-sidebar nav.course-nav a,
+body .course-sidebar .course-resource{box-sizing:border-box!important;display:block!important;width:100%!important;
+  text-align:left!important;border:0!important;background:transparent!important;
+  padding:9px 11px!important;margin:2px 0!important;border-radius:10px!important;
+  color:#c8dbe3!important;font-size:13px!important;font-weight:400;line-height:1.48!important;
+  letter-spacing:0!important;text-decoration:none!important;box-shadow:none!important;
+  min-height:0!important;transition:background .15s,color .15s;cursor:pointer;}
+body .course-sidebar nav.course-nav a:hover,
+body .course-sidebar nav.course-nav a.active,
+body .course-sidebar .course-resource:hover{background:#24475b!important;color:#fff!important;}
+body .course-sidebar nav.course-nav a.major{font-weight:800!important;color:#b5e9d8!important;}
+body .course-sidebar nav.course-nav a.major:hover,
+body .course-sidebar nav.course-nav a.major.active{color:#fff!important;}
+body .course-sidebar nav.course-nav a span.number{font-size:inherit!important;font-weight:inherit!important;
+  color:inherit!important;min-width:0!important;margin-right:4px!important;display:inline!important;}
+body .course-sidebar .course-side-meta{margin:23px 10px 0!important;
+  border:0!important;border-top:1px solid #2c4a59!important;padding:14px 0 0!important;
+  color:#85a1af!important;font-size:11px!important;line-height:1.8!important;
+  background:transparent!important;}
+body .course-sidebar .course-side-meta *{color:inherit!important;
+  font-size:inherit!important;line-height:inherit!important;}
+/* Topbar copied from lesson 09 layout and spacing. */
+body .course-topbar{position:relative!important;top:auto!important;z-index:10;
+  display:flex!important;flex-wrap:nowrap;gap:12px!important;justify-content:space-between!important;
+  align-items:center!important;min-height:0!important;height:auto!important;
+  margin:0 0 22px!important;padding:0!important;background:transparent!important;
+  border:0!important;box-shadow:none!important;backdrop-filter:none!important;}
+body .course-topbar .course-start{display:flex;align-items:center;gap:10px;min-width:0;}
+body .course-topbar .course-crumb{color:#798e9d!important;font-size:12px!important;
+  font-weight:700!important;line-height:1.5;white-space:normal;}
+body .course-topbar .course-actions{display:flex;flex-wrap:wrap;gap:8px;}
+body .course-topbar button.course-ctrl{box-sizing:border-box!important;
+  border:1px solid #dce7e7!important;background:#fff!important;color:#536d79!important;
+  border-radius:10px!important;padding:7px 13px!important;
+  font-family:inherit!important;font-size:12px!important;font-weight:400!important;line-height:1.5!important;
+  white-space:nowrap;text-decoration:none;letter-spacing:0;box-shadow:none!important;cursor:pointer;}
+body .course-topbar button.course-ctrl:hover{background:#f3f9f7!important;border-color:#a4c9c6!important;}
+body .course-topbar button.course-ctrl.primary{color:#087b6a!important;border-color:#9edbc7!important;
+  background:#effbf7!important;font-weight:400!important;}
+body .course-topbar button.course-menu{display:none;}
+/* Hide retired UI and keep all other practice functions intact. */
+body .unified-search-wrap,body .side-search,
+body .course-sidebar #jumpSearch,body .course-sidebar #searchHint,
+body .h-progress,body .side-progress,body .progress-track{display:none!important;}
+@media(max-width:900px){
+  body .course-sidebar{position:fixed!important;top:0!important;left:0!important;bottom:0!important;
+    height:100dvh!important;width:min(285px,84vw)!important;z-index:1000!important;
+    transform:translateX(-106%);transition:transform .23s ease!important;
+    box-shadow:4px 0 25px #10283b18!important;}
+  body .course-sidebar.mobile-open,body .course-sidebar.open,body .course-sidebar.shown{
+    transform:translateX(0)!important;}
+  body .course-topbar{align-items:flex-start!important;flex-wrap:wrap!important;gap:12px!important;}
+  body .course-topbar .course-crumb{font-size:11px!important;}
+  body .course-topbar .course-actions{gap:5px!important;}
+  body .course-topbar button.course-ctrl{font-size:11px!important;padding:7px 9px!important;}
+  body .course-topbar button.course-menu{display:inline-block!important;}
+  body .layout,body .shell{display:block!important;}
+  body .course-sidebar + main,body .layout>main,body .shell>main{min-width:0;}
+}
+@media print{
+  body .course-sidebar,body .course-topbar{display:none!important;}
+}
+
+body .course-topbar.legacy-topbar{margin-top:28px!important;}
+
+/* Focus reading must override the normal persistent sidebar display. */
+body.focus .course-sidebar,body.unified-focus .course-sidebar{display:none!important;}
+body.focus .layout,body.unified-focus .layout,body.unified-focus .shell{display:block!important;}
+
+
+/* === NAV04 STANDARD / 2026-10-15: 04课本课目录视觉规范 === */
+body .course-sidebar .navtitle {
+  font-size:10px!important;
+  letter-spacing:2px!important;
+  color:#819fae!important;
+  font-weight:900!important;
+  margin:25px 10px 9px!important;
+  padding:0!important;
+  border:0!important;
+}
+body .course-sidebar nav.course-nav {
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+  width:auto!important;
+}
+body .course-sidebar nav.course-nav a {
+  display:block!important;
+  box-sizing:border-box!important;
+  width:100%!important;
+  padding:9px 11px!important;
+  margin:2px 0!important;
+  border:0!important;
+  border-radius:10px!important;
+  background:transparent!important;
+  color:#c8dbe3!important;
+  font-size:13px!important;
+  font-weight:400!important;
+  line-height:1.5!important;
+  text-align:left!important;
+  text-decoration:none!important;
+  transition:background .2s!important;
+  white-space:normal!important;
+  text-indent:0!important;
+}
+body .course-sidebar nav.course-nav a.major {
+  font-weight:800!important;
+  color:#b5e9d8!important;
+}
+body .course-sidebar nav.course-nav a:hover,
+body .course-sidebar nav.course-nav a.active,
+body .course-sidebar nav.course-nav a.major:hover,
+body .course-sidebar nav.course-nav a.major.active {
+  background:#24475b!important;
+  color:#fff!important;
+}
+body .course-sidebar nav.course-nav a span,
+body .course-sidebar nav.course-nav a em {
+  font:inherit!important;
+  color:inherit!important;
+  display:inline!important;
+  min-width:0!important;
+  font-style:normal!important;
+  margin:0!important;
+  padding:0!important;
+}
+/* === END NAV04 STANDARD === */
+
+
+/* Total handbook: only new content components. Shared shell, colors, nav and topbar remain Lesson 09 + Lesson 04. */
+.hero:after{content:"20"!important}.main{max-width:1490px}
+.lesson-index{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:18px 0}
+.lesson-chip{display:flex;gap:10px;align-items:flex-start;padding:14px 15px;border:1px solid var(--line);border-radius:12px;background:white;color:inherit;text-decoration:none;line-height:1.55;font-size:13px}
+.lesson-chip:hover{border-color:#88c7b5;background:#f4fbf8}.lesson-chip b{font-size:12px;color:#168675;background:#e6f5ef;border-radius:8px;padding:3px 7px;flex-shrink:0}
+.lesson-chip small{display:block;color:#78909c;margin-top:2px;font-size:11px}
+.flowsteps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:15px 0}
+.flowstep{background:#fff;border:1px solid #dae7e9;border-radius:13px;padding:14px 13px}.flowstep strong{font-size:15px;color:#176e63}.flowstep small{display:block;color:#697e89;margin-top:5px;line-height:1.7}
+.lesson-panel{background:#fff;border:1px solid var(--line);border-radius:17px;padding:24px;margin:16px 0;box-shadow:var(--shadow)}
+.lesson-panel h3{margin:0 0 10px}.lesson-panel h4{font-size:14px;margin:22px 0 8px;color:#1d5f57}
+.lesson-panel p{line-height:1.9}.lesson-panel ul{padding-left:21px;line-height:1.85}
+.threecol{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0}
+.mini-card{background:#f5faf8;border:1px solid #d9eae4;border-radius:12px;padding:14px}.mini-card h4{margin:0 0 7px}.mini-card p{margin:0;font-size:13px}
+.step-label{display:inline-block;font-size:11px;letter-spacing:.6px;color:#16746a;font-weight:800;margin-bottom:8px}
+.source-note{color:#738a98;font-size:12px;line-height:1.7;margin:8px 0}
+.example{background:#f4f8fb;border-left:3px solid #80a7c1;padding:13px 16px;border-radius:0 10px 10px 0;font-size:14px;line-height:1.9;margin:13px 0}
+.practice-box{background:#eaf6f1;border:1px solid #c9e7dc;border-radius:13px;padding:15px 17px;line-height:1.8;margin:16px 0}
+.practice-box b{color:#176f63}.warnbox{background:#fff8ec;border:1px solid #efdfc0;border-radius:12px;padding:15px 17px;line-height:1.8;margin:14px 0}
+.work-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.work-grid label,.tool-select{display:flex;flex-direction:column;gap:7px;font-size:12px;font-weight:700;color:#54737a}
+.work-grid input,.work-grid textarea,.work-grid select,.tool-select select,textarea.work-area{width:100%;border:1px solid #ccdfe2;border-radius:9px;padding:10px 12px;font-size:14px;background:#fff;color:#264655;line-height:1.6;font-family:inherit}
+.work-grid textarea{min-height:75px;resize:vertical}.work-grid .wide{grid-column:1/-1}
+.btnline{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin:15px 0}
+pre.outline{background:#102c3c;color:#dce9e8;border-radius:15px;padding:20px;white-space:pre-wrap;line-height:1.9;font-size:13px;overflow:auto;font-family:inherit}
+textarea.work-area{min-height:210px;resize:vertical}.hint{font-size:12px;color:#738996}
+.tablist{display:flex;gap:7px;flex-wrap:wrap;margin:15px 0}.tabbtn{border:1px solid #cfe4dd;background:white;color:#4c6e6d;padding:8px 12px;border-radius:9px;font-size:12px;cursor:pointer}.tabbtn.on{background:#167f70;color:white;border-color:#167f70}
+.table-wrap .comparison th{white-space:normal}.filetable .comparison{min-width:740px}.filetable .comparison td[contenteditable]{background:#fbfdfb;outline-offset:-3px}.filetable .comparison td[contenteditable]:focus{outline:2px solid #77c8b5;background:#fff}
+.table-guides{display:grid;grid-template-columns:1fr 1fr;gap:15px}.table-guides .card{padding:18px}
+.copy-toast{position:fixed;bottom:22px;right:20px;background:#14394a;color:#fff;padding:11px 16px;border-radius:10px;z-index:70;box-shadow:0 12px 30px #162c3b33;font-size:13px;opacity:0;pointer-events:none;transition:opacity .2s}.copy-toast.show{opacity:1}
+.modal{display:none;position:fixed;inset:0;z-index:100;background:#102c3ba6;align-items:center;justify-content:center;padding:18px}.modal.show{display:flex}.modal-inner{width:min(870px,100%);max-height:86vh;overflow:auto;background:#fff;border-radius:17px;padding:22px;box-shadow:0 30px 70px #0003}
+.modal-head{display:flex;align-items:center;justify-content:space-between;gap:15px}.modal-head h2{margin:0}.modal-close{font-size:25px;background:none;border:0;cursor:pointer;color:#526977}
+.source-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.source-list a{padding:10px;border:1px solid #dbe7e9;border-radius:9px;font-size:12px;color:#266f66;text-decoration:none}.source-list a:hover{background:#eaf6f1}
+.course-footnote{border-top:1px dashed #dde6e9;margin-top:15px;padding-top:12px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:12px}
+.course-footnote a{color:#218875}
+.quizcard{border:1px solid var(--line);background:#fff;border-radius:13px;padding:17px;margin:12px 0}.quizcard summary{cursor:pointer;color:#27586c;font-weight:800}.quizcard p{line-height:1.8;margin-bottom:4px}
+.checklist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:12px 0}.checkline{display:flex;align-items:start;gap:10px;background:white;border:1px solid #dfebe9;border-radius:11px;padding:11px 13px;line-height:1.6;font-size:13px}.checkline input{margin-top:5px;accent-color:#0d8d7b}
+@media(max-width:1050px){.flowsteps{grid-template-columns:repeat(2,minmax(0,1fr))}.threecol{grid-template-columns:1fr 1fr}}
+@media(max-width:790px){.lesson-index,.table-guides,.source-list{grid-template-columns:1fr}.threecol{grid-template-columns:1fr}.work-grid{grid-template-columns:1fr}.course-footnote{display:block}.course-footnote a{display:inline-block;margin-top:6px}}
+@media(max-width:390px){.flowsteps{grid-template-columns:1fr}.lesson-panel{padding:17px}.hero:after{font-size:130px!important}.btnline .softbtn{font-size:11px}}
+@media print{.sidebar,.topbar,.mobile-cover,.modal,.btnline,.practice-box .softbtn{display:none!important}.layout{display:block!important}.main{padding:0!important}.lesson-panel,.section{break-inside:avoid-page}.section{margin:20px 0!important}.hero{padding:25px!important}}
+
+
+body.focus-mode .course-sidebar{display:none!important}body.focus-mode .layout{grid-template-columns:minmax(0,1fr)!important}body.focus-mode .main{max-width:1100px!important}</style></head><body><div class="mobile-cover" id="mobileCover" onclick="toggleNav(false)"></div><div class="layout">
+<aside class="sidebar course-sidebar" id="sidebar"><div class="brand"><span class="logo">系规</span><div><b>论文专题复习手册</b><small>2026 · 01～20 课 · 离线网页版</small></div></div>
+<div class="navtitle">本课目录</div><nav class="course-nav" id="toc"><a class="nav-link major" href="#start">00 · 先看懂这份总手册</a><a class="nav-link major" href="#group01">01～04 · 写作基础</a><a class="nav-link" href="#l01">01 · 写作关键点</a><a class="nav-link" href="#l02">02 · 论文写作基本介绍</a><a class="nav-link" href="#l03">03 · 项目背景的搜寻与写作</a><a class="nav-link" href="#l04">04 · 过渡和结尾写作</a><a class="nav-link major" href="#group05">05～07 · 题型与素材</a><a class="nav-link" href="#l05">05 · 服务管理实战写作（上）</a><a class="nav-link" href="#l06">06 · 服务管理模拟题（下）</a><a class="nav-link" href="#l07">07 · 论文模仿、改写与种子素材</a><a class="nav-link major" href="#group08">08～20 · 专题实战</a><a class="nav-link" href="#l08">08 · 技术与研发管理</a><a class="nav-link" href="#l09">09 · 信息系统规划</a><a class="nav-link" href="#l10">10 · 应用系统规划</a><a class="nav-link" href="#l11">11 · 数据资源规划</a><a class="nav-link" href="#l12">12 · 人员管理</a><a class="nav-link" href="#l13">13 · 规范与过程管理</a><a class="nav-link" href="#l14">14 · 信息系统治理</a><a class="nav-link" href="#l15">15 · 资源与工具管理</a><a class="nav-link" href="#l16">16 · 信息系统项目管理</a><a class="nav-link" href="#l17">17 · 云资源规划</a><a class="nav-link" href="#l18">18 · 网络环境规划</a><a class="nav-link" href="#l19">19 · 信息安全规划</a><a class="nav-link" href="#l20">20 · 云原生系统规划</a><a class="nav-link major" href="#exam">实操 · 从题目到论文</a><a class="nav-link" href="#project">02 · 找项目背景</a><a class="nav-link" href="#materials">03 · 种子素材</a><a class="nav-link" href="#paragraph">04 · 写理论＋实践</a><a class="nav-link" href="#tables">05 · 表格填写工坊</a><a class="nav-link" href="#demo">06 · 完整写作演练</a><a class="nav-link" href="#workbench">07 · 论文组装台</a><a class="nav-link" href="#prompts">08 · AI 提示词</a><a class="nav-link" href="#examcheck">09 · 考场检查</a><a class="nav-link major" href="#path">复习 · 当前 A 阶段</a><a class="nav-link major" href="#resources">资料 · 01～20 课</a></nav>
+<div class="navtitle">资料库</div><button type="button" class="resource course-resource" onclick="openSources()">📖 查看全部原课件入口</button><a class="resource course-resource" href="#resources">📄 01～20 课资料索引</a><div class="side-meta course-side-meta">第 09 课 Topbar + 第 04 课侧栏<br>正文按 01～20 课体系整理<br>学习主线：审题 → 素材 → 写作 → 填表</div></aside>
+<main class="main" id="main"><header class="topbar course-topbar"><div class="course-start"><button class="course-ctrl course-menu" onclick="toggleNav(true)" type="button">☰ 目录</button><span class="course-crumb">论文专题 / 总复习手册</span></div><div class="course-actions"><button class="course-ctrl" id="focusBtn" onclick="toggleFocus()" type="button">专注阅读</button><button class="course-ctrl" onclick="window.print()" type="button">打印</button><button class="course-ctrl primary" onclick="openSources()" type="button">查看原课件</button></div></header>
+<div class="hero"><div class="eyebrow">2026 · SYSTEM PLANNING &amp; MANAGEMENT · ESSAY GUIDE</div><h1>从零写出一篇论文<br>01～20 课实战总复习手册</h1><p>不是再背一遍课程目录，而是把老师的知识讲解和模拟题串成一套可以实际执行的方法：找素材、选理论、拆题、写正文、做表格、成文与应试检查。</p><div class="pills"><span class="pill">完整课程 01～20</span><span class="pill">三种子题写法</span><span class="pill">12 类种子素材</span><span class="pill">12 类文件表格</span><span class="pill">离线实操工具</span></div></div>
+<section class="section" id="start"><div class="section-head"><span class="index">00 / START</span><h2>先看这张“论文写作作业地图”</h2></div><p class="sublead">这份网页以 01～20 课为知识主线，另做可直接执行的写作路线；适合理论基础尚弱、看过课程却不知道怎么动笔的人。</p><div class="flowsteps"><div class="flowstep"><strong>01 · 找题</strong><small>识别每个小问的要求，而不是只看论文标题</small></div><div class="flowstep"><strong>02 · 选项目</strong><small>先有真实项目事实、角色、业务/架构</small></div><div class="flowstep"><strong>03 · 选理论</strong><small>从180条中定位本小问的理论骨架</small></div><div class="flowstep"><strong>04 · 配素材</strong><small>选真实行动、工具、文件和结果证据</small></div><div class="flowstep"><strong>05 · 分字数</strong><small>正文优先，按题目难度分而不是均分</small></div><div class="flowstep"><strong>06 · 写正文</strong><small>逐问按偏理论/偏实践/理论＋实践写</small></div><div class="flowstep"><strong>07 · 做表格</strong><small>只有题目需要的文件才优先展开</small></div><div class="flowstep"><strong>08 · 检查改写</strong><small>正文与背景一致，删空话、补证据</small></div></div><div class="callout"><b>你当前是 A 阶段：</b>先学会写一个小问，不要等背完 180 条再动笔。本手册使用「理论骨架—项目动作—具体成果」做训练；理论和实例的真实性以教材、项目记录和原课为依据。</div><div class="grid2"><div class="card"><h3>最终你要能独立完成四件事</h3><p>① 看题判断三种类型；② 给出每个小问的教材框架；③ 把项目事实改写成有力论据；④ 对文件类题写出“可以交付”的表格。</p></div><div class="card"><h3>这份综合版和旧课有什么不同</h3><p>原课 01～20 按老师顺序编排；本页还把散落在第 03/05/06/07/08～20 课的操作方法连成一条流水线，不必先看完所有课程才能动手。</p></div></div><h3>按老师原课程顺序学习</h3><div class="lesson-index"><a class="lesson-chip" href="#l01"><b>01</b><span>写作关键点<small>课程方法 · 为什么写、怎样组织论点及应对课堂关于阅卷的讨论</small></span></a><a class="lesson-chip" href="#l02"><b>02</b><span>论文写作基本介绍<small>课程方法 · 四段应答式整体结构与字数安排</small></span></a><a class="lesson-chip" href="#l03"><b>03</b><span>项目背景的搜寻与写作<small>课程方法 · 怎么找规划类或服务类项目背景；AI 怎么协助仿写</small></span></a><a class="lesson-chip" href="#l04"><b>04</b><span>过渡和结尾写作<small>课程方法 · 怎么写过渡、结尾而不重复正文</small></span></a><a class="lesson-chip" href="#l05"><b>05</b><span>服务管理实战写作（上）<small>服务管理 · 服务管理三类题：理论、文件、理论＋实践</small></span></a><a class="lesson-chip" href="#l06"><b>06</b><span>服务管理模拟题（下）<small>服务管理 · 同一道服务管理题怎么拆、分配、落到表格</small></span></a><a class="lesson-chip" href="#l07"><b>07</b><span>论文模仿、改写与种子素材<small>素材方法 · 借鉴结构、改写项目；种子素材 V1→V2→V3</small></span></a><a class="lesson-chip" href="#l08"><b>08</b><span>技术与研发管理<small>教材第15章 · 技术研发管理：应急演练、SOP 与技术应用</small></span></a><a class="lesson-chip" href="#l09"><b>09</b><span>信息系统规划<small>教材第4章 · 信息系统规划：方法、总体框架、Zachman、场景模型</small></span></a><a class="lesson-chip" href="#l10"><b>10</b><span>应用系统规划<small>教材第5章 · 应用系统规划：五项内容、可行性报告与设计指标</small></span></a><a class="lesson-chip" href="#l11"><b>11</b><span>数据资源规划<small>教材第8章 · 数据资源规划：三种规划方法、概念模型、数据质量</small></span></a><a class="lesson-chip" href="#l12"><b>12</b><span>人员管理<small>教材第13章 · 人员管理：活动、工作分析与工作说明书</small></span></a><a class="lesson-chip" href="#l13"><b>13</b><span>规范与过程管理<small>教材第14章 · 流程规划、流程稽查、稽查报告</small></span></a><a class="lesson-chip" href="#l14"><b>14</b><span>信息系统治理<small>教材第11章 · IT 治理六项内容、审计四阶段和底稿</small></span></a><a class="lesson-chip" href="#l15"><b>15</b><span>资源与工具管理<small>教材第16章 · 资源工具：测试环境原则、自动化测试与报告</small></span></a><a class="lesson-chip" href="#l16"><b>16</b><span>信息系统项目管理<small>教材第17章 · 项目管理五大过程组、五种生命周期</small></span></a><a class="lesson-chip" href="#l17"><b>17</b><span>云资源规划<small>教材第6章 · 云资源七要素、五步流程与云计算架构</small></span></a><a class="lesson-chip" href="#l18"><b>18</b><span>网络环境规划<small>教材第7章 · 网络整体规划、网络六模块与 IPv4/IPv6</small></span></a><a class="lesson-chip" href="#l19"><b>19</b><span>信息安全规划<small>教材第9章 · 安全规划四事项、一诉求四体系及 SABSA</small></span></a><a class="lesson-chip" href="#l20"><b>20</b><span>云原生系统规划<small>教材第10章 · 云原生设计原则、五步规划与上云架构</small></span></a></div><div class="practice-box"><b>第一项实操作业：</b>点击「实操 · 从题目到论文」先填写你自己的项目事实卡；不会填的项目事实就是你现在真正需要寻找的素材，而不是先让 AI 编出来。</div></section><section class="section" id="group01"><div class="section-head"><span class="index">A</span><h2>01～04 · 写作基础</h2></div><p class="sublead">项目背景、写作框架、过渡与结尾</p><div class="callout"><b>这组课怎么学：</b>项目背景、写作框架、过渡与结尾。每课保留最关键的理论骨架、应答动作、文件产出和最小练习；原版详细课件可在底部「原课导航」打开（需下载含原课文件的合集）。</div></section><section class="section" id="l01"><div class="section-head"><span class="index">01 / 20</span><h2>写作关键点</h2></div><p class="sublead">结合原课内容，把知识转换成可以实际写出的动作。</p><div class="lesson-panel">
+  <span class="step-label">第 01 课 · 课程方法</span>
+  <h3>写作关键点</h3><p class="sublead">本课主要解决：为什么写、怎样组织论点及应对课堂关于阅卷的讨论</p>
+  <div class="threecol">
+   <div class="mini-card"><h4>① 应该记住什么</h4><p>先搞懂「题目要求、教材理论、项目实践、论文结构」四者关系；课上关于 AI 辅助阅卷的经验判断不作为官方标准。</p></div>
+   <div class="mini-card"><h4>② 考场具体怎么写</h4><p>不背整篇论文，先练「一题一回应、一论点一证明」，检查有没有答到子题问的内容。</p></div>
+   <div class="mini-card"><h4>③ 至少做出什么</h4><p>列出自己最怕的三个环节：找背景／举实践／做文件表格，按本网页逐个补。</p></div>
+  </div>
+  <div class="warnbox"><b>最容易犯的错误：</b>用未知的评分算法猜测替代准确审题和可信举例。</div>
+  <div class="practice-box"><b>做完这节课才算掌握：</b>将任意题目中的动词圈出，标注“定义/活动/给出文件”。</div>
+  <div class="course-footnote"><span>知识范围：第 01 课整理稿 · 课件/语音稿</span><a href="01-writing-key-points.html" target="_blank" rel="noopener">打开第 01 课原网页 ↗</a></div>
+  </div></section><section class="section" id="l02"><div class="section-head"><span class="index">02 / 20</span><h2>论文写作基本介绍</h2></div><p class="sublead">结合原课内容，把知识转换成可以实际写出的动作。</p><div class="lesson-panel">
+  <span class="step-label">第 02 课 · 课程方法</span>
+  <h3>论文写作基本介绍</h3><p class="sublead">本课主要解决：四段应答式整体结构与字数安排</p>
+  <div class="threecol">
+   <div class="mini-card"><h4>① 应该记住什么</h4><p>结构：项目背景 → 过渡点题 → 按子题逐问论述 → 项目成效与经验结尾；若试题另有明确要求，以试题为准。</p></div>
+   <div class="mini-card"><h4>② 考场具体怎么写</h4><p>课件给过约 2450 字练习配比：背景 500、过渡 200、正文 1500、结尾 250；只是练习参照，并非固定标准。</p></div>
+   <div class="mini-card"><h4>③ 至少做出什么</h4><p>用现有试题把子题标题排成纲要，为正文先留出最多篇幅。</p></div>
+  </div>
+  <div class="warnbox"><b>最容易犯的错误：</b>先写太长的背景，把正文主框架挤没了；或写一堆理论却漏了题目小问。</div>
+  <div class="practice-box"><b>做完这节课才算掌握：</b>拿第 09 课模拟题一，先只写：背景/过渡/2.1/2.2/2.3/结尾六个标题。</div>
+  <div class="course-footnote"><span>知识范围：第 02 课整理稿 · 课件/语音稿</span><a href="02-writing-intro.html" target="_blank" rel="noopener">打开第 02 课原网页 ↗</a></div>
+  </div></section><section class="section" id="l03"><div class="section-head"><span class="index">03 / 20</span><h2>项目背景的搜寻与写作</h2></div><p class="sublead">结合原课内容，把知识转换成可以实际写出的动作。</p><div class="lesson-panel">
+  <span class="step-label">第 03 课 · 课程方法</span>
+  <h3>项目背景的搜寻与写作</h3><p class="sublead">本课主要解决：怎么找规划类或服务类项目背景；AI 怎么协助仿写</p>
+  <div class="threecol">
+   <div class="mini-card"><h4>① 应该记住什么</h4><p>规划类背景：首段动因/目标/主体/时间/资金/职责；次段以总体架构为主线。服务类：首段运维目标/合同周期/职责；次段以服务内容为主线。</p></div>
+   <div class="mini-card"><h4>② 考场具体怎么写</h4><p>资料来源：实际参与项目优先；为理解方案可查微信搜一搜的解决方案、政府采购与公共资源交易文件、技术方案和运维需求。AI 帮助提炼，未证实数字标记待核实。</p></div>
+   <div class="mini-card"><h4>③ 至少做出什么</h4><p>填一张「项目事实卡」，把角色、业务系统、规模、架构、服务范围、实际材料出处说清。</p></div>
+  </div>
+  <div class="warnbox"><b>最容易犯的错误：</b>把建设投资写成运维合同金额；直接复制别人的项目经历；凭空编造人员与指标。</div>
+  <div class="practice-box"><b>做完这节课才算掌握：</b>写出真实项目的名称、目标、本人职责、三项技术或服务事实以及来源。</div>
+  <div class="course-footnote"><span>知识范围：第 03 课整理稿 · 课件/语音稿</span><a href="03-project-background.html" target="_blank" rel="noopener">打开第 03 课原网页 ↗</a></div>
+  </div></section><section class="section" id="l04"><div class="section-head"><span class="index">04 / 20</span><h2>过渡和结尾写作</h2></div><p class="sublead">结合原课内容，把知识转换成可以实际写出的动作。</p><div class="lesson-panel">
+  <span class="step-label">第 04 课 · 课程方法</span>
+  <h3>过渡和结尾写作</h3><p class="sublead">本课主要解决：怎么写过渡、结尾而不重复正文</p>
+  <div class="threecol">
+   <div class="mini-card"><h4>① 应该记住什么</h4><p>过渡推荐摘要式：项目特点或难点 → 该领域重要性/作用 → 按子题顺序预告正文。结尾：成果（可量化）→ 对应题目经验复盘 → 可选展望。</p></div>
+   <div class="mini-card"><h4>② 考场具体怎么写</h4><p>过渡不要提前把三道小题理论全展开；结尾不要突然新开题目。课件参考约 300 字结尾，实际由试题字数决定。</p></div>
+   <div class="mini-card"><h4>③ 至少做出什么</h4><p>准备一版可根据题目替换领域名和子题名的过渡、结尾骨架。</p></div>
+  </div>
+  <div class="warnbox"><b>最容易犯的错误：</b>过渡写成长篇理论默写；结尾大段口号无真实成果。</div>
+  <div class="practice-box"><b>做完这节课才算掌握：</b>用「本文首先……其次……最后……」按 3 个子题生成一段过渡。</div>
+  <div class="course-footnote"><span>知识范围：第 04 课整理稿 · 课件/语音稿</span><a href="04-transition-ending.html" target="_blank" rel="noopener">打开第 04 课原网页 ↗</a></div>
+  </div></section><section class="section" id="group05"><div class="section-head"><span class="index">B</span><h2>05～07 · 题型与素材</h2></div><p class="sublead">从题型判断到文件表格，再把实践整理成种子库</p><div class="callout"><b>这组课怎么学：</b>从题型判断到文件表格，再把实践整理成种子库。每课保留最关键的理论骨架、应答动作、文件产出和最小练习；原版详细课件可在底部「原课导航」打开（需下载含原课文件的合集）。</div></section><section class="section" id="l05"><div class="section-head"><span class="index">05 / 20</span><h2>服务管理实战写作（上）</h2></div><p class="sublead">结合原课内容，把知识转换成可以实际写出的动作。</p><div class="lesson-panel">
+  <span class="step-label">第 05 课 · 服务管理</span>
+  <h3>服务管理实战写作（上）</h3><p class="sublead">本课主要解决：服务管理三类题：理论、文件、理论＋实践</p>
+  <div class="threecol">
+   <div class="mini-card"><h4>① 应该记住什么</h4><p>偏理论：定义/指标/区别 → 文字理论＋表格补项目应用。偏实践：要求给目录、报告、计划 → 真正输出文件表格。理论＋实践：问主要活动、步骤、实施 → 逐项先理论后实践。</p></div>
+   <div class="mini-card"><h4>② 考场具体怎么写</h4><p>服务战略规划：规划设计、目录管理、需求识别、级别设计。老师用 SLA/OLA/UC、服务目录、改进等例子展示三类写法。</p></div>
+   <div class="mini-card"><h4>③ 至少做出什么</h4><p>完成一张服务目录表：编号、服务项、内容、方式/频次、目标/交付物。</p></div>
+  </div>
+  <div class="warnbox"><b>最容易犯的错误：</b>题目要求给服务目录，却大篇写“目录管理六步骤”，最后没有目录。</div>
+  <div class="practice-box"><b>做完这节课才算掌握：</b>给一份运维项目列出至少 4 条真实服务项，填服务对象和服务方式。</div>
+  <div class="course-footnote"><span>知识范围：第 05 课整理稿 · 课件/语音稿</span><a href="05-service-management-1.html" target="_blank" rel="noopener">打开第 05 课原网页 ↗</a></div>
+  </div></section><section class="section" id="l06"><div class="section-head"><span class="index">06 / 20</span><h2>服务管理模拟题（下）</h2></div><p class="sublead">结合原课内容，把知识转换成可以实际写出的动作。</p><div class="lesson-panel">
+  <span class="step-label">第 06 课 · 服务管理</span>
+  <h3>服务管理模拟题（下）</h3><p class="sublead">本课主要解决：同一道服务管理题怎么拆、分配、落到表格</p>
+  <div class="threecol">
+   <div class="mini-card"><h4>① 应该记住什么</h4><p>先按子题分类，再找理论框架，再决定哪些是文件表格，再分配正文篇幅，最后执行。</p></div>
+   <div class="mini-card"><h4>② 考场具体怎么写</h4><p>常见实际文件：人员绩效考核表、SOP、服务报告、服务改进计划；表格先看要求的交付物，而不是模板装饰。</p></div>
+   <div class="mini-card"><h4>③ 至少做出什么</h4><p>以一题 3 小问为练习：列要点、实践、表头、字数，再写 1 个关键小问。</p></div>
+  </div>
+  <div class="warnbox"><b>最容易犯的错误：</b>每个小问平均花时间；或者画很多表却没有题目所需的指标/证据。</div>
+  <div class="practice-box"><b>做完这节课才算掌握：</b>用模拟题中的“服务改进计划”练问题、目标、措施、责任人、期限、验收指标六列。</div>
+  <div class="course-footnote"><span>知识范围：第 06 课整理稿 · 课件/语音稿</span><a href="06-service-management-2.html" target="_blank" rel="noopener">打开第 06 课原网页 ↗</a></div>
+  </div></section><section class="section" id="l07"><div class="section-head"><span class="index">07 / 20</span><h2>论文模仿、改写与种子素材</h2></div><p class="sublead">结合原课内容，把知识转换成可以实际写出的动作。</p><div class="lesson-panel">
+  <span class="step-label">第 07 课 · 素材方法</span>
+  <h3>论文模仿、改写与种子素材</h3><p class="sublead">本课主要解决：借鉴结构、改写项目；种子素材 V1→V2→V3</p>
+  <div class="threecol">
+   <div class="mini-card"><h4>① 应该记住什么</h4><p>可模仿结构布局、写作思路、举例方法；理论应根据教材准确提炼；背景、实践、结尾需按自己的项目与事实改写。</p></div>
+   <div class="mini-card"><h4>② 考场具体怎么写</h4><p>V1：论点＋实践配对和分类；V2：补不同论点的实践写作示例；V3：再扩到模拟题论点和写作示例。原素材库来自 20 篇备考论文，归并为 12 类核心素材。</p></div>
+   <div class="mini-card"><h4>③ 至少做出什么</h4><p>先做 5 张素材卡（触发场景、我做了什么、工具/文件、结果证据、能证明什么），再映射至多个论点。</p></div>
+  </div>
+  <div class="warnbox"><b>最容易犯的错误：</b>背一段万能案例到任何题；把 V3 中“新写素材示例”当成已发生事实。</div>
+  <div class="practice-box"><b>做完这节课才算掌握：</b>将「监控告警—责任人整改—复核关闭」分别改写为服务改进、流程稽查、质量管理三个论点。</div>
+  <div class="course-footnote"><span>知识范围：第 07 课整理稿 · 课件/语音稿</span><a href="07-imitation-rewriting.html" target="_blank" rel="noopener">打开第 07 课原网页 ↗</a></div>
+  </div></section><section class="section" id="group08"><div class="section-head"><span class="index">C</span><h2>08～20 · 专题实战</h2></div><p class="sublead">按老师原课顺序，通过各领域最典型的“理论→实践→文件”练习写作</p><div class="callout"><b>这组课怎么学：</b>按老师原课顺序，通过各领域最典型的“理论→实践→文件”练习写作。每课保留最关键的理论骨架、应答动作、文件产出和最小练习；原版详细课件可在底部「原课导航」打开（需下载含原课文件的合集）。</div></section><section class="section" id="l08"><div class="section-head"><span class="index">08 / 20</span><h2>技术与研发管理</h2></div><p class="sublead">结合原课内容，把知识转换成可以实际写出的动作。</p><div class="lesson-panel">
+  <span class="step-label">第 08 课 · 教材第15章</span>
+  <h3>技术与研发管理</h3><p class="sublead">本课主要解决：技术研发管理：应急演练、SOP 与技术应用</p>
+  <div class="threecol">
+   <div class="mini-card"><h4>① 应该记住什么</h4><p>重点区分“应急预案触发事件”（理论）、「演练计划/SOP」（具体文件）和“技术研发应用”（活动实践）。</p></div>
+   <div class="mini-card"><h4>② 考场具体怎么写</h4><p>理论型先理论；需要“演练计划/SOP”时交付时间、对象、步骤、责任、异常/回退、验证与归档；技术应用按活动逐项带实际工具、任务及成果。</p></div>
+   <div class="mini-card"><h4>③ 至少做出什么</h4><p>写一张演练计划和一张 SOP，优先学会字段，不硬背整篇示例。</p></div>
+  </div>
+  <div class="warnbox"><b>最容易犯的错误：</b>SOP 只有“加强规范、提高效率”，没有可执行步骤和回退。</div>
+  <div class="practice-box"><b>做完这节课才算掌握：</b>为平台数据库故障模拟演练列：演练目标、时间、参与角色、触发、验证和复盘。</div>
+  <div class="course-footnote"><span>知识范围：第 08 课整理稿 · 课件/语音稿</span><a href="08-tech-rd-management.html" target="_blank" rel="noopener">打开第 08 课原网页 ↗</a></div>
+  </div></section><section class="section" id="l09"><div class="section-head"><span class="index">09 / 20</span><h2>信息系统规划</h2></div><p class="sublead">结合原课内容，把知识转换成可以实际写出的动作。</p><div class="lesson-panel">
+  <span class="step-label">第 09 课 · 教材第4章</span>
+  <h3>信息系统规划</h3><p class="sublead">本课主要解决：信息系统规划：方法、总体框架、Zachman、场景模型</p>
+  <div class="threecol">
+   <div class="mini-card"><h4>① 应该记住什么</h4><p>重点“信息系统规划七项内容”“内场深整改五项工作要点”。规划方法 ≠ 项目总体框架 ≠ Zachman 分析框架 ≠ 场景模型。</p></div>
+   <div class="mini-card"><h4>② 考场具体怎么写</h4><p>问“有哪些方法”介绍清单；问“你使用哪种方法”选一种论述；问“给出总体框架/场景模型”就画或用表格交付对应成果。</p></div>
+   <div class="mini-card"><h4>③ 至少做出什么</h4><p>准备一个项目分层框架表：层级、模块、职责、数据流/接口；另准备场景模型的角色、流程、数据、技术、风险等维度。</p></div>
+  </div>
+  <div class="warnbox"><b>最容易犯的错误：</b>把“Zachman”写成项目技术层次，或题目叫给框架却只列方法。</div>
+  <div class="practice-box"><b>做完这节课才算掌握：</b>为一个真实系统写出三层或四层总体架构，并说明每层业务能力。</div>
+  <div class="course-footnote"><span>知识范围：第 09 课整理稿 · 课件/语音稿</span><a href="09-is-planning.html" target="_blank" rel="noopener">打开第 09 课原网页 ↗</a></div>
+  </div></section><section class="section" id="l10"><div class="section-head"><span class="index">10 / 20</span><h2>应用系统规划</h2></div><p class="sublead">结合原课内容，把知识转换成可以实际写出的动作。</p><div class="lesson-panel">
+  <span class="step-label">第 10 课 · 教材第5章</span>
+  <h3>应用系统规划</h3><p class="sublead">本课主要解决：应用系统规划：五项内容、可行性报告与设计指标</p>
+  <div class="threecol">
+   <div class="mini-card"><h4>① 应该记住什么</h4><p>生命周期选择、体系结构、接口、数据、构件五项内容；应用系统规划主要过程包含初步调研、可行性研究、详细调研、系统分析、系统设计。</p></div>
+   <div class="mini-card"><h4>② 考场具体怎么写</h4><p>实践型“给出可行性研究报告”应写建设任务、目标、初步调研、方案比较、可行性研究、结论；系统设计评价指标要写计算口径和数据来源。</p></div>
+   <div class="mini-card"><h4>③ 至少做出什么</h4><p>练可行性研究报告六项字段，另练可靠性、可变性、效率、通用性、质量的评价指标表。</p></div>
+  </div>
+  <div class="warnbox"><b>最容易犯的错误：</b>只解释可行性含义却不给报告；虚构不具备数据来源的计算结果。</div>
+  <div class="practice-box"><b>做完这节课才算掌握：</b>对一个应用需求写方案 A/B 优劣及推荐理由。</div>
+  <div class="course-footnote"><span>知识范围：第 10 课整理稿 · 课件/语音稿</span><a href="10-app-system-planning.html" target="_blank" rel="noopener">打开第 10 课原网页 ↗</a></div>
+  </div></section><section class="section" id="l11"><div class="section-head"><span class="index">11 / 20</span><h2>数据资源规划</h2></div><p class="sublead">结合原课内容，把知识转换成可以实际写出的动作。</p><div class="lesson-panel">
+  <span class="step-label">第 11 课 · 教材第8章</span>
+  <h3>数据资源规划</h3><p class="sublead">本课主要解决：数据资源规划：三种规划方法、概念模型、数据质量</p>
+  <div class="threecol">
+   <div class="mini-card"><h4>① 应该记住什么</h4><p>三种规划方法：基于稳定信息过程、基于稳定信息结构、基于指标能力；重点区别方法选择与具体步骤。</p></div>
+   <div class="mini-card"><h4>② 考场具体怎么写</h4><p>概念模型可用“实体、属性、关系、业务约束”表解释；课堂建议考场用表格替代难绘 E-R 图，是老师的应试办法而非官方规则。数据质量要用五维度及可验证指标。</p></div>
+   <div class="mini-card"><h4>③ 至少做出什么</h4><p>做一张“实体—属性—关系”表和质量维度表（一致性、完整性、合理性、唯一性、有效性）。</p></div>
+  </div>
+  <div class="warnbox"><b>最容易犯的错误：</b>只列模型名却不出现自己的数据实体及联系。</div>
+  <div class="practice-box"><b>做完这节课才算掌握：</b>以订单/客户业务为例列实体、关键字段、关系与一个质量校验规则。</div>
+  <div class="course-footnote"><span>知识范围：第 11 课整理稿 · 课件/语音稿</span><a href="11-data-resource-planning.html" target="_blank" rel="noopener">打开第 11 课原网页 ↗</a></div>
+  </div></section><section class="section" id="l12"><div class="section-head"><span class="index">12 / 20</span><h2>人员管理</h2></div><p class="sublead">结合原课内容，把知识转换成可以实际写出的动作。</p><div class="lesson-panel">
+  <span class="step-label">第 12 课 · 教材第13章</span>
+  <h3>人员管理</h3><p class="sublead">本课主要解决：人员管理：活动、工作分析与工作说明书</p>
+  <div class="threecol">
+   <div class="mini-card"><h4>① 应该记住什么</h4><p>注意区分五环节“规划、招聘、维护、提升、评价”和教材六组展开内容；工作分析作用、步骤与岗位设计内容不能混成一张清单。</p></div>
+   <div class="mini-card"><h4>② 考场具体怎么写</h4><p>要求工作说明书时应给岗位目标、职责、岗位要求、工作关系、考核指标等字段；理论＋实践要对齐实际招聘、培训、考核动作。</p></div>
+   <div class="mini-card"><h4>③ 至少做出什么</h4><p>写一份“数据运维工程师”工作说明书，填职责及可衡量产出。</p></div>
+  </div>
+  <div class="warnbox"><b>最容易犯的错误：</b>把“招聘流程”当作“工作说明书”，没有岗位交付物。</div>
+  <div class="practice-box"><b>做完这节课才算掌握：</b>用具体岗位填写工作内容、任职资格、协作关系、考核方式。</div>
+  <div class="course-footnote"><span>知识范围：第 12 课整理稿 · 课件/语音稿</span><a href="12-personnel-management.html" target="_blank" rel="noopener">打开第 12 课原网页 ↗</a></div>
+  </div></section><section class="section" id="l13"><div class="section-head"><span class="index">13 / 20</span><h2>规范与过程管理</h2></div><p class="sublead">结合原课内容，把知识转换成可以实际写出的动作。</p><div class="lesson-panel">
+  <span class="step-label">第 13 课 · 教材第14章</span>
+  <h3>规范与过程管理</h3><p class="sublead">本课主要解决：流程规划、流程稽查、稽查报告</p>
+  <div class="threecol">
+   <div class="mini-card"><h4>① 应该记住什么</h4><p>两种流程规划路径：基于岗位职责与基于业务模型；流程稽查七步与流程审计是不同内容。</p></div>
+   <div class="mini-card"><h4>② 考场具体怎么写</h4><p>偏实践给“流程稽查报告”时必须包含对象、依据、方法、证据、发现、整改、复核；流程稽查活动按步骤分别写做法。</p></div>
+   <div class="mini-card"><h4>③ 至少做出什么</h4><p>制作一张流程稽查发现问题—整改—复核闭环表。</p></div>
+  </div>
+  <div class="warnbox"><b>最容易犯的错误：</b>仅把稽查七步骤背一遍，没有报告记录、责任人或证据。</div>
+  <div class="practice-box"><b>做完这节课才算掌握：</b>假设变更审批漏签，填一条证据、风险、整改责任与复查记录。</div>
+  <div class="course-footnote"><span>知识范围：第 13 课整理稿 · 课件/语音稿</span><a href="13-spec-process-management.html" target="_blank" rel="noopener">打开第 13 课原网页 ↗</a></div>
+  </div></section><section class="section" id="l14"><div class="section-head"><span class="index">14 / 20</span><h2>信息系统治理</h2></div><p class="sublead">结合原课内容，把知识转换成可以实际写出的动作。</p><div class="lesson-panel">
+  <span class="step-label">第 14 课 · 教材第11章</span>
+  <h3>信息系统治理</h3><p class="sublead">本课主要解决：IT 治理六项内容、审计四阶段和底稿</p>
+  <div class="threecol">
+   <div class="mini-card"><h4>① 应该记住什么</h4><p>IT 治理核心涉及组织职责、战略匹配、资源管理、价值交付、风险管理、绩效管理；IT 审计四阶段为准备、实施、终结、后续跟踪。</p></div>
+   <div class="mini-card"><h4>② 考场具体怎么写</h4><p>工作底稿不是大段理论，必须含审计目标、范围、程序、抽样、事实证据、结论与整改跟踪。</p></div>
+   <div class="mini-card"><h4>③ 至少做出什么</h4><p>完成一张“权限变更合规性审计底稿”练习表。</p></div>
+  </div>
+  <div class="warnbox"><b>最容易犯的错误：</b>治理、审计混写；把“写审计底稿”变成“解释四阶段”。</div>
+  <div class="practice-box"><b>做完这节课才算掌握：</b>写出一条“离职账户未按时停用”的审计底稿记录。</div>
+  <div class="course-footnote"><span>知识范围：第 14 课整理稿 · 课件/语音稿</span><a href="14-is-governance.html" target="_blank" rel="noopener">打开第 14 课原网页 ↗</a></div>
+  </div></section><section class="section" id="l15"><div class="section-head"><span class="index">15 / 20</span><h2>资源与工具管理</h2></div><p class="sublead">结合原课内容，把知识转换成可以实际写出的动作。</p><div class="lesson-panel">
+  <span class="step-label">第 15 课 · 教材第16章</span>
+  <h3>资源与工具管理</h3><p class="sublead">本课主要解决：资源工具：测试环境原则、自动化测试与报告</p>
+  <div class="threecol">
+   <div class="mini-card"><h4>① 应该记住什么</h4><p>测试环境搭建维护八项原则；自动化测试按计划、设计、实施、执行阶段说明。</p></div>
+   <div class="mini-card"><h4>② 考场具体怎么写</h4><p>“给出测试报告”必须有范围、环境、案例执行、通过/失败、缺陷、风险与结论；四阶段逐步列真实任务和产出。</p></div>
+   <div class="mini-card"><h4>③ 至少做出什么</h4><p>填一份自动化测试执行报告和缺陷统计表。</p></div>
+  </div>
+  <div class="warnbox"><b>最容易犯的错误：</b>工具罗列很多，却没有覆盖率、通过率或失败原因的测量口径。</div>
+  <div class="practice-box"><b>做完这节课才算掌握：</b>给一组 20 条用例填实际执行数、成功数、失败数及下一步行动。</div>
+  <div class="course-footnote"><span>知识范围：第 15 课整理稿 · 课件/语音稿</span><a href="15-resource-tools-management.html" target="_blank" rel="noopener">打开第 15 课原网页 ↗</a></div>
+  </div></section><section class="section" id="l16"><div class="section-head"><span class="index">16 / 20</span><h2>信息系统项目管理</h2></div><p class="sublead">结合原课内容，把知识转换成可以实际写出的动作。</p><div class="lesson-panel">
+  <span class="step-label">第 16 课 · 教材第17章</span>
+  <h3>信息系统项目管理</h3><p class="sublead">本课主要解决：项目管理五大过程组、五种生命周期</p>
+  <div class="threecol">
+   <div class="mini-card"><h4>① 应该记住什么</h4><p>五种生命周期类型与“启动—规划—执行—监控—收尾”五大过程组不能等同；注意组织过程资产和事业环境因素的区别。</p></div>
+   <div class="mini-card"><h4>② 考场具体怎么写</h4><p>实践型举出本项目的真实组织过程资产（模板、知识库、经验教训等）与事业环境因素（法规、组织架构、基础设施等）。</p></div>
+   <div class="mini-card"><h4>③ 至少做出什么</h4><p>做一张“组织过程资产 vs 事业环境因素”对照表，每类给项目实例。</p></div>
+  </div>
+  <div class="warnbox"><b>最容易犯的错误：</b>项目管理只写了流程名称，没讲开展动作与交付物。</div>
+  <div class="practice-box"><b>做完这节课才算掌握：</b>为一项真实工作分别写一条组织过程资产与事业环境因素。</div>
+  <div class="course-footnote"><span>知识范围：第 16 课整理稿 · 课件/语音稿</span><a href="16-is-project-management.html" target="_blank" rel="noopener">打开第 16 课原网页 ↗</a></div>
+  </div></section><section class="section" id="l17"><div class="section-head"><span class="index">17 / 20</span><h2>云资源规划</h2></div><p class="sublead">结合原课内容，把知识转换成可以实际写出的动作。</p><div class="lesson-panel">
+  <span class="step-label">第 17 课 · 教材第6章</span>
+  <h3>云资源规划</h3><p class="sublead">本课主要解决：云资源七要素、五步流程与云计算架构</p>
+  <div class="threecol">
+   <div class="mini-card"><h4>① 应该记住什么</h4><p>七项关键要素是“考虑什么”，五步规划流程是“怎么做”，云计算架构是“最终方案长什么样”。</p></div>
+   <div class="mini-card"><h4>② 考场具体怎么写</h4><p>五步：需求收集、资源评估和规划、预算管理、设计与实施、持续优化；架构表写服务类型、模式、内部/外部特征及应用。</p></div>
+   <div class="mini-card"><h4>③ 至少做出什么</h4><p>做一张云资源选型架构表和容量预算明细。</p></div>
+  </div>
+  <div class="warnbox"><b>最容易犯的错误：</b>把七项要素当五步流程，或架构表只有 IaaS/PaaS 名词。</div>
+  <div class="practice-box"><b>做完这节课才算掌握：</b>用真实资源规模写当前负载、目标容量、选择理由、监控措施。</div>
+  <div class="course-footnote"><span>知识范围：第 17 课整理稿 · 课件/语音稿</span><a href="17-cloud-resource-planning.html" target="_blank" rel="noopener">打开第 17 课原网页 ↗</a></div>
+  </div></section><section class="section" id="l18"><div class="section-head"><span class="index">18 / 20</span><h2>网络环境规划</h2></div><p class="sublead">结合原课内容，把知识转换成可以实际写出的动作。</p><div class="lesson-panel">
+  <span class="step-label">第 18 课 · 教材第7章</span>
+  <h3>网络环境规划</h3><p class="sublead">本课主要解决：网络整体规划、网络六模块与 IPv4/IPv6</p>
+  <div class="threecol">
+   <div class="mini-card"><h4>① 应该记住什么</h4><p>网络整体规划包括网络管理、安全管理、机房建设、综合布线、监控系统、节能降耗；六模块网络体系与六项规划重点不同。</p></div>
+   <div class="mini-card"><h4>② 考场具体怎么写</h4><p>“联系与区别”可用概述→联系→区别三段式；要求网络体系框架时逐模块给功能与互联关系。</p></div>
+   <div class="mini-card"><h4>③ 至少做出什么</h4><p>准备一张六模块网络功能框架表和网络规划措施表。</p></div>
+  </div>
+  <div class="warnbox"><b>最容易犯的错误：</b>“机房建设”只说建了机房，没有供电、消防、温湿度等要求依据与验收方法。</div>
+  <div class="practice-box"><b>做完这节课才算掌握：</b>为核心交换网络写冗余方式、关键风险、监控项和验证方法。</div>
+  <div class="course-footnote"><span>知识范围：第 18 课整理稿 · 课件/语音稿</span><a href="18-network-environment-planning.html" target="_blank" rel="noopener">打开第 18 课原网页 ↗</a></div>
+  </div></section><section class="section" id="l19"><div class="section-head"><span class="index">19 / 20</span><h2>信息安全规划</h2></div><p class="sublead">结合原课内容，把知识转换成可以实际写出的动作。</p><div class="lesson-panel">
+  <span class="step-label">第 19 课 · 教材第9章</span>
+  <h3>信息安全规划</h3><p class="sublead">本课主要解决：安全规划四事项、一诉求四体系及 SABSA</p>
+  <div class="threecol">
+   <div class="mini-card"><h4>① 应该记住什么</h4><p>信息安全规划四项注意事项；利益相关方诉求＋组织、管理、技术、运营四体系；SABSA 的六层与六视角是架构表达工具。</p></div>
+   <div class="mini-card"><h4>② 考场具体怎么写</h4><p>SABSA 6×6 用行“情景/概念/逻辑/物理/组件/运营”×列“资产/动机/流程/人员/位置/时间”填写，必须落在本项目资产与控制上。</p></div>
+   <div class="mini-card"><h4>③ 至少做出什么</h4><p>先练 2 行×3 列，再扩到全矩阵，填写访问控制、日志与应急管理。</p></div>
+  </div>
+  <div class="warnbox"><b>最容易犯的错误：</b>只把 36 个格子画出来但没有具体内容，或安全控制与背景无关。</div>
+  <div class="practice-box"><b>做完这节课才算掌握：</b>给一个涉敏数据查询场景填资产、授权角色、使用时间、审计流程。</div>
+  <div class="course-footnote"><span>知识范围：第 19 课整理稿 · 课件/语音稿</span><a href="19-info-security-planning.html" target="_blank" rel="noopener">打开第 19 课原网页 ↗</a></div>
+  </div></section><section class="section" id="l20"><div class="section-head"><span class="index">20 / 20</span><h2>云原生系统规划</h2></div><p class="sublead">结合原课内容，把知识转换成可以实际写出的动作。</p><div class="lesson-panel">
+  <span class="step-label">第 20 课 · 教材第10章</span>
+  <h3>云原生系统规划</h3><p class="sublead">本课主要解决：云原生设计原则、五步规划与上云架构</p>
+  <div class="threecol">
+   <div class="mini-card"><h4>① 应该记住什么</h4><p>区分云原生七项设计原则、架构模式、建设规划五个步骤；上云五层架构是具体交付物。</p></div>
+   <div class="mini-card"><h4>② 考场具体怎么写</h4><p>规划五步骤：微服务/容器云、服务管理治理、持续交付及安全、自服务基础设施、增强生产韧性与安全。</p></div>
+   <div class="mini-card"><h4>③ 至少做出什么</h4><p>写五层架构表（从接入到数据/基础设施），附每层组件与弹性、观察、安全措施。</p></div>
+  </div>
+  <div class="warnbox"><b>最容易犯的错误：</b>写了容器/K8s 等名词却没解释为什么选、如何实施与如何监控。</div>
+  <div class="practice-box"><b>做完这节课才算掌握：</b>为一个现有单体系统列分拆服务、CI/CD、安全扫描和回滚措施。</div>
+  <div class="course-footnote"><span>知识范围：第 20 课整理稿 · 课件/语音稿</span><a href="20-cloud-native-planning.html" target="_blank" rel="noopener">打开第 20 课原网页 ↗</a></div>
+  </div></section><section class="section" id="exam"><div class="section-head"><span class="index">TOOL / 01</span><h2>实操一：拿到题目先判断“到底交付什么”</h2></div><p class="sublead">来自第 02、05、06、08～20 课反复强调的三类题型，先识别动词，再决定段落和表格。</p><div class="table-wrap "><table class="comparison"><thead><tr><th>题目中的动词</th><th>初步判型</th><th>正文该怎么写</th><th>课堂示例</th></tr></thead><tbody><tr><td>“简述 / 定义 / 特点 / 价值 / 区别”</td><td>偏理论型</td><td>列教材要点；必要时用对照表补本项目应用，不要让实例吞掉定义</td><td>SLA、OLA、UC 定义；IPv4/IPv6 联系与区别</td></tr><tr><td>“给出 / 设计 / 制定 / 编制 + 目录/报告/架构/模型/计划/底稿”</td><td>偏实践型</td><td>交代用途后必须展示具体文件；列名、内容与项目范围一致</td><td>给出服务目录；设计审计工作底稿</td></tr><tr><td>“结合项目论述 / 介绍主要活动 / 如何实施 / 步骤”</td><td>理论＋实践型</td><td>写全活动名称，再逐项理论＋项目动作＋可核实成果</td><td>云资源规划五步；IT 审计四阶段</td></tr><tr><td>“介绍你采用的方法”</td><td>先判题意</td><td>介绍自己实际选择的某方法、选择理由与实施过程；不等于罗列全部方法</td><td>三种数据资源规划方法中选择一种</td></tr><tr><td>“比较 + 同时结合项目”</td><td>理论为主兼实践</td><td>先交代比较维度，再选项目中的可核实应用作为例证</td><td>规划路径优缺点、生命周期选择</td></tr></tbody></table></div><h3>完整拆一道人为练习题（教学示例）</h3><div class="example">题目：论信息系统服务战略规划。子题 ① 简述 SLA、OLA、UC 的定义；子题 ② 论述你开展服务战略规划的主要活动；子题 ③ 给出本项目的服务目录。</div><div class="table-wrap "><table class="comparison"><thead><tr><th>子题</th><th>类型</th><th>必须有的知识/实践</th><th>成果和优先级</th></tr></thead><tbody><tr><td>① 三类协议定义</td><td>偏理论</td><td>准确区分合同对象和约定边界；适当带项目应用</td><td>主要写文字；按篇幅加一张对照表</td></tr><tr><td>② 战略规划主要活动</td><td>理论＋实践</td><td>规划设计、目录管理、需求识别、级别设计；每点配项目动作</td><td>正文主框架，篇幅优先</td></tr><tr><td>③ 给服务目录</td><td>偏实践</td><td>针对运维对象列服务项、服务方式、服务目标</td><td>必须交付服务目录表</td></tr></tbody></table></div><div class="warnbox"><b>不要误解：</b>“偏理论、偏实践、理论＋实践”是老师的课堂写作分类，不是考试官方规定的题型名称；同一子题可能两类信息都要出现，应服从具体题目。</div></section><section class="section" id="project"><div class="section-head"><span class="index">TOOL / 02</span><h2>实操二：先有项目事实，再用 AI 整理背景</h2></div><p class="sublead">第 03 课提供了解决方案和招采文件的搜集路线；第 07 课提示仿写方法要与原项目事实分离。</p><div class="grid2"><div class="card"><h3>路径 A：你参与过一个项目</h3><p>先回忆自己负责的部分，查合同、方案、验收材料、项目汇报和日志；没做过的环节不写成自己做了。</p></div><div class="card"><h3>路径 B：你缺写作素材</h3><p>课程第 03 课演示过微信“搜一搜”找解决方案、政府采购及公共资源交易文件找需求；用于学习业务、架构、表格写法，同时与个人事实严格区分。</p></div></div><div class="table-wrap "><table class="comparison"><thead><tr><th>需要找什么</th><th>从哪里找</th><th>填在哪儿</th></tr></thead><tbody><tr><td>项目类型</td><td>规划/建设类 或 运维/服务类</td><td>不要规划背景和运维背景混用</td></tr><tr><td>项目来源</td><td>真实工作、合同/方案/验收/会议记录</td><td>公开方案可用于理解方法，不等于本人经历</td></tr><tr><td>背景首段</td><td>客户/单位、立项目标、时间/周期、我承担职责</td><td>不确定数字写“待核实”</td></tr><tr><td>背景次段</td><td>规划类写业务与架构；服务类写运维对象与服务范围</td><td>每个后续案例必须能回到这里</td></tr><tr><td>行动素材</td><td>我参与的调研、选型、评审、设计、整改、演练、审计</td><td>动作+对象+方法+输出</td></tr><tr><td>证据与数字</td><td>计划、报告、工单、会议纪要、监控指标、验收记录</td><td>不要把示例数值冒充项目事实</td></tr></tbody></table></div><h3>项目背景两种写法 · 结构填空</h3><div class="table-wrap "><table class="comparison"><thead><tr><th>段落</th><th>规划/建设类</th><th>运维/服务类</th></tr></thead><tbody><tr><td>第一段：目的与身份</td><td>驱动因素 → 项目目标 → 发起方/周期/投入 → 我的规划设计职责</td><td>运维诉求 → 服务目标 → 服务合同与周期 → 我的运维管理职责</td></tr><tr><td>第二段：项目轮廓</td><td>总体架构分层 → 各层模块/技术 → 形成的能力</td><td>服务类别 → 维护对象 → 方式/频次 → SLA与安全要求</td></tr></tbody></table></div><div class="practice-box"><b>先完成事实卡：</b>下面的组装台会用你的真实事实生成提纲和 AI 提示词，文本在本地生成，不上传、不调用在线模型。</div></section><section class="section" id="materials"><div class="section-head"><span class="index">TOOL / 03</span><h2>实操三：把“找来的资料”变成可复用的实践素材</h2></div><p class="sublead">来自第 07 课 V1/V2/V3：不是背 20 篇论文，而是背“论点 ↔ 实践”配对，再学习同一案例如何在新论点下重新组织。</p><h3>一张实践素材卡，至少包含五个槽位</h3><div class="table-wrap "><table class="comparison"><thead><tr><th>槽位</th><th>写什么</th><th>反面写法 → 可用写法</th></tr></thead><tbody><tr><td>触发/问题</td><td>业务难点、风险、需求或现状</td><td>“系统性能差” → “高峰期检索耗时较长，影响业务响应”</td></tr><tr><td>本人动作</td><td>我负责什么，如何组织或执行</td><td>“加强协调” → “联合业务与架构人员评审响应指标，分级定义场景”</td></tr><tr><td>方法/工具</td><td>用了哪些规程、工具、技术或组织措施</td><td>“使用新技术” → “按业务场景配置查询监控和事件告警”</td></tr><tr><td>成果/证据</td><td>文档、审批、记录、测量、验收</td><td>“效果不错” → “产出指标清单和每周分析报告”</td></tr><tr><td>可迁移论点</td><td>这个事实还可以证明什么</td><td>需求管理/接口定义/服务级别设计/质量改进，需切换论证角度</td></tr></tbody></table></div><div class="flowsteps"><div class="flowstep"><strong>V1 · 配对</strong><small>只抽取正文论点及其实际实践，不把项目背景当种子</small></div><div class="flowstep"><strong>V2 · 改写</strong><small>在同类论点下增加不同写作示例并标来源</small></div><div class="flowstep"><strong>V3 · 扩题</strong><small>对照模拟题，把同一事实换题目角度重写</small></div><div class="flowstep"><strong>复核 · 真实性</strong><small>“新写素材示例”只是教学写法，不能直接当既有项目成果</small></div></div><h3>第 07 课 V3 的 12 类素材，一次记住“可以拿来证明什么”</h3><div class="table-guides"><div class="card"><span class="kicker">01 / MATERIAL</span><h3>量化指标</h3><p><b>能收集：</b>响应时间、可用率、事件处置时长、数据准确率等</p><p><b>常见论点：</b>服务测量 / 服务级别设计 / 接口定义 / 质量策划</p><p><b>写法：</b>先定义口径和基线 → 写采集工具/周期 → 对比目标 → 提改进，数据必须来自真实记录</p></div><div class="card"><span class="kicker">02 / MATERIAL</span><h3>工具与自动化</h3><p><b>能收集：</b>工单平台、配置库、Prometheus/Grafana、自动化部署</p><p><b>常见论点：</b>技术研发应用 / 流程执行 / 资源管理 / 监控维护</p><p><b>写法：</b>写“工具解决了哪项人工问题 + 谁使用 + 产生哪类记录”，不要只列工具品牌</p></div><div class="card"><span class="kicker">03 / MATERIAL</span><h3>会议评审与决策</h3><p><b>能收集：</b>需求评审会、架构评审会、变更评审</p><p><b>常见论点：</b>规划需求识别 / 方案比选 / 变更治理</p><p><b>写法：</b>交代参会角色、决策输入、争议、纪要与批准输出</p></div><div class="card"><span class="kicker">04 / MATERIAL</span><h3>问题发现—整改闭环</h3><p><b>能收集：</b>监控发现超时 → 分析根因 → 责任整改 → 复核</p><p><b>常见论点：</b>服务改进 / 流程稽查 / 质量管理</p><p><b>写法：</b>最通用的实践骨架：问题、证据、分析、措施、负责人、验证结果</p></div><div class="card"><span class="kicker">05 / MATERIAL</span><h3>检查稽查与取证</h3><p><b>能收集：</b>权限日志抽样、流程执行抽查、测试证据</p><p><b>常见论点：</b>审计实施 / 流程稽查 / 信息安全运营</p><p><b>写法：</b>写依据标准、抽样口径、证据来源、偏差和整改追踪</p></div><div class="card"><span class="kicker">06 / MATERIAL</span><h3>组织团队与岗位</h3><p><b>能收集：</b>职责分工、RACI、岗位职责矩阵</p><p><b>常见论点：</b>人员管理 / IT治理 / 项目管理</p><p><b>写法：</b>强调哪个角色负责哪些决定或执行动作，配岗位/协作清单</p></div><div class="card"><span class="kicker">07 / MATERIAL</span><h3>培训与知识转移</h3><p><b>能收集：</b>运维交接、知识库、操作演练</p><p><b>常见论点：</b>人员提升 / 技术研发 / 服务移交</p><p><b>写法：</b>写培训对象、任务、考核方式、知识资料和验收记录</p></div><div class="card"><span class="kicker">08 / MATERIAL</span><h3>绩效考核与职业发展</h3><p><b>能收集：</b>考核指标、培训成长计划、绩效复盘</p><p><b>常见论点：</b>人员评价 / SLA执行 / 治理绩效</p><p><b>写法：</b>明确指标口径、权重、周期、责任与反馈改进</p></div><div class="card"><span class="kicker">09 / MATERIAL</span><h3>预算成本与配额</h3><p><b>能收集：</b>成本模型、硬性/弹性资源配额、采购方案比选</p><p><b>常见论点：</b>云资源规划 / 应用可行性 / 资源体系调度</p><p><b>写法：</b>分列成本组成、约束、比选理由、执行控制和复核方法</p></div><div class="card"><span class="kicker">10 / MATERIAL</span><h3>安全管控与权限</h3><p><b>能收集：</b>角色权限、双因素认证、敏感数据审计</p><p><b>常见论点：</b>安全规划 / IT审计 / 服务安全</p><p><b>写法：</b>写角色、资源、授权前提、审批/审核、留痕与超权纠正</p></div><div class="card"><span class="kicker">11 / MATERIAL</span><h3>容量规划与弹性伸缩</h3><p><b>能收集：</b>CPU基线、存储预测、容量告警、弹性策略</p><p><b>常见论点：</b>云规划 / 云原生 / 性能优化</p><p><b>写法：</b>写现状—增长预测—目标容量—扩缩策略—性能验证</p></div><div class="card"><span class="kicker">12 / MATERIAL</span><h3>场景建模与数据建模</h3><p><b>能收集：</b>业务场景、实体属性、业务流程、数据关系</p><p><b>常见论点：</b>信息系统规划 / 数据资源规划 / 应用系统设计</p><p><b>写法：</b>用业务问题 → 数据对象 → 关系/流程 → 系统支撑和质量约束来叙述</p></div></div><div class="warnbox"><b>课堂材料边界：</b>V3 的一些写作示例被原材料标注为“新写素材示例”，说明是后来为论点迁移创作，不代表原论文已证明该事实。使用前核对自己项目的实际记录。</div></section><section class="section" id="paragraph"><div class="section-head"><span class="index">TOOL / 04</span><h2>实操四：把理论知识真正变成“论文段落”</h2></div><p class="sublead">第 02 课的 1+1 / 1+1+1 写法与第 05～20 课逐活动论述法；每个论点都需要自己的实践证据。</p><div class="grid2"><div class="card"><h3>小题、点多：一段论（1＋1）</h3><p>理论一句说明 → 紧接项目动作和成果。适合理论要点较多、每点可用篇幅较少。</p></div><div class="card"><h3>主框架、点少：两段/三段论（1＋1＋1）</h3><p>定义/作用 → 为什么采用该做法 → 我在项目中具体实施的措施、输出和验证。</p></div></div><h3>对比练习：都是“需求识别”，为什么后者更像论文？</h3><div class="table-wrap "><table class="comparison"><thead><tr><th>写法</th><th>示例</th><th>为什么</th></tr></thead><tbody><tr><td>不够具体</td><td>“我们高度重视需求，积极沟通，采取先进方式，确保需求准确。”</td><td>没有对象、方法、本人动作、记录和决定</td></tr><tr><td>可以落地</td><td>“在规划前，我与业务代表按系统模块梳理关键业务场景，整理用户访问路径和峰值时段，形成需求清单；随后组织评审，将高并发查询列入接口性能指标，并把未确定事项留在需求跟踪表中复核。”</td><td>理论与行动一致，有角色、流程、文件与可追踪结果（教学示例）</td></tr></tbody></table></div><h3>正文逐论点模板：直接代入你的项目</h3><div class="example"><b>【小标题：某项活动】</b><br/>该活动主要是为了【理论目的】，通常需要开展【教材动作】。<br/><b>在本项目中，我……</b>围绕【业务对象/问题】，组织【参与人员】采用【方法/工具】完成【具体活动】，产出【表格/制度/报告/模型】，随后根据【可验证指标或验收记录】进行了【检查/调整】，从而支持【本论点目标】。</div><div class="practice-box"><b>写完立刻自检：</b>删去“高度重视、持续加强、显著提升”等空话，看看还剩下多少项目事实。每段至少包含一个具体动作和一个可核查的成果。</div></section><section class="section" id="tables"><div class="section-head"><span class="index">TOOL / 05</span><h2>实操五：真正理解“表格怎么填”</h2></div><p class="sublead">文件类小问最常见的失误，是知道文件名称，却不知道怎样填写项目内容。以下为第 05～20 课典型文件的练习字段与教学示例；不是必须照抄的官方表头。</p><div class="callout"><b>表格应答的固定顺序：</b>① 题目要交付什么文件？② 找到原课文件模板/必需字段；③ 从项目事实卡中填对象、动作、负责人、数字与证据；④ 给表编号与名称，正文引用“如表 1 所示”；⑤ 检查每一行的可执行性。</div><div class="tablist" id="tableTablist"><button type="button" class="tabbtn on" data-table="0" onclick="switchTable(0)">服务目录</button><button type="button" class="tabbtn" data-table="1" onclick="switchTable(1)">服务改进计划</button><button type="button" class="tabbtn" data-table="2" onclick="switchTable(2)">SOP 标准操作规程</button><button type="button" class="tabbtn" data-table="3" onclick="switchTable(3)">演练计划</button><button type="button" class="tabbtn" data-table="4" onclick="switchTable(4)">可行性研究报告</button><button type="button" class="tabbtn" data-table="5" onclick="switchTable(5)">概念数据模型</button><button type="button" class="tabbtn" data-table="6" onclick="switchTable(6)">岗位工作说明书</button><button type="button" class="tabbtn" data-table="7" onclick="switchTable(7)">流程稽查报告</button><button type="button" class="tabbtn" data-table="8" onclick="switchTable(8)">IT 审计工作底稿</button><button type="button" class="tabbtn" data-table="9" onclick="switchTable(9)">测试报告</button><button type="button" class="tabbtn" data-table="10" onclick="switchTable(10)">云资源及架构方案</button><button type="button" class="tabbtn" data-table="11" onclick="switchTable(11)">安全架构 / SABSA</button></div><div id="fileFormViewer"></div><p class="source-note">交互说明：表格单元格可直接点击编辑练习。本页未连接服务端，修改不会自动保存；可点击“复制当前表格”把练习结果复制出去。</p></section><section class="section" id="demo"><div class="section-head"><span class="index">TOOL / 06</span><h2>完整示范：同一道题，从拆题到正文和表格</h2></div><p class="sublead">采用第 05 课服务战略规划课堂题型做教学演练。所有项目名称、角色及数值只是可替换的结构示例，不能作为个人经历照搬。</p><div class="example"><b>题目演练：</b>论信息系统服务战略规划。① 定义 SLA、OLA、UC；② 结合项目论述服务战略规划主要活动；③ 给出本项目服务目录。</div><h3>第一步 · 先做一页“应答合同”</h3><div class="table-wrap "><table class="comparison"><thead><tr><th>必须答到</th><th>对应理论</th><th>项目素材/成果</th><th>最后写成什么</th></tr></thead><tbody><tr><td>① SLA、OLA、UC</td><td>三类协议的签订对象及作用</td><td>合同目标、内部支持机制、原厂支持</td><td>定义小段＋对照表</td></tr><tr><td>② 服务战略规划</td><td>规划设计、目录管理、需求识别、级别设计</td><td>需求调研、目录评审、服务等级的具体设定</td><td>四个小标题，每标题理论＋实践</td></tr><tr><td>③ 服务目录</td><td>目录字段与分类管理</td><td>服务清单、频次、目标/报告</td><td>服务目录文件表</td></tr></tbody></table></div><h3>第二步 · 过渡只做“导航”，不抢正文</h3><div class="example">本项目涉及多类业务系统和较高的服务连续性要求，服务战略规划决定了运维范围与服务承诺是否能够有效落实。本文结合我所参与的【真实项目】，首先区分 SLA、OLA、UC 的作用，其次说明服务战略规划的主要活动，最后给出本项目的服务目录及其执行安排。</div><h3>第三步 · 主体中的一个小标题，示范怎么“理论＋实践”</h3><div class="example"><b>（二）服务需求识别。</b>服务需求识别是明确客户对服务可用性、连续性、能力、安全与服务报告等要求的过程，目的是把模糊的期望转换为可执行的服务约束。在【真实运维项目】中，我先梳理【业务系统】的核心服务对象和高峰时段，与客户、服务台及运维岗位确认故障分级、数据备份和报告周期，形成服务需求清单。对于存在歧义的响应时限，我组织双方按业务影响等级复核，确认后作为服务级别设计的输入，并保留评审纪要。</div><h3>第四步 · 文件小问：先给一个真正的“服务目录”</h3><div class="table-wrap "><table class="comparison"><thead><tr><th>服务编号</th><th>服务项目</th><th>服务对象</th><th>提供方式</th><th>交付与验证</th></tr></thead><tbody><tr><td>SV-01</td><td>业务系统功能维护</td><td>【业务系统 A】</td><td>日常监控与分级故障处理</td><td>工单、巡检记录、服务目标核对</td></tr><tr><td>SV-02</td><td>数据安全与备份</td><td>【数据库/关键数据】</td><td>定期备份和恢复验证</td><td>备份/恢复记录、异常跟踪</td></tr><tr><td>SV-03</td><td>设备与网络管理</td><td>【服务器/网络设备】</td><td>周期巡检、故障响应</td><td>巡检清单、维修记录</td></tr></tbody></table></div><h3>第五步 · 结尾按“项目成果—经验—展望”收住</h3><div class="example">项目实施过程中，我们围绕【真实服务目标】建立了【实际落地的服务目录、分级响应和报告机制】；相关验收和运行记录表明【经核实的结果】。回顾本次实践，我认识到服务需求必须先与业务场景对应，服务目录需要明确边界，服务级别则必须具有可测量的检查口径。今后将继续根据服务报告及用户反馈改进目录内容和协作机制。</div><div class="warnbox"><b>关键不是抄这篇：</b>考试题换成 IT 审计、云资源规划或人员管理后，替换的是理论主框架、项目案例和文件，而不是只把“服务战略规划”几个字替换。</div></section><section class="section" id="workbench"><div class="section-head"><span class="index">TOOL / 07</span><h2>组装台：填真实项目 → 生成考试提纲与 AI 提示词</h2></div><p class="sublead">这个小工具在浏览器本地运行，不会向外发送内容，也不直接调用 AI；它负责把写作所需的输入整理清楚，让你不再只说“帮我写一篇论文”。</p><div class="lesson-panel"><div class="work-grid">
+<label>项目类型<select id="pType"><option value="规划建设">规划/建设类</option><option value="运维服务">运维/服务类</option></select></label>
+<label>论文主题 / 题目<input id="pTopic" placeholder="例：论信息系统规划（不要只写“论文”）" value="论信息系统规划"></label>
+<label>真实项目名称<input id="pName" placeholder="真实项目名称，不填就使用占位符"></label>
+<label>我承担的角色<input id="pRole" placeholder="例：负责项目规划、需求评审"></label>
+<label class="wide">项目事实/来源<textarea id="pFacts" placeholder="填业务目标、架构、服务范围、真实时间与规模；不确定数字写待核实"></textarea></label>
+<label class="wide">论文子题（每行一问）<textarea id="pQuestions">介绍信息系统规划的主要内容
+论述本项目开展信息系统规划的工作要点
+给出本项目的信息系统总体框架</textarea></label>
+<label class="wide">已经有的种子素材/可核查文件<textarea id="pEvidence" placeholder="例：会议纪要、需求清单、系统架构图、监控/验收记录"></textarea></label>
+</div><div class="btnline"><button type="button" class="softbtn" onclick="buildOutline()">生成论文作答提纲</button><button type="button" class="softbtn" onclick="buildPrompt()">生成 AI 辅助提示词</button><button type="button" class="softbtn ghost" onclick="copyToolOutput()">复制生成内容</button><button type="button" class="softbtn ghost" onclick="downloadToolOutput()">导出文本</button></div><pre id="toolOutput" class="outline">填写自己的项目和子题后，点击“生成论文作答提纲”。
+如果只有理论却没有项目事实，你会清楚看到需要补什么，而不是让 AI 虚构。</pre><p class="hint">提示：本页只是学习工具；生成文字必须继续对照课程教材、真实项目材料和当次考试题面审核。</p></div></section><section class="section" id="prompts"><div class="section-head"><span class="index">TOOL / 08</span><h2>AI 辅助写作：你给它什么，它才能真正帮上忙</h2></div><p class="sublead">以下提示语以第 03、05、07 课课堂演示思路为主；“真实性校验/缺失标记”是本手册附加的审稿约束。所有提示词可直接复制。</p><div class="grid2"><div class="card"><span class="kicker">第 03 课、07 课课堂演示</span><h3>背景规划类</h3><p class="source-note">输入材料需要自己准备；AI 不能凭空知道真实项目。</p><div class="btnline"><button class="softbtn" type="button" onclick="copyPrompt(0)">复制提示词</button><button class="softbtn ghost" type="button" onclick="togglePrompt(0)">展开查看</button></div><pre class="outline" id="prompt0" style="display:none;max-height:320px;white-space:pre-wrap">我正在准备系统规划与管理师论文。请只根据附件中的真实项目材料撰写规划/建设类项目背景：分两段，总字数约500—650字。第一段依次交代项目驱动、建设目标、发起单位和项目基本情况、我本人承担的规划/设计职责；第二段以总体架构为主线，逐层说明业务模块、关键技术及实现能力。请先列出附件能够证实的事实清单；没有依据的时间、金额、数量、性能指标标为【待核实】，不得编造。最后列出需要我确认的信息。</pre></div><div class="card"><span class="kicker">第 03 课、07 课课堂演示</span><h3>背景服务类</h3><p class="source-note">输入材料需要自己准备；AI 不能凭空知道真实项目。</p><div class="btnline"><button class="softbtn" type="button" onclick="copyPrompt(1)">复制提示词</button><button class="softbtn ghost" type="button" onclick="togglePrompt(1)">展开查看</button></div><pre class="outline" id="prompt1" style="display:none;max-height:320px;white-space:pre-wrap">请根据真实运维/服务项目材料，整理两段式论文背景，约500—650字。第一段说明服务驱动因素、目标、客户、周期、合同规模（有依据才写）以及我的运维管理职责；第二段以运维服务内容为主线，写清服务对象、平台/设备/数据范围、工作方式、SLA及安全要求。建设投资不能替代运维合同金额；缺失数据写【待核实】，不要把规划职责写成运维职责。</pre></div><div class="card"><span class="kicker">第 02、05～06 课方法整理</span><h3>三问拆题</h3><p class="source-note">输入材料需要自己准备；AI 不能凭空知道真实项目。</p><div class="btnline"><button class="softbtn" type="button" onclick="copyPrompt(2)">复制提示词</button><button class="softbtn ghost" type="button" onclick="togglePrompt(2)">展开查看</button></div><pre class="outline" id="prompt2" style="display:none;max-height:320px;white-space:pre-wrap">下面是系统规划与管理师论文题目。请逐个子题做审题，不直接写整篇文章：1）提取题目中的要求动词；2）说明是偏理论、偏实践还是理论＋实践（课堂分类）；3）列出必须使用的教材理论要点，未知时明确标注待教材核查；4）指出是否需要实际文件表格、建议表头；5）按当次题目总字数给出建议分配，并说明原因。题目：【粘贴原题】</pre></div><div class="card"><span class="kicker">第 05 课课堂提示语 + 本页真实性规则</span><h3>理论补实践</h3><p class="source-note">输入材料需要自己准备；AI 不能凭空知道真实项目。</p><div class="btnline"><button class="softbtn" type="button" onclick="copyPrompt(3)">复制提示词</button><button class="softbtn ghost" type="button" onclick="togglePrompt(3)">展开查看</button></div><pre class="outline" id="prompt3" style="display:none;max-height:320px;white-space:pre-wrap">根据以下【准确教材理论】和【真实项目事实】，给本小问补写一个理论＋实践段落，不超过【目标字数】字。结构为：本论点的理论作用→我在项目中的具体动作→方法/角色/工具→实际成果/证据。禁止虚构合同金额、性能提升和人员数量；没有事实的地方以【待补事实】标示。教材理论：【粘贴】；项目背景：【粘贴】；可验证的材料：【粘贴】。</pre></div><div class="card"><span class="kicker">第 05～06、08～20 课的偏实践型写法</span><h3>给出文件表格</h3><p class="source-note">输入材料需要自己准备；AI 不能凭空知道真实项目。</p><div class="btnline"><button class="softbtn" type="button" onclick="copyPrompt(4)">复制提示词</button><button class="softbtn ghost" type="button" onclick="togglePrompt(4)">展开查看</button></div><pre class="outline" id="prompt4" style="display:none;max-height:320px;white-space:pre-wrap">题目要求【给出/设计/编制XX文件】。请先检查教材/课堂给出的必需字段，再根据我的真实项目材料输出具体文件表格：每行要有对象、具体内容、岗位/方法、目标或验证依据；与项目不符或缺少信息的单元格标注【待核实】。不要把“编制流程”当成文件本身。题目：【粘贴】；项目材料：【粘贴】；表格参考字段：【粘贴】。</pre></div><div class="card"><span class="kicker">第 07 课课堂原提示语整理</span><h3>种子素材 V1</h3><p class="source-note">输入材料需要自己准备；AI 不能凭空知道真实项目。</p><div class="btnline"><button class="softbtn" type="button" onclick="copyPrompt(5)">复制提示词</button><button class="softbtn ghost" type="button" onclick="togglePrompt(5)">展开查看</button></div><pre class="outline" id="prompt5" style="display:none;max-height:320px;white-space:pre-wrap">请从以下备考论文中只提炼正文论述部分的实践案例，排除项目背景和结尾。每个案例与其原论文的论点成对提炼，并标注出处、方法、工具、数字证据和素材类别。合并相似实践，整理“素材—出处—可复用论点”表。不能把不存在的实践合并成已发生事实。论文：【上传】</pre></div><div class="card"><span class="kicker">第 07 课课堂原提示语整理</span><h3>种子素材 V2</h3><p class="source-note">输入材料需要自己准备；AI 不能凭空知道真实项目。</p><div class="btnline"><button class="softbtn" type="button" onclick="copyPrompt(6)">复制提示词</button><button class="softbtn ghost" type="button" onclick="togglePrompt(6)">展开查看</button></div><pre class="outline" id="prompt6" style="display:none;max-height:320px;white-space:pre-wrap">请在 V1 的同类素材归类总表中，把“可复用的全部论点”逐条展开，增加一列“对应论点的实践写作示例”。原备考论文已有的例子要标来源；论文中没有的新增示例必须显式标注【新写素材示例】，不得混写为真实经历。V1：【粘贴】；原论文：【上传】</pre></div><div class="card"><span class="kicker">第 07 课课堂原提示语整理</span><h3>种子素材 V3</h3><p class="source-note">输入材料需要自己准备；AI 不能凭空知道真实项目。</p><div class="btnline"><button class="softbtn" type="button" onclick="copyPrompt(7)">复制提示词</button><button class="softbtn ghost" type="button" onclick="togglePrompt(7)">展开查看</button></div><pre class="outline" id="prompt7" style="display:none;max-height:320px;white-space:pre-wrap">这里有模拟题集合和 V2 种子素材库。请分析每类种子素材还能证明模拟题中的哪些具体论点；新增“模拟题可用论点”与“对应实践写作示例”两列。原论文例子保留来源；新增示例标注【新写素材示例】；避免把只在字面上相似但实践逻辑不同的论点强行关联。模拟题：【上传】；V2：【粘贴】。</pre></div><div class="card"><span class="kicker">第 02/04/05/07 课方法整合（整理者补充）</span><h3>逐段形成完整初稿</h3><p class="source-note">输入材料需要自己准备；AI 不能凭空知道真实项目。</p><div class="btnline"><button class="softbtn" type="button" onclick="copyPrompt(8)">复制提示词</button><button class="softbtn ghost" type="button" onclick="togglePrompt(8)">展开查看</button></div><pre class="outline" id="prompt8" style="display:none;max-height:320px;white-space:pre-wrap">我们已经确认了论文题目、四部分提纲、教材理论骨架和真实项目事实。请不要重新编造项目，从我确认过的提纲分阶段生成考试练习稿：第一阶段生成背景（规划类重架构/服务类重服务范围）；第二阶段只写短过渡，逐一预告小问；第三阶段按每个子题对应的“偏理论、偏实践、理论＋实践”写正文，并在需要给出报告/模型/计划时附文件表格；第四阶段写成果、经验和简短展望。每完成一阶段先停下等我检查，未证实的数字及未发生的实践标为【待核实】，最后按原题字数限制压缩；不能把课堂范文冒充本人项目经历。原题：【粘贴】；经核实的项目事实：【粘贴】；理论骨架：【粘贴】；素材卡：【粘贴】；字数分配：【粘贴】。</pre></div><div class="card"><span class="kicker">综合自检模板（整理者补充）</span><h3>整篇核对</h3><p class="source-note">输入材料需要自己准备；AI 不能凭空知道真实项目。</p><div class="btnline"><button class="softbtn" type="button" onclick="copyPrompt(9)">复制提示词</button><button class="softbtn ghost" type="button" onclick="togglePrompt(9)">展开查看</button></div><pre class="outline" id="prompt9" style="display:none;max-height:320px;white-space:pre-wrap">请只做审阅，不重写我的项目事实。按原题子问逐一检查：题目要求是否全部覆盖？教材理论的框架、顺序和术语是否准确？每个项目实践是否支持它上方的论点？文件表格是否有必须字段、且与项目规模一致？背景、正文、结尾的人员/时间/金额/业务是否矛盾？量化数字是否有来源？哪些句子只有口号没有动作？请按“问题—位置—修改建议—需核实依据”的表格输出，并区分教材明确要求与课堂经验建议。原题：【粘贴】；论文：【粘贴】；项目依据：【上传】。</pre></div></div></section><section class="section" id="examcheck"><div class="section-head"><span class="index">TOOL / 09</span><h2>考场应试：靠什么得分、时间紧怎样取舍</h2></div><p class="sublead">最稳妥的策略来自课程反复强调的论题覆盖、理论准确、项目实践和必要文件，而不是推测某个阅卷系统的隐藏打分规则。</p><div class="lesson-panel"><h3>开考后按顺序做 6 件事</h3><div class="table-wrap "><table class="comparison"><thead><tr><th>动作</th><th>为什么</th><th>写在草稿中的最小内容</th></tr></thead><tbody><tr><td>通读题面/字数/时限</td><td>避免漏答或超出试题要求</td><td>主题、总字数范围、每个子问</td></tr><tr><td>划题型</td><td>决定写理论还是必须交文件</td><td>T = 理论，P = 文件/实践，TP = 活动论述</td></tr><tr><td>写一级框架</td><td>先保障可直接辨认的知识点</td><td>第1、第2、第3……必须完整</td></tr><tr><td>分配正文篇幅</td><td>题目最重要的主框架不能被背景挤压</td><td>每子问预留字数；文件题预留表格时间</td></tr><tr><td>以真实素材填论点</td><td>避免空洞流水账</td><td>每点至少动作和一项成果/证据</td></tr><tr><td>最后核对表格/结尾</td><td>防止遗漏题目要求与前后矛盾</td><td>表1名称、正文引用、数字一致</td></tr></tbody></table></div><div class="grid2"><div class="card"><h3>不会默写理论怎么办？</h3><p>先写仍记得且与题目相关的准确一级要点，不要为了“覆盖广”而大量无关地堆词。复习时为高频主框架准备精简关键词，避免考场临时乱编教材项。</p></div><div class="card"><h3>没有现成实践怎么办？</h3><p>先回到项目经历找相同动作：开会、评审、验收、权限审批、整改、报告、测试。可以转换论证角度，但不能把没做过的事写成既有成果。</p></div></div><h3>交卷前检查表（可临时勾选；不记录阅读进度）</h3><div class="checklist"><label class="checkline"><input type="checkbox"><span>标题和题目主题一致</span></label><label class="checkline"><input type="checkbox"><span>每个子题都有独立回应</span></label><label class="checkline"><input type="checkbox"><span>教材理论的一级要点未混用</span></label><label class="checkline"><input type="checkbox"><span>理论段后面有能证明该论点的实践</span></label><label class="checkline"><input type="checkbox"><span>要求给出的文件/模型已出现</span></label><label class="checkline"><input type="checkbox"><span>表格有名称、字段和项目内容</span></label><label class="checkline"><input type="checkbox"><span>主体篇幅充足，没有背景喧宾夺主</span></label><label class="checkline"><input type="checkbox"><span>所有角色、时间、范围和数字一致</span></label><label class="checkline"><input type="checkbox"><span>重要数字/提升效果有项目证据</span></label><label class="checkline"><input type="checkbox"><span>结尾总结的是本题，不新开主题</span></label></div></div></section><section class="section" id="path"><div class="section-head"><span class="index">LAST / PLAN</span><h2>当前 A 阶段：先学会动笔的 7 次训练</h2></div><p class="sublead">理论还没开始背，也可以开始练“知识点→实践段落”，先不要求自己 20 章全部默写。</p><div class="table-wrap "><table class="comparison"><thead><tr><th>次数</th><th>课程 / 核心内容</th><th>你只需要交出的东西</th></tr></thead><tbody><tr><td>01</td><td>02/05：认识应答式和三种子题</td><td>任一题的三问类型与主体骨架</td></tr><tr><td>02</td><td>03：寻找项目事实</td><td>真实项目事实卡 + 缺失项清单</td></tr><tr><td>03</td><td>04：写过渡和结尾</td><td>一段过渡 + 一段可核验结尾</td></tr><tr><td>04</td><td>07：实践种子卡</td><td>5 张素材卡，能各对应 2 个论点</td></tr><tr><td>05</td><td>05/06 + 08/10/13/14：文件表格</td><td>完成“服务目录＋另一份文件”的两张表</td></tr><tr><td>06</td><td>任选 09/10/12/17/19 一道题</td><td>至少两个完整的理论＋实践子题段落</td></tr><tr><td>07</td><td>从已整理模拟题随机抽一题</td><td>闭卷作答提纲 → 限时完整论文 → 复盘</td></tr></tbody></table></div><div class="callout"><b>判断是否有进步：</b>从“只能说理论点”到“能按子题独立列出理论、实践、交付文件”，就是进入了可写论文的阶段。完整论文是否达到考试要求，必须以当次题目和实际限时训练检验，不能只凭看完课程判断。</div></section><section class="section" id="resources"><div class="section-head"><span class="index">REF / 20</span><h2>原课程 01～20 与资料边界</h2></div><p class="sublead">本手册把已整理的课程知识转成操作指南；不是将原课所有 PDF/语音全文重复粘贴。若需要逐页核对，可使用配套原课 HTML 合集。</p><div class="source-list"><a href="01-writing-key-points.html" target="_blank" rel="noopener">01 · 写作关键点 ↗</a><a href="02-writing-intro.html" target="_blank" rel="noopener">02 · 论文写作基本介绍 ↗</a><a href="03-project-background.html" target="_blank" rel="noopener">03 · 项目背景的搜寻与写作 ↗</a><a href="04-transition-ending.html" target="_blank" rel="noopener">04 · 过渡和结尾写作 ↗</a><a href="05-service-management-1.html" target="_blank" rel="noopener">05 · 服务管理实战写作（上） ↗</a><a href="06-service-management-2.html" target="_blank" rel="noopener">06 · 服务管理模拟题（下） ↗</a><a href="07-imitation-rewriting.html" target="_blank" rel="noopener">07 · 论文模仿、改写与种子素材 ↗</a><a href="08-tech-rd-management.html" target="_blank" rel="noopener">08 · 技术与研发管理 ↗</a><a href="09-is-planning.html" target="_blank" rel="noopener">09 · 信息系统规划 ↗</a><a href="10-app-system-planning.html" target="_blank" rel="noopener">10 · 应用系统规划 ↗</a><a href="11-data-resource-planning.html" target="_blank" rel="noopener">11 · 数据资源规划 ↗</a><a href="12-personnel-management.html" target="_blank" rel="noopener">12 · 人员管理 ↗</a><a href="13-spec-process-management.html" target="_blank" rel="noopener">13 · 规范与过程管理 ↗</a><a href="14-is-governance.html" target="_blank" rel="noopener">14 · 信息系统治理 ↗</a><a href="15-resource-tools-management.html" target="_blank" rel="noopener">15 · 资源与工具管理 ↗</a><a href="16-is-project-management.html" target="_blank" rel="noopener">16 · 信息系统项目管理 ↗</a><a href="17-cloud-resource-planning.html" target="_blank" rel="noopener">17 · 云资源规划 ↗</a><a href="18-network-environment-planning.html" target="_blank" rel="noopener">18 · 网络环境规划 ↗</a><a href="19-info-security-planning.html" target="_blank" rel="noopener">19 · 信息安全规划 ↗</a><a href="20-cloud-native-planning.html" target="_blank" rel="noopener">20 · 云原生系统规划 ↗</a></div><div class="warnbox"><b>来源使用说明：</b>01～20 原网页内容取自先前的课件及语音文稿整理；07 课另参考 V1/V2/V3 素材库与仿写演示。网页中的额外填写示例、练习任务、步骤解释均是为训练而整理，不代表老师逐字讲过、考试官方标准或你的个人经历。课堂对 AI 阅卷概率及策略的推测只作为经验背景，不作为确定事实。</div></section></main></div>
+<div class="modal" id="sourcesModal" onclick="if(event.target===this)closeSources()"><div class="modal-inner"><div class="modal-head"><h2>原课件与课程网页入口</h2><button type="button" class="modal-close" onclick="closeSources()">×</button></div><p>这份总手册本身可独立阅读。下面的链接需要把配套原课 HTML 放在同一个文件夹中（推荐下载完整版 ZIP 并解压），才能离线打开完整原课件和语音稿。</p><div class="source-list"><a href="01-writing-key-points.html" target="_blank">01 · 写作关键点 ↗</a><a href="02-writing-intro.html" target="_blank">02 · 论文写作基本介绍 ↗</a><a href="03-project-background.html" target="_blank">03 · 项目背景的搜寻与写作 ↗</a><a href="04-transition-ending.html" target="_blank">04 · 过渡和结尾写作 ↗</a><a href="05-service-management-1.html" target="_blank">05 · 服务管理实战写作（上） ↗</a><a href="06-service-management-2.html" target="_blank">06 · 服务管理模拟题（下） ↗</a><a href="07-imitation-rewriting.html" target="_blank">07 · 论文模仿、改写与种子素材 ↗</a><a href="08-tech-rd-management.html" target="_blank">08 · 技术与研发管理 ↗</a><a href="09-is-planning.html" target="_blank">09 · 信息系统规划 ↗</a><a href="10-app-system-planning.html" target="_blank">10 · 应用系统规划 ↗</a><a href="11-data-resource-planning.html" target="_blank">11 · 数据资源规划 ↗</a><a href="12-personnel-management.html" target="_blank">12 · 人员管理 ↗</a><a href="13-spec-process-management.html" target="_blank">13 · 规范与过程管理 ↗</a><a href="14-is-governance.html" target="_blank">14 · 信息系统治理 ↗</a><a href="15-resource-tools-management.html" target="_blank">15 · 资源与工具管理 ↗</a><a href="16-is-project-management.html" target="_blank">16 · 信息系统项目管理 ↗</a><a href="17-cloud-resource-planning.html" target="_blank">17 · 云资源规划 ↗</a><a href="18-network-environment-planning.html" target="_blank">18 · 网络环境规划 ↗</a><a href="19-info-security-planning.html" target="_blank">19 · 信息安全规划 ↗</a><a href="20-cloud-native-planning.html" target="_blank">20 · 云原生系统规划 ↗</a></div><div class="btnline"><button class="softbtn ghost" type="button" onclick="closeSources()">返回总手册</button></div></div></div>
+<div class="copy-toast" id="copyToast">已复制</div>
+<script>
+const FILEFORMS = [{"title": "服务目录", "source": "05–06", "when": "要求“给出服务目录 / 服务项目清单”时使用", "columns": ["编号", "服务项目", "服务对象/范围", "提供方式/频次", "目标/交付物"], "rows": [["SV-01", "平台功能维护", "核心业务模块", "每日监控；故障按级响应", "巡检记录、闭环工单"], ["SV-02", "安全与备份服务", "数据库与关键日志", "定期备份及恢复演练", "备份报告、恢复验证记录"]], "tip": "先从项目合同或运维需求中找服务对象；每行要能回答“服务谁、做什么、多久一次、交付什么”。"}, {"title": "服务改进计划", "source": "06", "when": "要求“制定改进计划”时使用", "columns": ["问题/证据", "改进目标", "具体措施", "负责人", "期限", "验证/验收标准"], "rows": [["高峰期工单响应延迟", "缩短高优先级响应耗时", "优化派单规则并设超时提醒", "服务台主管", "下一考核周期", "比较优化前后响应时长"]], "tip": "目标要能量化或核验；不能只写“加强管理”。"}, {"title": "SOP 标准操作规程", "source": "06、08", "when": "要求“给出 SOP / 操作规程”时使用", "columns": ["环节", "触发或前置条件", "执行动作", "责任岗位", "验证/回退", "记录"], "rows": [["告警受理", "生产服务异常告警", "登记工单、确认影响范围与级别", "值班工程师", "确认告警有效性", "事件单"], ["恢复与验证", "获得变更或应急授权", "执行恢复脚本并检查业务", "运维工程师", "失败按预案回退", "操作日志、验证记录"]], "tip": "“步骤”要可执行；说明异常怎么办、最后留什么证据。"}, {"title": "演练计划", "source": "08", "when": "要求“给出演练计划”时使用", "columns": ["演练主题", "目标/假设", "参与角色", "时间与方式", "主要动作", "成功判据/成果"], "rows": [["数据库故障应急演练", "检验故障发现与切换流程", "指挥/运维/业务代表", "约定窗口；模拟故障", "注入告警→启动预案→切换→验收", "功能恢复记录及复盘结论"]], "tip": "填写前确认项目有对应资源、参与人员和安全边界。"}, {"title": "可行性研究报告", "source": "10", "when": "要求“编制/给出可行性报告”时使用", "columns": ["报告部分", "应写内容", "证据/方案", "结论或后续"], "rows": [["建设任务与目标", "问题、建设必要性、范围", "实际需求和现状调研", "明确建设目标"], ["方案比选与可行性", "技术/经济/社会/管理角度", "至少两方案优劣与约束", "选定方案并列风险"]], "tip": "体现方案比较和研究结论，不是只列六个章节名。"}, {"title": "概念数据模型", "source": "11", "when": "要求“给出概念模型/数据模型”时使用", "columns": ["实体", "核心属性", "关系", "业务场景/约束"], "rows": [["客户", "客户ID、名称、联系方式", "客户 1:N 订单", "客户ID唯一；保护隐私"], ["订单", "订单ID、客户ID、状态", "订单 N:1 客户", "订单状态按业务规则校验"]], "tip": "课堂建议表格替代画图是应试策略；若当次题目明确要求图形，应依题意处理。"}, {"title": "岗位工作说明书", "source": "12", "when": "要求“写工作说明书”时使用", "columns": ["岗位名称", "岗位目标", "主要职责", "任职要求", "协作关系", "考核指标"], "rows": [["数据运维工程师", "保证数据管道可靠运行", "监控任务、处理异常、维护作业记录", "数据库与脚本基础能力", "数据团队/业务代表", "按项目定义的时效及质量指标"]], "tip": "职责任务要与项目实际岗位相符；不要把招聘流程当说明书。"}, {"title": "流程稽查报告", "source": "13", "when": "要求“给出流程稽查报告”时使用", "columns": ["稽查对象及依据", "方法/样本", "事实与证据", "偏差/风险", "整改责任与期限", "复核结果"], "rows": [["变更审批流程；制度条款", "抽查变更单及审批链", "某抽样工单缺少复核记录", "审批留痕不完整", "流程负责人补充校验与培训", "在规定期限复查并存档"]], "tip": "区分稽查报告（结论文件）和稽查七步（实施过程）。"}, {"title": "IT 审计工作底稿", "source": "14", "when": "要求“给出审计工作底稿”时使用", "columns": ["审计目标/对象", "程序", "样本与证据", "发现", "审计结论", "整改跟踪"], "rows": [["账号权限合规性；生产系统", "比对离职名单与账号状态", "HR离职清单、权限导出与日志", "存在未及时停用的账户", "权限回收控制执行偏差", "通知责任人、约定复核日期"]], "tip": "底稿强调证据链，字段可按课堂模板变化，不能缺“程序—证据—结论”。"}, {"title": "测试报告", "source": "15", "when": "要求“给出测试报告”时使用", "columns": ["测试范围/版本", "环境与工具", "用例执行", "缺陷记录", "风险", "结论"], "rows": [["登录与核心查询；V1.x", "测试环境及自动化框架", "20 条用例已执行，18 条通过（演示值）", "2 条失败待定位", "失败项未关闭前不建议上线", "补测并复核"]], "tip": "“20 条、18 条”只是教学数字，正式使用要按实际日志和报告替换。"}, {"title": "云资源及架构方案", "source": "17、20", "when": "要求“给出云计算/上云架构”时使用", "columns": ["层次或服务类型", "组件/资源", "承担能力", "关键约束", "规划/验收依据"], "rows": [["基础设施层", "云主机、存储与网络", "弹性计算及持久化", "容量、预算、隔离", "使用率、容量预测"], ["平台层", "容器平台与监控", "自动部署、观测与伸缩", "弹性、审计、恢复", "扩缩容及故障演练记录"]], "tip": "不要只列云服务名；写清组件的工作职责与选择依据。"}, {"title": "安全架构 / SABSA", "source": "19", "when": "要求“给出系统安全架构”时使用", "columns": ["架构层次", "资产 What", "动机 Why", "流程 How", "人员 Who", "位置 Where", "时间 When"], "rows": [["情景/背景层", "敏感业务数据", "依法合规与业务可用", "识别查询/共享流程", "业务主管与合规负责人", "数据中心和业务终端", "业务时段与关键窗口"], ["逻辑层", "数据集与访问对象", "最小权限与可审计", "授权、日志、例外审批", "用户、管理员、审计员", "安全域/逻辑网络", "授权有效期与审查周期"]], "tip": "完整版为六层 × 六视角；练习时先确保行列意义一致，再结合项目扩写，不能机械填空。"}];
+const AIPROMPTS = [["背景规划类", "第 03 课、07 课课堂演示", "我正在准备系统规划与管理师论文。请只根据附件中的真实项目材料撰写规划/建设类项目背景：分两段，总字数约500—650字。第一段依次交代项目驱动、建设目标、发起单位和项目基本情况、我本人承担的规划/设计职责；第二段以总体架构为主线，逐层说明业务模块、关键技术及实现能力。请先列出附件能够证实的事实清单；没有依据的时间、金额、数量、性能指标标为【待核实】，不得编造。最后列出需要我确认的信息。"], ["背景服务类", "第 03 课、07 课课堂演示", "请根据真实运维/服务项目材料，整理两段式论文背景，约500—650字。第一段说明服务驱动因素、目标、客户、周期、合同规模（有依据才写）以及我的运维管理职责；第二段以运维服务内容为主线，写清服务对象、平台/设备/数据范围、工作方式、SLA及安全要求。建设投资不能替代运维合同金额；缺失数据写【待核实】，不要把规划职责写成运维职责。"], ["三问拆题", "第 02、05～06 课方法整理", "下面是系统规划与管理师论文题目。请逐个子题做审题，不直接写整篇文章：1）提取题目中的要求动词；2）说明是偏理论、偏实践还是理论＋实践（课堂分类）；3）列出必须使用的教材理论要点，未知时明确标注待教材核查；4）指出是否需要实际文件表格、建议表头；5）按当次题目总字数给出建议分配，并说明原因。题目：【粘贴原题】"], ["理论补实践", "第 05 课课堂提示语 + 本页真实性规则", "根据以下【准确教材理论】和【真实项目事实】，给本小问补写一个理论＋实践段落，不超过【目标字数】字。结构为：本论点的理论作用→我在项目中的具体动作→方法/角色/工具→实际成果/证据。禁止虚构合同金额、性能提升和人员数量；没有事实的地方以【待补事实】标示。教材理论：【粘贴】；项目背景：【粘贴】；可验证的材料：【粘贴】。"], ["给出文件表格", "第 05～06、08～20 课的偏实践型写法", "题目要求【给出/设计/编制XX文件】。请先检查教材/课堂给出的必需字段，再根据我的真实项目材料输出具体文件表格：每行要有对象、具体内容、岗位/方法、目标或验证依据；与项目不符或缺少信息的单元格标注【待核实】。不要把“编制流程”当成文件本身。题目：【粘贴】；项目材料：【粘贴】；表格参考字段：【粘贴】。"], ["种子素材 V1", "第 07 课课堂原提示语整理", "请从以下备考论文中只提炼正文论述部分的实践案例，排除项目背景和结尾。每个案例与其原论文的论点成对提炼，并标注出处、方法、工具、数字证据和素材类别。合并相似实践，整理“素材—出处—可复用论点”表。不能把不存在的实践合并成已发生事实。论文：【上传】"], ["种子素材 V2", "第 07 课课堂原提示语整理", "请在 V1 的同类素材归类总表中，把“可复用的全部论点”逐条展开，增加一列“对应论点的实践写作示例”。原备考论文已有的例子要标来源；论文中没有的新增示例必须显式标注【新写素材示例】，不得混写为真实经历。V1：【粘贴】；原论文：【上传】"], ["种子素材 V3", "第 07 课课堂原提示语整理", "这里有模拟题集合和 V2 种子素材库。请分析每类种子素材还能证明模拟题中的哪些具体论点；新增“模拟题可用论点”与“对应实践写作示例”两列。原论文例子保留来源；新增示例标注【新写素材示例】；避免把只在字面上相似但实践逻辑不同的论点强行关联。模拟题：【上传】；V2：【粘贴】。"], ["逐段形成完整初稿", "第 02/04/05/07 课方法整合（整理者补充）", "我们已经确认了论文题目、四部分提纲、教材理论骨架和真实项目事实。请不要重新编造项目，从我确认过的提纲分阶段生成考试练习稿：第一阶段生成背景（规划类重架构/服务类重服务范围）；第二阶段只写短过渡，逐一预告小问；第三阶段按每个子题对应的“偏理论、偏实践、理论＋实践”写正文，并在需要给出报告/模型/计划时附文件表格；第四阶段写成果、经验和简短展望。每完成一阶段先停下等我检查，未证实的数字及未发生的实践标为【待核实】，最后按原题字数限制压缩；不能把课堂范文冒充本人项目经历。原题：【粘贴】；经核实的项目事实：【粘贴】；理论骨架：【粘贴】；素材卡：【粘贴】；字数分配：【粘贴】。"], ["整篇核对", "综合自检模板（整理者补充）", "请只做审阅，不重写我的项目事实。按原题子问逐一检查：题目要求是否全部覆盖？教材理论的框架、顺序和术语是否准确？每个项目实践是否支持它上方的论点？文件表格是否有必须字段、且与项目规模一致？背景、正文、结尾的人员/时间/金额/业务是否矛盾？量化数字是否有来源？哪些句子只有口号没有动作？请按“问题—位置—修改建议—需核实依据”的表格输出，并区分教材明确要求与课堂经验建议。原题：【粘贴】；论文：【粘贴】；项目依据：【上传】。"]];
+function toggleNav(open){document.getElementById('sidebar').classList.toggle('mobile-open',open);document.getElementById('mobileCover').classList.toggle('show',open)}
+function toggleFocus(){document.body.classList.toggle('focus-mode');let b=document.getElementById('focusBtn');b.textContent=document.body.classList.contains('focus-mode')?'退出专注':'专注阅读';}
+function openSources(){document.getElementById('sourcesModal').classList.add('show');toggleNav(false)}
+function closeSources(){document.getElementById('sourcesModal').classList.remove('show')}
+function toast(s){const el=document.getElementById('copyToast');el.textContent=s;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),1900)}
+function copyText(str){if(navigator.clipboard?.writeText){navigator.clipboard.writeText(str).then(()=>toast('已复制到剪贴板')).catch(()=>copyFallback(str))}else copyFallback(str)}
+function copyFallback(s){let a=document.createElement('textarea');a.value=s;document.body.appendChild(a);a.select();try{document.execCommand('copy');toast('已复制到剪贴板')}catch(e){toast('复制受限，请手动选择文字')}a.remove()}
+function copyPrompt(i){copyText(AIPROMPTS[i][2])}
+function togglePrompt(i){let p=document.getElementById('prompt'+i);p.style.display=p.style.display==='none'?'block':'none'}
+function val(id){return(document.getElementById(id)?.value||'').trim()}
+function buildOutline(){
+let qs=val('pQuestions').split(/\n+/).filter(Boolean),name=val('pName')||'【真实项目名称待补】',role=val('pRole')||'【本人职责待补】',facts=val('pFacts')||'【项目基本事实与来源待补】',evidence=val('pEvidence')||'【可核查文件/记录待补】';
+let out=`系统规划与管理师论文 · 作答合同（训练稿）\n主题：${val('pTopic')||'【论文主题】'}\n项目：${name}\n项目类型：${val('pType')}\n本人职责：${role}\n\n一、项目背景（先有真实事实）\n${facts}\n\n二、过渡点题\n本项目在【与主题有关的主要难点】方面需要重点规划或管理。本文结合${name}的实践，依次回应以下子题。\n`;
+qs.forEach((q,i)=>{let tp=/给出|制定|编制|设计.*?(报告|架构|模型|计划|底稿|目录|表)/.test(q)?'偏实践型：务必交付具体文件/表格':/主要活动|步骤|过程|如何|开展|实施|改进|结合项目/.test(q)?'理论＋实践型：按活动逐项说明理论与做法':'先按偏理论型：列准确教材要点，必要时补项目应用';out+=`\n${i+1}. 子题：${q}\n   初步判型：${tp}\n   理论框架：【查第4～17章/对应原课整理稿补齐】\n   项目举例：【触发问题→本人动作→方法/工具→证据结果】\n   文件/表格：【依据题目动词决定是否必须；选用本页“表格工坊”】\n`});out+=`\n三、可复用项目素材\n${evidence}\n\n四、结尾\n实际成果与指标【待核实】→对应各小问的经验总结→可选展望。\n\n五、考前核对\n有无遗漏问句、背景与正文是否一致、公式数字是否有来源、表格是否有项目内容。`;
+document.getElementById('toolOutput').textContent=out;document.getElementById('toolOutput').scrollIntoView({block:'nearest',behavior:'smooth'})}
+function buildPrompt(){let out=`我是系统规划与管理师考生，请协助我准备论文。先做审题与事实核验，不要直接凭空写一篇完整论文。\n\n题目：${val('pTopic')}\n子题：\n${val('pQuestions')}\n项目类型：${val('pType')}\n项目：${val('pName')||'【待补】'}\n我的角色：${val('pRole')||'【待补】'}\n项目事实：${val('pFacts')||'【待补】'}\n可核查材料：${val('pEvidence')||'【待补】'}\n\n请按以下顺序输出：\n1. 每个小问判型、应引用的教材理论框架（不能确定的标注待核查）。\n2. 每问如何展开理论＋实践以及是否应提供具体文件表格。\n3. 每问能复用的项目事实；没有依据的案例与量化数字标“待补事实”。\n4. 背景、过渡、正文、结尾的详细提纲与相对字数安排（以当次题目要求为准）。\n5. 再由我逐段核对后协助润色，不得把别人的项目描述成我亲身参与。`;
+document.getElementById('toolOutput').textContent=out;toast('提示词已生成，可复制到你的 AI 对话')}
+function copyToolOutput(){copyText(document.getElementById('toolOutput').innerText)}
+function downloadToolOutput(){const txt=document.getElementById('toolOutput').innerText;let b=new Blob([txt],{type:'text/plain;charset=utf-8'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='系规论文作答提纲.txt';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000)}
+let currentFormIndex=0;
+function switchTable(i){currentFormIndex=i;document.querySelectorAll('[data-table]').forEach((a,j)=>a.classList.toggle('on',i===j));const x=FILEFORMS[i],area=document.getElementById('fileFormViewer');let h=`<div class="lesson-panel"><span class="step-label">原课：${x.source}</span><h3>${x.title} · 填写示范</h3><p>${x.when}</p><div class="table-wrap filetable"><table class="comparison" id="activeFileTable"><thead><tr>${x.columns.map(t=>`<th>${t}</th>`).join('')}</tr></thead><tbody>${x.rows.map(row=>`<tr>${row.map(s=>`<td contenteditable="true" spellcheck="false">${s}</td>`).join('')}</tr>`).join('')}</tbody></table></div><p class="source-note">如何填：${x.tip}</p><div class="btnline"><button type="button" class="softbtn" onclick="addTableRow()">增加空白行</button><button type="button" class="softbtn ghost" onclick="copyActiveTable()">复制当前表格</button></div><p class="hint">点击任何数据单元格可直接修改。表格用于训练，最终表头和数据需依据原课及题目要求调整。</p></div>`;area.innerHTML=h;}
+function addTableRow(){let body=document.querySelector('#activeFileTable tbody');let cols=FILEFORMS[currentFormIndex].columns.length;body.insertAdjacentHTML('beforeend','<tr>'+Array.from({length:cols},()=>'<td contenteditable="true">【填写】</td>').join('')+'</tr>')}
+function copyActiveTable(){let rows=[...document.querySelectorAll('#activeFileTable tr')];copyText(rows.map(tr=>[...tr.cells].map(td=>td.innerText.trim()).join('\t')).join('\n'))}
+const navlinks=[...document.querySelectorAll('#toc a[href^="#"]')];navlinks.forEach(a=>a.addEventListener('click',()=>toggleNav(false)));
+function activeNav(){let id=null;for(const a of navlinks){let el=document.getElementById(a.hash.slice(1));if(el && el.getBoundingClientRect().top<165)id=a.hash.slice(1)}navlinks.forEach(a=>a.classList.toggle('active',a.hash==='#'+id))}
+window.addEventListener('scroll',activeNav,{passive:true});window.addEventListener('keydown',e=>{if(e.key==='Escape'){closeSources();toggleNav(false)}});
+switchTable(0);activeNav();
+</script></body></html>
