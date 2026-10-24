@@ -9,6 +9,7 @@
 | 文件 | 说明 | 备注 |
 | --- | --- | --- |
 | [case-111-mnemonics/](case-111-mnemonics/) | 案例 111 条必背（逻辑联想口诀版·加速版） | 口诀 |
+| [multi-teacher-topics.html](multi-teacher-topics.html) | 多老师押题交叉考点（5 位老师 21 份 PDF 交叉整理） | 交叉 |
 | [exam-memory-tables.html](exam-memory-tables.html) | 55 张正文表格 | 记忆 |
 | [thesis-transition-templates.html](thesis-transition-templates.html) | 背景 / 过渡与结尾通用模板 | 模板 |
 | [thesis-transition-concepts.html](thesis-transition-concepts.html) | 过渡段概念速记（第 4–17 章） | 速记 |
