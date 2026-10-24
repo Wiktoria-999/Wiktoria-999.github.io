@@ -17,6 +17,15 @@
 | [wrong-questions.html](wrong-questions.html) | 错题收藏夹 | |
 | [Smart_Campus_55_Essay_Tables.html](Smart_Campus_55_Essay_Tables.html) | 智慧校园论文 · 55 张正文表格速查 | 表格 |
 
+## 考前冲刺补充资料
+
+| 文件 | 说明 | 备注 |
+| --- | --- | --- |
+| [case-111-mnemonics.html](case-111-mnemonics.html) | 2026 系规案例 111 题完整编号（逻辑联想口诀版） | 口诀 |
+| [exam-memory-tables.html](exam-memory-tables.html) | 正文表格 · 考前记忆版 | 记忆 |
+| [thesis-transition-templates.html](thesis-transition-templates.html) | 27 篇论文 · 过渡与结尾通用模板 | 模板 |
+| [thesis-transition-concepts.html](thesis-transition-concepts.html) | 系规论文过渡段概念速记（第 4–17 章） | 速记 |
+
 ## 论文写作专项（thesis/）
 
 | 序号 | 文件 | 主题 |
@@ -70,6 +79,10 @@ SPM/
 ├── case-analysis-maj.html
 ├── english-exercises.html
 ├── wrong-questions.html
+├── case-111-mnemonics.html
+├── exam-memory-tables.html
+├── thesis-transition-templates.html
+├── thesis-transition-concepts.html
 ├── case-thesis-sprint/
 │   ├── index.html               # 加速版入口（100KB）
 │   ├── backup-full.html         # 9.9MB 原版备份
