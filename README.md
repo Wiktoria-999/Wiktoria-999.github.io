@@ -4,6 +4,15 @@
 
 本仓库整理了系统规划与管理师考试的冲刺备考资源，包含理论必背、案例分析、英语题、错题收藏与论文写作专项训练。所有页面均为自包含 HTML 文件，浏览器直接打开即可使用。
 
+## 考前冲刺补充资料
+
+| 文件 | 说明 | 备注 |
+| --- | --- | --- |
+| [case-111-mnemonics.html](case-111-mnemonics.html) | 2026 系规案例 111 题完整编号（逻辑联想口诀版） | 口诀 |
+| [exam-memory-tables.html](exam-memory-tables.html) | 正文表格 · 考前记忆版 | 记忆 |
+| [thesis-transition-templates.html](thesis-transition-templates.html) | 27 篇论文 · 过渡与结尾通用模板 | 模板 |
+| [thesis-transition-concepts.html](thesis-transition-concepts.html) | 系规论文过渡段概念速记（第 4–17 章） | 速记 |
+
 ## 快速访问
 
 | 资源 | 说明 | 备注 |
@@ -16,15 +25,6 @@
 | [english-exercises.html](english-exercises.html) | 英语题专项 | |
 | [wrong-questions.html](wrong-questions.html) | 错题收藏夹 | |
 | [Smart_Campus_55_Essay_Tables.html](Smart_Campus_55_Essay_Tables.html) | 智慧校园论文 · 55 张正文表格速查 | 表格 |
-
-## 考前冲刺补充资料
-
-| 文件 | 说明 | 备注 |
-| --- | --- | --- |
-| [case-111-mnemonics.html](case-111-mnemonics.html) | 2026 系规案例 111 题完整编号（逻辑联想口诀版） | 口诀 |
-| [exam-memory-tables.html](exam-memory-tables.html) | 正文表格 · 考前记忆版 | 记忆 |
-| [thesis-transition-templates.html](thesis-transition-templates.html) | 27 篇论文 · 过渡与结尾通用模板 | 模板 |
-| [thesis-transition-concepts.html](thesis-transition-concepts.html) | 系规论文过渡段概念速记（第 4–17 章） | 速记 |
 
 ## 论文写作专项（thesis/）
 
