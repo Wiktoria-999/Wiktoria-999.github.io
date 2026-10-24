@@ -8,7 +8,7 @@
 
 | 文件 | 说明 | 备注 |
 | --- | --- | --- |
-| [case-111-mnemonics.html](case-111-mnemonics.html) | 2026 系规案例 111 题完整编号（逻辑联想口诀版） | 口诀 |
+| [case-111-mnemonics/](case-111-mnemonics/) | 2026 系规案例 111 题完整编号（逻辑联想口诀版·加速版） | 口诀 |
 | [exam-memory-tables.html](exam-memory-tables.html) | 正文表格 · 考前记忆版 | 记忆 |
 | [thesis-transition-templates.html](thesis-transition-templates.html) | 27 篇论文 · 背景 / 过渡与结尾通用模板（整合版） | 模板 |
 | [thesis-transition-concepts.html](thesis-transition-concepts.html) | 系规论文过渡段概念速记（第 4–17 章） | 速记 |
@@ -79,7 +79,11 @@ SPM/
 ├── case-analysis-maj.html
 ├── english-exercises.html
 ├── wrong-questions.html
-├── case-111-mnemonics.html
+├── case-111-mnemonics/
+│   ├── index.html               # 加速版入口（100KB）
+│   ├── README.md
+│   ├── .nojekyll
+│   └── assets/pages/            # 29 张 webp
 ├── exam-memory-tables.html
 ├── thesis-transition-templates.html
 ├── thesis-transition-concepts.html
